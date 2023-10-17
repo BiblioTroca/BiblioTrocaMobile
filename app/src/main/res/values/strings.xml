@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Bibliotroca</string>
+    <string name="Book_Author"> Escrito por:</string>
+    <string name="category"> Categoria </string>
+    <string name="language"> Idioma </string>
+    <string name="Year"> Ano </string>
+    <string name="Publisher"> Editora </string>
+    <string name="Book_condition"> Condição de Livro </string>
+    <string name="Description"> Descrição </string>
 </resources>

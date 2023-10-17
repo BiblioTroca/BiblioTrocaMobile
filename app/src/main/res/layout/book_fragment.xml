@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <View
+        android:id="@+id/rectangle_5"
+        android:layout_width="match_parent"
+        android:layout_height="192dp"
+        android:background="#7A2F73"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </View>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/cardView"
+            app:layout_constraintTop_toTopOf="@+id/cardView">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="326dp"
+                android:layout_height="500dp"
+                android:layout_marginTop="164dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="582dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textView7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="22dp"
+                            android:gravity="bottom"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/Book_Author" />
+
+                        <TextView
+                            android:id="@+id/txtAutor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="22dp"
+                            android:gravity="bottom"
+                            android:text="" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView8"
+                            android:layout_width="match_parent"
+                            android:layout_height="22dp"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/category" />
+
+                        <TextView
+                            android:id="@+id/txtCategoria"
+                            android:layout_width="match_parent"
+                            android:layout_height="22dp"
+                            android:layout_marginStart="10dp"
+                            android:text="" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView10"
+                                android:layout_width="105dp"
+                                android:layout_height="22dp"
+                                android:layout_marginStart="10dp"
+                                android:text="@string/language" />
+
+                            <TextView
+                                android:id="@+id/txtIdioma"
+                                android:layout_width="105dp"
+                                android:layout_height="22dp"
+                                android:text="" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+
+                            <TextView
+                                android:id="@+id/textView9"
+                                android:layout_width="wrap_content"
+                                android:layout_height="22dp"
+                                android:layout_marginStart="100dp"
+                                android:text="@string/Year" />
+
+                            <TextView
+                                android:id="@+id/txtAno"
+                                android:layout_width="match_parent"
+                                android:layout_height="22dp"
+                                android:layout_marginStart="100dp"
+                                android:text="" />
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/Publisher" />
+
+                    <TextView
+                        android:id="@+id/txtEditora"
+                        android:layout_marginStart="10dp"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="" />
+
+                    <TextView
+                        android:id="@+id/textView14"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/Book_condition" />
+
+                    <TextView
+                        android:id="@+id/txtCondicao"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+
+                        android:text="" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView15"
+                            android:layout_width="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/Description" />
+
+                        <TextView
+                            android:id="@+id/txtDescricao"
+                            android:layout_marginStart="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
