@@ -1,4 +1,6 @@
 <resources>
+    <string name="login_text">Comece sua jornada no mundo da troca de livros educacionais. Clique no botão para acessar sua conta.</string>
+
     <string name="app_name">Bibliotroca</string>
     <string name="Book_Author"> Escrito por:</string>
     <string name="category"> Categoria </string>
