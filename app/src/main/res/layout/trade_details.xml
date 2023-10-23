@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white200"
+    android:layout_gravity="center">
+
+    <View
+        android:id="@+id/rectangle_5"
+        android:layout_width="match_parent"
+        android:layout_height="192dp"
+        android:background="@color/primary500"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/backArrow"
+        android:layout_width="22dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="vector back Arrow"
+        android:src="@drawable/vector"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.037"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txthHistoric"
+        android:layout_width="95dp"
+        android:layout_height="21dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/inter"
+        android:text="Histórico"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:lineSpacingExtra="3sp"
+        android:translationY="-1.33sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/rectangle_5"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtDetails"
+        android:layout_width="169dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/barlow_bold"
+        android:gravity="center_horizontal|top"
+        android:lineSpacingExtra="1sp"
+        android:text="Detalhes da Troca"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:translationY="-0.6sp"
+        app:layout_constraintEnd_toEndOf="@+id/rectangle_5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txthHistoric" />
+
+
+    <View
+        android:id="@+id/viewDetails"
+        android:layout_width="328dp"
+        android:layout_height="121dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/rectangle_1"
+        android:elevation="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDetails" />
+
+    <ImageView
+        android:id="@+id/calendar"
+        android:layout_width="19dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="56dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:contentDescription="calendar vector"
+        android:src="@drawable/calendar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txtDate" />
+
+    <View
+        android:id="@+id/viewUserDetails"
+        android:layout_width="326dp"
+        android:layout_height="190dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rectangle_1"
+        android:elevation="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewDetails" />
+
+    <View
+        android:id="@+id/viewBookDetails"
+        android:layout_width="326dp"
+        android:layout_height="690dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rectangle_1"
+        android:elevation="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewUserDetails" />
+
+    <TextView
+        android:id="@+id/txtBookTitle"
+        android:layout_width="159dp"
+        android:layout_height="25dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/barlow_bold"
+        android:gravity="top"
+        android:lineSpacingExtra="1sp"
+        android:textColor="@color/gray500"
+        android:textSize="20sp"
+        android:translationY="-0.5sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.22"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/viewDetails" />
+
+    <TextView
+        android:id="@+id/txtPoints"
+        android:layout_width="131dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/inter"
+        android:gravity="top"
+        android:lineSpacingExtra="3sp"
+        android:textColor="@color/gray500"
+        android:textSize="14sp"
+        android:translationY="-1.33sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.17"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtBookTitle" />
+
+    <TextView
+        android:id="@+id/txtDate"
+        android:layout_width="131dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/inter"
+        android:gravity="top"
+        android:lineSpacingExtra="3sp"
+        android:textColor="@color/gray500"
+        android:textSize="20sp"
+        android:translationY="-1.33sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtPoints"
+        app:layout_constraintHorizontal_bias="0.392"
+        app:layout_constraintStart_toStartOf="@+id/calendar"
+        app:layout_constraintTop_toBottomOf="@+id/txtPoints" />
+
+    <TextView
+        android:id="@+id/txtStatus"
+        android:layout_width="66dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="top"
+        android:lineSpacingExtra="3sp"
+        android:translationY="-1.33sp"
+        app:layout_constraintEnd_toEndOf="@+id/viewDetails"
+        app:layout_constraintHorizontal_bias="0.937"
+        app:layout_constraintStart_toEndOf="@+id/txtBookTitle"
+        app:layout_constraintTop_toTopOf="@+id/txtBookTitle"
+        android:textColor="@color/gray500"
+        android:textSize="14sp"
+        android:fontFamily="@font/inter" />
+
+    <View
+        android:id="@+id/ellipse_1"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="5dp"
+        android:background="@android:drawable/presence_invisible"
+        app:layout_constraintEnd_toStartOf="@+id/txtStatus"
+        app:layout_constraintHorizontal_bias="0.981"
+        app:layout_constraintStart_toEndOf="@+id/txtBookTitle"
+        app:layout_constraintTop_toTopOf="@+id/txtStatus" />
+
+    <TextView
+        android:id="@+id/txtUserName"
+        android:layout_width="207dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/inter"
+        android:gravity="top"
+        android:lineSpacingExtra="3sp"
+        android:text="TextView"
+        android:textColor="@color/gray500"
+        android:textSize="16sp"
+        android:translationY="-1.52sp"
+        app:layout_constraintEnd_toEndOf="@+id/viewUserDetails"
+        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/viewUserDetails" />
+
+    <ImageView
+        android:id="@+id/star"
+        android:layout_width="19dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="4dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:contentDescription="calendar vector"
+        android:src="@drawable/star"
+        app:layout_constraintStart_toStartOf="@+id/txtUserName"
+        app:layout_constraintTop_toTopOf="@+id/txtAverage" />
+
+    <TextView
+        android:id="@+id/txtAverage"
+        android:layout_width="24.16dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="180dp"
+        android:fontFamily="@font/inter"
+        android:gravity="top"
+        android:lineSpacingExtra="3sp"
+        android:textColor="@color/gray500"
+        android:textSize="16sp"
+        android:translationY="-1.52sp"
+        app:layout_constraintEnd_toEndOf="@+id/viewUserDetails"
+        app:layout_constraintHorizontal_bias="0.214"
+        app:layout_constraintStart_toEndOf="@+id/star"
+        app:layout_constraintTop_toBottomOf="@+id/txtUserName" />
+
+    <TextView
+        android:id="@+id/txtNumberReviews"
+        android:layout_width="26.18dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="14dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/viewUserDetails"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toEndOf="@+id/txtAverage"
+        app:layout_constraintTop_toBottomOf="@+id/txtUserName" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
