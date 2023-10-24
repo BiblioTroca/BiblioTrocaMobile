@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white200"
+    android:layout_gravity="center">
+
+    <View
+        android:id="@+id/rectangle_5"
+        android:layout_width="match_parent"
+        android:layout_height="277dp"
+        android:background="@color/primary500"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/backArrow"
+        android:layout_width="22dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="vector back Arrow"
+        android:src="@drawable/vector"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.037"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txthHistoric"
+        android:layout_width="95dp"
+        android:layout_height="21dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/inter"
+        android:text="Histórico"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:lineSpacingExtra="3sp"
+        android:translationY="-1.33sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/rectangle_5"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtDetails"
+        android:layout_width="169dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/barlow_bold"
+        android:gravity="center_horizontal|top"
+        android:lineSpacingExtra="1sp"
+        android:text="Detalhes da Troca"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:translationY="-0.6sp"
+        app:layout_constraintEnd_toEndOf="@+id/rectangle_5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txthHistoric" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintHistoryDetails"
+        android:layout_width="match_parent"
+        android:layout_height="121dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="209dp"
+        android:background="@drawable/shape_card"
+        android:elevation="3dp"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/txtHistoryBookTitle"
+            android:layout_width="159dp"
+            android:layout_height="25dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:fontFamily="@font/barlow_bold"
+            android:gravity="top"
+            android:lineSpacingExtra="1sp"
+            android:textColor="@color/gray500"
+            android:textSize="20sp"
+            android:translationY="-0.5sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/constraintHistoryDetails" />
+
+        <TextView
+            android:id="@+id/txtHistoryPoints"
+            android:layout_width="131dp"
+            android:layout_height="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/inter"
+            android:gravity="top"
+            android:lineSpacingExtra="3sp"
+            android:textColor="@color/gray500"
+            android:textSize="14sp"
+            android:translationY="-1.33sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtHistoryBookTitle" />
+
+        <TextView
+            android:id="@+id/txtHistoryDate"
+            android:layout_width="131dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/inter"
+            android:gravity="top"
+            android:lineSpacingExtra="3sp"
+            android:textColor="@color/gray500"
+            android:textSize="20sp"
+            android:translationY="-1.33sp"
+            app:layout_constraintStart_toEndOf="@+id/historyCalendar"
+            app:layout_constraintTop_toBottomOf="@+id/txtHistoryPoints" />
+
+        <ImageView
+            android:id="@+id/historyCalendar"
+            android:layout_width="19dp"
+            android:layout_height="16dp"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:contentDescription="calendar vector"
+            android:src="@drawable/calendar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txtHistoryDate" />
+
+        <View
+            android:id="@+id/ellipse_1"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="57dp"
+            android:background="@android:drawable/presence_invisible"
+            app:layout_constraintStart_toEndOf="@+id/txtHistoryBookTitle"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtHistoryStatus"
+            android:layout_width="66dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="5dp"
+            android:fontFamily="@font/inter"
+            android:gravity="top"
+            android:lineSpacingExtra="3sp"
+            android:textColor="@color/gray500"
+            android:textSize="14sp"
+            android:translationY="-1.33sp"
+            app:layout_constraintStart_toEndOf="@+id/ellipse_1"
+            app:layout_constraintTop_toTopOf="@+id/ellipse_1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintHistoryUser"
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/shape_card"
+        android:elevation="3dp"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintHistoryDetails">
+
+
+        <TextView
+            android:id="@+id/txtHistoryUserName"
+            android:layout_width="207dp"
+            android:layout_height="22dp"
+            android:fontFamily="@font/inter"
+            android:gravity="top"
+            android:lineSpacingExtra="3sp"
+            android:textColor="@color/gray500"
+            android:textSize="16sp"
+            android:translationY="-1.52sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:paddingHorizontal="16dp"
+            />
+
+        <ImageView
+            android:id="@+id/starHistory"
+            android:layout_width="19dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="17dp"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:contentDescription="calendar vector"
+            android:src="@drawable/star"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtHistoryUserName" />
+
+        <TextView
+            android:id="@+id/txtHistoryAverage"
+            android:layout_width="24.16dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="5dp"
+            android:fontFamily="@font/inter"
+            android:gravity="top"
+            android:lineSpacingExtra="3sp"
+            android:textColor="@color/gray500"
+            android:textSize="16sp"
+            android:translationY="-1.52sp"
+            app:layout_constraintStart_toEndOf="@+id/starHistory"
+            app:layout_constraintTop_toTopOf="@+id/starHistory" />
+
+        <TextView
+            android:id="@+id/txtNumberReviews"
+            android:layout_width="26.18dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="5dp"
+            app:layout_constraintStart_toEndOf="@+id/txtHistoryAverage"
+            app:layout_constraintTop_toTopOf="@+id/txtHistoryAverage" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintHistoryBook"
+        android:layout_width="match_parent"
+        android:layout_height="690dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/shape_card"
+        android:elevation="3dp"
+        android:paddingHorizontal="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintHistoryUser">
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
