@@ -23,7 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         buildStyles();
-        setContentView(R.layout.login_activity);
+        setContentView(R.layout.login_layout);
 
         Button btnSignIn = findViewById(R.id.btnSignIn);
 
