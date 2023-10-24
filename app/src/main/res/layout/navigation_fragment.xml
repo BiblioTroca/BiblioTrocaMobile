@@ -52,7 +52,7 @@
                         android:layout_marginStart="12dp"
                         android:layout_marginTop="18dp"
                         android:contentDescription="vector_ek3"
-                        android:src="@drawable/heart" />
+                        android:src="@drawable/ic_heart" />
 
                     <TextView
                         android:id="@+id/lblWishList"
@@ -93,7 +93,7 @@
                         android:layout_marginStart="12dp"
                         android:layout_marginTop="18dp"
                         android:contentDescription="vector_ek3"
-                        android:src="@drawable/books" />
+                        android:src="@drawable/ic_books" />
 
                     <TextView
                         android:id="@+id/MeusLivros"
@@ -134,7 +134,7 @@
                         android:layout_marginStart="12dp"
                         android:layout_marginTop="18dp"
                         android:contentDescription="vector_ek3"
-                        android:src="@drawable/swap" />
+                        android:src="@drawable/ic_swap" />
 
                     <TextView
                         android:id="@+id/trocas_ek1"
@@ -175,7 +175,7 @@
                         android:layout_marginStart="12dp"
                         android:layout_marginTop="18dp"
                         android:contentDescription="vector_ek3"
-                        android:src="@drawable/list" />
+                        android:src="@drawable/ic_list" />
 
                     <TextView
                         android:id="@+id/lblHisto"

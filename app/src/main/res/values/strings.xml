@@ -9,4 +9,6 @@
     <string name="Publisher"> Editora </string>
     <string name="Book_condition"> Condição de Livro </string>
     <string name="Description"> Descrição </string>
+    <string name="btn_login_text">Continue com o Google</string>
+    <string name="btn_confirm_text">Confirmar</string>
 </resources>
