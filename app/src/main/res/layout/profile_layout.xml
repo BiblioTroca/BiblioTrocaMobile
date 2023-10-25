@@ -24,7 +24,7 @@
             <View
                 android:id="@+id/view"
                 android:layout_width="wrap_content"
-                android:layout_height="277dp"
+                android:layout_height="266dp"
                 android:background="@color/primary500"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +34,7 @@
                 android:id="@+id/imageView3"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="12dp"
                 android:layout_marginStart="24dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -101,7 +101,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/txtFinalizeMail"
+                    android:id="@+id/txtProfileMail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
@@ -110,12 +110,12 @@
                     android:text="Email"
                     android:textColor="@color/gray500"
                     android:textSize="16sp"
-                    android:labelFor="@id/inputFinalizeEmail"
+                    android:labelFor="@id/inputProfileEmail"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
                 <EditText
-                    android:id="@+id/inputFinalizeEmail"
+                    android:id="@+id/inputProfileEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
@@ -129,10 +129,10 @@
                     android:textColor="@color/gray500"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtFinalizeMail" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtProfileMail" />
 
                 <TextView
-                    android:id="@+id/txtFinalizePhone"
+                    android:id="@+id/txtProfilePhone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -141,12 +141,12 @@
                     android:text="Telefone celular"
                     android:textColor="@color/gray500"
                     android:textSize="16sp"
-                    android:labelFor="@id/inputFinalizePhone"
+                    android:labelFor="@id/inputProfilePhone"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/inputFinalizeEmail" />
+                    app:layout_constraintTop_toBottomOf="@+id/inputProfileEmail" />
 
                 <EditText
-                    android:id="@+id/inputFinalizePhone"
+                    android:id="@+id/inputProfilePhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
@@ -160,10 +160,10 @@
                     android:textColor="@color/gray500"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtFinalizePhone" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtProfilePhone" />
 
                 <TextView
-                    android:id="@+id/txtFinalizeCEP"
+                    android:id="@+id/txtProfileCEP"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -172,12 +172,12 @@
                     android:text="CEP"
                     android:textColor="@color/gray500"
                     android:textSize="16sp"
-                    android:labelFor="@id/inputFinalizeCEP"
+                    android:labelFor="@id/inputProfileCEP"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/inputFinalizePhone" />
+                    app:layout_constraintTop_toBottomOf="@+id/inputProfilePhone" />
 
                 <EditText
-                    android:id="@+id/inputFinalizeCEP"
+                    android:id="@+id/inputProfileCEP"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
@@ -191,10 +191,10 @@
                     android:textColor="@color/gray500"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtFinalizeCEP" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtProfileCEP" />
 
                 <TextView
-                    android:id="@+id/txtFinalizeLocation"
+                    android:id="@+id/txtProfileLocation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -203,12 +203,12 @@
                     android:text="Bairro"
                     android:textColor="@color/gray500"
                     android:textSize="16sp"
-                    android:labelFor="@id/inputFinalizeLocation"
+                    android:labelFor="@id/inputProfileLocation"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/inputFinalizeCEP" />
+                    app:layout_constraintTop_toBottomOf="@+id/inputProfileCEP" />
 
                 <EditText
-                    android:id="@+id/inputFinalizeLocation"
+                    android:id="@+id/inputProfileLocation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
@@ -222,10 +222,10 @@
                     android:textColor="@color/gray500"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtFinalizeLocation" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtProfileLocation" />
 
                 <TextView
-                    android:id="@+id/txtFinalizeCity"
+                    android:id="@+id/txtProfileCity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -234,12 +234,12 @@
                     android:text="Cidade"
                     android:textColor="@color/gray500"
                     android:textSize="16sp"
-                    android:labelFor="@id/inputFinalizeCity"
+                    android:labelFor="@id/inputProfileCity"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/inputFinalizeLocation" />
+                    app:layout_constraintTop_toBottomOf="@+id/inputProfileLocation" />
 
                 <EditText
-                    android:id="@+id/inputFinalizeCity"
+                    android:id="@+id/inputProfileCity"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
@@ -253,13 +253,13 @@
                     android:textColor="@color/gray500"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtFinalizeCity" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtProfileCity" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <Button
-                android:id="@+id/btnFinalize"
+                android:id="@+id/btnUpdateAccount"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:layout_marginHorizontal="24dp"
@@ -278,22 +278,8 @@
                 tools:layout_editor_absoluteX="24dp"
                 tools:layout_editor_absoluteY="886dp" />
 
-
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginTop="16dp"
-                android:translationZ="6dp"
-                android:contentDescription="Imagem de perfil"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView16"
-                app:srcCompat="@drawable/bg_example_profile" />
-
             <Button
-                android:id="@+id/button6"
+                android:id="@+id/btnDeleteAccount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="24dp"
@@ -306,8 +292,22 @@
                 android:textColor="@color/red500"
                 android:textSize="14sp"
                 android:textAlignment="center"
-                app:layout_constraintTop_toBottomOf="@+id/btnFinalize"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnUpdateAccount"
                 tools:layout_editor_absoluteX="24dp" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="16dp"
+                android:translationZ="6dp"
+                android:contentDescription="Imagem de perfil"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView16"
+                app:srcCompat="@drawable/bg_example_profile" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

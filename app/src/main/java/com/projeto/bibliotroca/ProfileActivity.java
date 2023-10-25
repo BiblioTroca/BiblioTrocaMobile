@@ -1,6 +1,8 @@
 package com.projeto.bibliotroca;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,5 +18,11 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         buildStyles();
         setContentView(R.layout.profile_layout);
+
+        Button btnUpdateAccount = findViewById(R.id.btnUpdateAccount);
+        btnUpdateAccount.setOnClickListener(event -> {
+            Intent openSelectedExchange = new Intent(this, SelectedExchangeActivity.class);
+            startActivity(openSelectedExchange);
+        });
     }
 }

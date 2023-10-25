@@ -12,4 +12,14 @@
     <string name="btn_login_text">Continue com o Google</string>
     <string name="btn_confirm_text">Confirmar</string>
     <string name="btn_update_text">Atualizar</string>
+    <string name="title_exchange_text">Trocas</string>
+    <string name="main_title_exchange">Detalhes da Troca em Andamento</string>
+    <string name="exchange_status_pending">Solicitação pendente</string>
+    <string name="quantity_points_to_add">+20 pontos (aguardando)</string>
+    <string name="date_solicited">Solicitada há 5 dias</string>
+    <string name="update_status_text">Atualize o status</string>
+    <string name="info_update_status_text">Selecione o status certo para manter todos informados sobre o progresso da troca.</string>
+    <string name="btn_update_status">Atualizar status</string>
+    <string name="btn_whatsapp">Entrar em contato</string>
+    <string name="example_book_description">O livro destaca a importância de manter o código limpo, não apenas para a eficácia imediata, mas para garantir que o software permaneça sustentável e fácil de manter a longo prazo. Utilizando exemplos práticos e diretrizes claras, Martin delineia os princípios do desenvolvimento de software ágil, focando em técnicas e práticas que levam a um código mais limpo e eficiente.</string>
 </resources>
