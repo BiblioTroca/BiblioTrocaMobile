@@ -1,14 +1,22 @@
 package com.projeto.bibliotroca;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 public class SelectedExchangeActivity extends AppCompatActivity {
+    public enum UserType {
+        SELLER, BUYER
+    }
+
     void buildStyles() {
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.primary500));
     }
@@ -18,6 +26,8 @@ public class SelectedExchangeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         buildStyles();
         setContentView(R.layout.selected_exchange_layout);
+
+        controllerTransactionStep(UserType.BUYER, 1);
     }
 
     public void handleCheckedRadioItem(View view) {
@@ -26,20 +36,64 @@ public class SelectedExchangeActivity extends AppCompatActivity {
         View radioCircleAccept = findViewById(R.id.radioCircleAccept);
         View radioCircleRecuse = findViewById(R.id.radioCircleRecuse);
 
-        boolean isCheckedItem = view.isSelected();
+        view.setSelected(!view.isSelected());
 
-        if (view == radioItemAccept) {
-            radioItemAccept.setSelected(!isCheckedItem);
-            radioCircleAccept.setSelected(!isCheckedItem);
+        boolean isExistsRadioAccept = radioItemAccept != null && radioCircleAccept != null;
+        boolean isExistsRadioRecuse = radioItemRecuse != null && radioCircleRecuse != null;
 
-            radioItemRecuse.setSelected(isCheckedItem);
-            radioCircleRecuse.setSelected(isCheckedItem);
-        } else {
-            radioItemAccept.setSelected(isCheckedItem);
-            radioCircleAccept.setSelected(isCheckedItem);
+        if (isExistsRadioAccept) {
+            if (view == radioItemAccept) {
+                radioItemAccept.setSelected(true);
+                radioCircleAccept.setSelected(true);
 
-            radioItemRecuse.setSelected(!isCheckedItem);
-            radioCircleRecuse.setSelected(!isCheckedItem);
+                if(isExistsRadioRecuse) {
+                    radioItemRecuse.setSelected(false);
+                    radioCircleRecuse.setSelected(false);
+                };
+
+                return;
+            }
+
+            radioItemAccept.setSelected(false);
+            radioCircleAccept.setSelected(false);
+
+            if(isExistsRadioRecuse) {
+                radioItemRecuse.setSelected(true);
+                radioCircleRecuse.setSelected(true);
+            }
+        }
+
+        if (isExistsRadioRecuse) {
+            radioItemRecuse.setSelected(true);
+            radioCircleRecuse.setSelected(true);
         }
     }
+
+    public void controllerTransactionStep(UserType userType, int step) {
+        switch(userType) {
+            case SELLER:
+                if (step == 1) {
+                    showCurrentTransactionStep(new Step1SellerFragment());
+                } else {
+                    showCurrentTransactionStep(new Step2SellerFragment());
+                }
+                break;
+
+            case BUYER:
+                if (step == 1) {
+                    showCurrentTransactionStep(new Step1BuyerFragment());
+                } else {
+                    showCurrentTransactionStep(new Step2BuyerFragment());
+                }
+                break;
+        }
+    }
+
+    public void showCurrentTransactionStep(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.cardUpdateStatus, fragment);
+        fragmentTransaction.commit();
+    }
+
 }

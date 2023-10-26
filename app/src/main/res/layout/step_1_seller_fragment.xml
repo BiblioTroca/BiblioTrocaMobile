@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardStep1Seller"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="24dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="6dp"
+    android:background="@drawable/shape_card"
+    android:elevation="3dp"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="20dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_medium"
+        android:lineSpacingMultiplier="1.4"
+        android:text="@string/update_status_text"
+        android:textColor="@color/gray500"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/inter"
+        android:lineSpacingMultiplier="1.6"
+        android:text="@string/info_update_status_text"
+        android:textColor="@color/gray500"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/selectableFrameAccept"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/bg_radio_item_selector"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="handleCheckedRadioItem"
+        android:padding="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView22">
+
+        <ImageView
+            android:id="@+id/imageB2"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            app:srcCompat="@drawable/ic_bookmark"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:fontFamily="@font/inter_medium"
+            android:lineSpacingMultiplier="1.4"
+            android:text="Aceitar Solicitação"
+            android:textColor="@color/gray500"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/imageB2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView26"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/inter"
+            android:lineSpacingMultiplier="1.6"
+            android:maxWidth="240dp"
+            android:text="Ao selecionar esta opção, você está aceitando prosseguir com a troca."
+            android:textColor="@color/gray500"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/textView25"
+            app:layout_constraintTop_toBottomOf="@+id/textView25" />
+
+        <View
+            android:id="@+id/radioCircleAccept"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/bg_radio_selector"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/selectableFrameRecuse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_radio_item_selector"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="handleCheckedRadioItem"
+        android:padding="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectableFrameAccept">
+
+        <ImageView
+            android:id="@+id/imageB22"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_bookmark" />
+
+        <TextView
+            android:id="@+id/textView252"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:fontFamily="@font/inter_medium"
+            android:lineSpacingMultiplier="1.4"
+            android:text="Recusar Solicitação"
+            android:textColor="@color/gray500"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/imageB22"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView262"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/inter"
+            android:lineSpacingMultiplier="1.6"
+            android:maxWidth="240dp"
+            android:text="Selecione esta opção caso não deseje seguir com esta troca atual."
+            android:textColor="@color/gray500"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/textView252"
+            app:layout_constraintTop_toBottomOf="@+id/textView252" />
+
+        <View
+            android:id="@+id/radioCircleRecuse"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/bg_radio_selector"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/btnUpdateStatus"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/shape_btn_border"
+        android:backgroundTint="@color/primary500"
+        android:fontFamily="@font/barlow_bold"
+        android:lineSpacingMultiplier="1.6"
+        android:text="@string/btn_update_status"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectableFrameRecuse"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="886dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
