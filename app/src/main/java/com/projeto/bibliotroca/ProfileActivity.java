@@ -3,6 +3,7 @@ package com.projeto.bibliotroca;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +24,12 @@ public class ProfileActivity extends AppCompatActivity {
         btnUpdateAccount.setOnClickListener(event -> {
             Intent openSelectedExchange = new Intent(this, SelectedExchangeActivity.class);
             startActivity(openSelectedExchange);
+        });
+
+        Button btnDeleteAccount = findViewById(R.id.btnDeleteAccount);
+        btnDeleteAccount.setOnClickListener(event -> {
+            DeleteAccountModalFragment modal = new DeleteAccountModalFragment();
+            modal.show(getSupportFragmentManager(), "deleteAccountModal");
         });
     }
 }
