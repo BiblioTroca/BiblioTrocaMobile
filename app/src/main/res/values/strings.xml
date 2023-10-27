@@ -12,6 +12,7 @@
     <string name="btn_login_text">Continue com o Google</string>
     <string name="btn_confirm_text">Confirmar</string>
     <string name="btn_update_text">Atualizar</string>
+
     <string name="title_exchange_text">Trocas</string>
     <string name="main_title_exchange">Detalhes da Troca em Andamento</string>
     <string name="exchange_status_pending">Solicitação pendente</string>
@@ -22,4 +23,19 @@
     <string name="btn_update_status">Atualizar status</string>
     <string name="btn_whatsapp">Entrar em contato</string>
     <string name="example_book_description">O livro destaca a importância de manter o código limpo, não apenas para a eficácia imediata, mas para garantir que o software permaneça sustentável e fácil de manter a longo prazo. Utilizando exemplos práticos e diretrizes claras, Martin delineia os princípios do desenvolvimento de software ágil, focando em técnicas e práticas que levam a um código mais limpo e eficiente.</string>
+
+    <string name="txt_Average">Avalie a experiência da troca</string>
+    <string name="historic">Histórico</string>
+    <string name="details_trade">Detalhes da Troca</string>
+
+    <string name="wishlist"> "Lista de Desejos</string>
+    <string name="register_wishlist">Cadastre um Livro que Deseja Obter </string>
+    <string name="title">Título</string>
+    <string name="Author">Autor</string>
+
+    <array name="spinner_options">
+        <item>Selecionar</item>
+        <item>Opção 2</item>
+        <item>Opção 3</item>
+    </array>
 </resources>
