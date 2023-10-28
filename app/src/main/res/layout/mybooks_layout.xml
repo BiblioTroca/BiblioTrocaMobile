@@ -7,6 +7,116 @@
     android:background="@color/white"
     android:orientation="vertical">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/shape_card"
+        android:elevation="3dp"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.708"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9">
+
+        <TextView
+            android:id="@+id/textView29"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/shape_category_tag"
+            android:fontFamily="@font/inter"
+            android:lineSpacingMultiplier="1.4"
+            android:paddingHorizontal="9dp"
+            android:paddingVertical="4dp"
+            android:text="Tecnologia"
+            android:textColor="@color/primary500"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/barlow_bold"
+            android:lineSpacingMultiplier="1.25"
+            android:maxWidth="160dp"
+            android:text="Clean code"
+            android:textColor="@color/gray500"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/inter"
+            android:lineSpacingMultiplier="1.4"
+            android:text="Por Robert Cecil Martin"
+            android:textColor="@color/gray500"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="10dp"
+
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/textView20"
+            app:layout_constraintTop_toBottomOf="@+id/textView19"
+            app:srcCompat="@drawable/calendar" />
+
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/inter"
+            android:lineSpacingMultiplier="1.4"
+            android:text="Há 2 dias"
+            android:textColor="@color/gray500"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/shape_btn_ghost_red"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/trash_simple"
+            app:tint="@color/red500" />
+
+        <ImageButton
+            android:id="@+id/imageButton4"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/shape_btn_ghost_purple"
+            android:clickable="true"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton3"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/pencil_simple"
+            app:tint="@color/primary500" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <View
         android:id="@+id/rectangle_5"
         android:layout_width="match_parent"
@@ -36,8 +146,8 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:background="@drawable/shape_card"
                 android:layout_margin="20dp"
+                android:background="@drawable/shape_card"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
 
@@ -83,18 +193,17 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_margin="20dp"
-                app:cardCornerRadius="20dp"
                 android:background="@drawable/shape_card"
+                app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
 
                 <LinearLayout
                     android:layout_width="124dp"
                     android:layout_height="140dp"
                     android:layout_marginEnd="26dp"
-                    android:layout_marginBottom="10dp"
                     android:orientation="vertical"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent">
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
 
                     <ImageView
@@ -129,18 +238,17 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_margin="20dp"
-                app:cardCornerRadius="20dp"
                 android:background="@drawable/shape_card"
+                app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
 
                 <LinearLayout
                     android:layout_width="124dp"
                     android:layout_height="140dp"
                     android:layout_marginEnd="26dp"
-                    android:layout_marginBottom="10dp"
                     android:orientation="vertical"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent">
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
 
                     <ImageView
@@ -183,10 +291,9 @@
                     android:layout_width="124dp"
                     android:layout_height="140dp"
                     android:layout_marginEnd="26dp"
-                    android:layout_marginBottom="10dp"
                     android:orientation="vertical"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent">
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
 
                     <ImageView
@@ -222,30 +329,39 @@
     </HorizontalScrollView>
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="340dp"
-        android:layout_marginBottom="41dp"
-        android:text="Trocas"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Meus Livros"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="409dp"
-        android:layout_height="212dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="41dp"
-        android:layout_marginBottom="120dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:text="<> Itens"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
 
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/shape_button_purple"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
+        app:srcCompat="@drawable/plus"
+        app:tint="@color/white" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
