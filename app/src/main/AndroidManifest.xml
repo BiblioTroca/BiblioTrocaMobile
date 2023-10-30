@@ -98,6 +98,15 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".SelectedExchangeLibraryActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Design.Light.NoActionBar">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>
