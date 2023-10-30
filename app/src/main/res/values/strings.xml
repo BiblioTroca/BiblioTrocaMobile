@@ -48,8 +48,8 @@
     </array>
 
     <string name = "newcondition">Lido apenas uma ou poucas vezes, sem marcas.</string>
-    <string name = "oldcondition">Pode ter algumas marcas leves de manuseio, sem rasuras.</string>
-    <string name = "goodcondition">Bastante usado, com várias marcas de uso e anotações. </string>
+    <string name = "goodcondition">Pode ter algumas marcas leves de manuseio, sem rasuras.</string>
+    <string name = "oldcondition">Bastante usado, com marcas de uso e anotações.</string>
     <string name ="realeaseyear"> Ano de Lançamento </string>
     <string name ="Registerbook"> Cadastre um novo livro</string>
     <string name ="mybooks"> Meus Livro</string>

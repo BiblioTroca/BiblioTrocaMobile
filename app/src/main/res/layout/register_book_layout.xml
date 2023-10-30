@@ -118,12 +118,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
+                        android:layout_marginEnd="16dp"
                         android:fontFamily="@font/inter"
                         android:lineSpacingMultiplier="1.6"
                         android:maxWidth="240dp"
                         android:text="@string/goodcondition"
                         android:textColor="@color/gray500"
                         android:textSize="14sp"
+                        app:layout_constraintEnd_toStartOf="@+id/radioGoodCondition"
                         app:layout_constraintStart_toStartOf="@+id/textView25"
                         app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
@@ -178,15 +180,17 @@
                         android:id="@+id/textView33"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="16dp"
                         android:fontFamily="@font/inter"
-                        android:lineSpacingMultiplier="1.6"
+                        android:lineSpacingMultiplier="1.4"
                         android:maxWidth="240dp"
+                        android:text="@string/oldcondition"
                         android:textColor="@color/gray500"
                         android:textSize="14sp"
+                        app:layout_constraintEnd_toStartOf="@+id/radioBadCondition"
                         app:layout_constraintStart_toStartOf="@+id/textView35"
-                        app:layout_constraintTop_toBottomOf="@+id/textView35"
-                        tools:text="@string/oldcondition" />
+                        app:layout_constraintTop_toBottomOf="@+id/textView35" />
 
                     <View
                         android:id="@+id/radioBadCondition"
@@ -240,12 +244,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
+                        android:layout_marginEnd="16dp"
                         android:fontFamily="@font/inter"
                         android:lineSpacingMultiplier="1.6"
                         android:maxWidth="240dp"
                         android:text="@string/newcondition"
                         android:textColor="@color/gray500"
                         android:textSize="14sp"
+                        app:layout_constraintEnd_toStartOf="@+id/radioNewCondition"
                         app:layout_constraintStart_toStartOf="@+id/textView31"
                         app:layout_constraintTop_toBottomOf="@+id/textView31" />
 
@@ -307,8 +313,8 @@
                     android:layout_height="56dp"
                     android:background="@drawable/shape_input_border"
                     android:ems="10"
+                    android:paddingHorizontal="10dp"
                     android:inputType="text"
-
                     android:text=""
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView42" />
@@ -319,9 +325,11 @@
                     android:layout_height="156dp"
                     android:background="@drawable/shape_input_border"
                     android:ems="10"
-
                     android:inputType="text"
-                    android:text=""
+                    android:maxWidth="240dp"
+                    android:paddingHorizontal="10dp"
+                    android:singleLine="false"
+                    android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView43" />
 
@@ -331,6 +339,7 @@
                     android:layout_height="52dp"
                     android:background="@drawable/shape_input_border"
                     android:ems="10"
+                    android:paddingHorizontal="10dp"
 
                     android:inputType="text"
                     android:text=""
@@ -343,6 +352,8 @@
                     android:layout_height="52dp"
                     android:background="@drawable/shape_input_border"
                     android:ems="10"
+                    android:paddingHorizontal="10dp"
+
                     android:inputType="text"
                     android:text=""
                     app:layout_constraintStart_toStartOf="parent"
@@ -353,6 +364,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    android:layout_marginStart="2dp"
+
                     android:text="@string/Publisher"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -365,6 +378,7 @@
                     android:background="@drawable/shape_input_border"
                     android:ems="10"
                     android:inputType="text"
+                    android:paddingHorizontal="10dp"
                     android:text=""
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView44" />
@@ -382,9 +396,10 @@
                     android:id="@+id/editTextText17"
                     android:layout_width="match_parent"
                     android:layout_height="52dp"
+                    android:layout_marginStart="2dp"
+                    android:paddingHorizontal="10dp"
                     android:background="@drawable/shape_input_border"
                     android:ems="10"
-
                     android:inputType="text"
                     android:text=""
                     app:layout_constraintStart_toStartOf="parent"
