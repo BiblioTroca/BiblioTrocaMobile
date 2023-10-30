@@ -14,6 +14,7 @@
         android:layout_marginHorizontal="24dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/shape_card"
+        android:clickable="true"
         android:elevation="3dp"
         android:paddingHorizontal="16dp"
         android:paddingVertical="20dp"
@@ -92,28 +93,26 @@
             app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
         <ImageButton
-            android:id="@+id/imageButton3"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="8dp"
+            android:id="@+id/btn_deletebook"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
             android:background="@drawable/shape_btn_ghost_red"
+            app:layout_constraintCircleRadius="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/trash_simple"
             app:tint="@color/red500" />
 
         <ImageButton
-            android:id="@+id/imageButton4"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="8dp"
+            android:id="@+id/btn_editbook"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/shape_btn_ghost_purple"
             android:clickable="true"
-            app:layout_constraintEnd_toStartOf="@+id/imageButton3"
+            app:layout_constraintEnd_toStartOf="@+id/btn_deletebook"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/pencil_simple"
-            app:tint="@color/primary500" />
+            app:srcCompat="@drawable/pencil_simple" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -124,19 +123,22 @@
         android:background="#7A2F73"
         app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.025">
     </View>
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="420dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.251">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -341,16 +343,15 @@
         app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
 
     <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="26dp"
-        android:layout_height="26dp"
+        android:id="@+id/btn_addbook"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/shape_button_purple"
+        android:background="@drawable/shape_btn_ghost_purple"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
-        app:srcCompat="@drawable/plus"
-        app:tint="@color/white" />
+        app:srcCompat="@drawable/plus" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

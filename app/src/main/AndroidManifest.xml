@@ -62,6 +62,33 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".MyBooksActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Design.Light.NoActionBar">
+
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".RegisterBookActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Design.Light.NoActionBar">
+
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".BookDetailsActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Design.Light.NoActionBar">
+
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".WishlistActivity"
             android:exported="true"

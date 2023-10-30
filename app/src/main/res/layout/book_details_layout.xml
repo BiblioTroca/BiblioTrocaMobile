@@ -92,33 +92,17 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
                 <TextView
-                    android:id="@+id/textView37"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:background="@drawable/shape_category_tag"
-                    android:fontFamily="@font/inter"
-                    android:lineSpacingMultiplier="1.4"
-                    android:paddingHorizontal="9dp"
-                    android:paddingVertical="4dp"
-                    android:text="Tecnologia"
-                    android:textColor="@color/primary500"
-                    android:textSize="12sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView36" />
-
-                <TextView
                     android:id="@+id/textView38"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="16dp"
                     android:fontFamily="@font/inter"
                     android:lineSpacingMultiplier="1.4"
                     android:text="Idioma"
                     android:textColor="@color/gray500"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView37" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView27" />
 
                 <TextView
                     android:id="@+id/textView40"
@@ -174,32 +158,29 @@
 
                 <TextView
                     android:id="@+id/textView10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="105dp"
+                    android:layout_height="22dp"
                     android:layout_marginStart="4dp"
-                    android:layout_marginTop="16dp"
-                    android:text="Lorem ipsum .  "
+                    android:layout_marginTop="12dp"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView38" />
 
                 <TextView
                     android:id="@+id/textView11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="105dp"
+                    android:layout_height="22dp"
                     android:layout_marginStart="80dp"
                     android:layout_marginTop="16dp"
-                    android:text="TextView"
                     android:textSize="16sp"
                     app:layout_constraintStart_toEndOf="@+id/textView10"
                     app:layout_constraintTop_toBottomOf="@+id/textView40" />
 
                 <TextView
                     android:id="@+id/textView12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="292dp"
+                    android:layout_height="22dp"
                     android:layout_marginTop="8dp"
-                    android:text="TextView"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView45" />
@@ -209,7 +190,6 @@
                     android:layout_width="294dp"
                     android:layout_height="52dp"
                     android:layout_marginTop="8dp"
-                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque laoreet consectetur metus, at dignissim purus. Nunc bibendum vitae quam in vestibulum. Fusce felis quam, scelerisque semper finibus quis, eleifend et nisl. In consectetur dignissim augue, sollicitudin gravida nisl cursus fringilla. Morbi ligula odio, rutrum ac ornare eget,"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView55" />
@@ -219,8 +199,9 @@
                     android:layout_width="294dp"
                     android:layout_height="286dp"
                     android:layout_marginTop="8dp"
-                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque laoreet consectetur metus, at dignissim purus. Nunc bibendum vitae quam in vestibulum. Fusce felis quam, scelerisque semper finibus quis, eleifend et nisl. In consectetur dignissim augue, sollicitudin gravida nisl cursus fringilla. Morbi ligula odio, rutrum ac ornare eget, aliquet quis lorem. Ut elementum, odio at porta luctus, sem ipsum vulputate velit, ut fringilla turpis magna ac purus. In efficitur lorem nibh, vitae luctus mi convallis ac. Donec placerat maximus tempus. Donec faucibus ipsum eget libero elementum, a posuere eros fermentum. Vivamus justo augue, tincidunt ac tellus sed, facilisis commodo mauris. Duis consequat, mi at feugiat commodo, erat nisi vestibulum dui, eget viverra magna nisi ac tortor. Morbi diam turpis, lacinia eget ex in, elementum viverra quam. Donec ultrices risus et ultrices dictum.  "
+                    android:layout_marginEnd="8dp"
                     android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView65" />
 
@@ -236,14 +217,25 @@
 
                 <TextView
                     android:id="@+id/textView24"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="180dp"
+                    android:layout_height="22dp"
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="16dp"
-                    android:text="Lorem ipsum dolor sit amet"
                     android:textSize="16sp"
                     app:layout_constraintStart_toEndOf="@+id/textView15"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView27"
+                    android:layout_width="79dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/shape_btn_ghost_purple"
+                    android:textColor="@color/primary500"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView36" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
