@@ -17,10 +17,10 @@ public class RegisterBookActivity extends AppCompatActivity implements AdapterVi
   getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.primary500));
  }
 
-
  @Override
  protected void onCreate(@Nullable Bundle savedInstanceState) {
   super.onCreate(savedInstanceState);
+  buildStyles();
   setContentView(R.layout.register_book_layout);
 
   Spinner spinner = findViewById(R.id.spinner);
@@ -40,6 +40,7 @@ public class RegisterBookActivity extends AppCompatActivity implements AdapterVi
  public void onNothingSelected(AdapterView<?> parent) {
 
  }
+
 
  public void handleCheckedRadioItem(View view) {
   ConstraintLayout radioItemGoodcondition = findViewById(R.id.selectableGoodCondition);
@@ -70,7 +71,7 @@ public class RegisterBookActivity extends AppCompatActivity implements AdapterVi
     if(isExistsRadioBad){
      radioItemOldcondition.setSelected(false);
      radioCircleBad.setSelected(false);
-    };
+    }
 
     return;
    }
@@ -102,9 +103,11 @@ public class RegisterBookActivity extends AppCompatActivity implements AdapterVi
 
     radioItemOldcondition.setSelected(true);
     radioCircleBad.setSelected(true);
-    ;
+
   }
  }
 
 }
+
+
 }
