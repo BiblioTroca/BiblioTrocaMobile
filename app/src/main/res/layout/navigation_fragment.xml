@@ -80,11 +80,13 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/Card_nav"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_margin="20dp"
-                app:cardCornerRadius="20dp"
                 android:background="@drawable/shape_card"
+                android:clickable="true"
+                app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
 
                 <LinearLayout
