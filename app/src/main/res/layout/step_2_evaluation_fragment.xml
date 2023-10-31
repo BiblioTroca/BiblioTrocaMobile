@@ -80,7 +80,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtHistoricAverage" />
 
     <ImageView
-        android:id="@+id/historicNextArrow"
+        android:id="@+id/checkIcon"
         android:layout_width="22dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"

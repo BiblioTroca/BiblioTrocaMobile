@@ -3,6 +3,7 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintHistoricUser"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -82,7 +83,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtHistoricAverage" />
 
     <ImageView
-        android:id="@+id/historicNextArrow"
+        android:id="@+id/btnHistoricNextArrow"
         android:layout_width="22dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
