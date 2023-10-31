@@ -23,8 +23,6 @@
     <string name="btn_update_status">Atualizar status</string>
     <string name="btn_whatsapp">Entrar em contato</string>
     <string name="example_book_description">O livro destaca a importância de manter o código limpo, não apenas para a eficácia imediata, mas para garantir que o software permaneça sustentável e fácil de manter a longo prazo. Utilizando exemplos práticos e diretrizes claras, Martin delineia os princípios do desenvolvimento de software ágil, focando em técnicas e práticas que levam a um código mais limpo e eficiente.</string>
-    <string name="example_book_short_description">O livro destaca a importância de manter o código limpo, não apenas para a eficácia imediata, mas...</string>
-
 
     <string name="txt_Average">Avalie a experiência da troca</string>
     <string name="assessment_carried_out">Avaliação já realizada</string>
@@ -43,7 +41,7 @@
         <item>Engenharias</item>
         <item>Ciências da Saúde</item>
         <item>Ciencias Agrárias</item>
-        <item>Linguísticas,Letras e Artes</item>
+        <item>Linguísticas, Letras e Artes</item>
         <item>Ciências Sociais Aplicadas</item>
         <item>Ciências Huamanas</item>
         <item>Ciências Exatas e da Terra</item>
@@ -57,6 +55,7 @@
     <string name ="mybooks"> Meus Livro</string>
     <string name="text_before_new_exchange">Negocie diretamente com Pedro e defina os detalhes da troca antes de prosseguir com a solicitação. Toque abaixo para iniciar a conversa.</string>
     <string name="generic_text_before_create_exchange">Tudo combinado e pronto para avançar? Solicite a troca agora mesmo clicando abaixo.</string>
+    <string name="send_review">Enviar avaliação</string>
 
 
 </resources>
