@@ -9,12 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
-public class DeleteBookModalFragment extends DialogFragment {
+public class ConfirmEvaluationModalFragment extends DialogFragment {
 
     @Nullable
     @Override
@@ -22,8 +23,25 @@ public class DeleteBookModalFragment extends DialogFragment {
         if(getDialog() != null && getDialog().getWindow() != null) {
             getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         }
-        return inflater.inflate(R.layout.delete_book_modal_fragment, container, false);
+
+        View view = inflater.inflate(R.layout.evaluate_modal_fragment, container, false); // Inflar o layout do fragmento
+
+        RatingBar ratingBar = view.findViewById(R.id.ratingBar); // Encontre a RatingBar no layout inflado
+
+        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                if (fromUser) {
+                    // Arredonda o valor do rating para o valor inteiro mais próximo
+                    int intValue = Math.round(rating);
+                    ratingBar.setRating(intValue);
+                }
+            }
+        });
+
+        return view;
     }
+
 
     @Override
     public void onStart() {
@@ -32,7 +50,7 @@ public class DeleteBookModalFragment extends DialogFragment {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             getActivity().getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
 
-            int dialogWidth = displayMetrics.widthPixels - (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 48, getResources().getDisplayMetrics()); // Subtrai 24dp de cada lado
+            int dialogWidth = displayMetrics.widthPixels - (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 48, getResources().getDisplayMetrics());
             int dialogHeight = ViewGroup.LayoutParams.WRAP_CONTENT;
 
             getDialog().getWindow().setLayout(dialogWidth, dialogHeight);
@@ -49,4 +67,5 @@ public class DeleteBookModalFragment extends DialogFragment {
             dismiss();
         });
     }
+
 }
