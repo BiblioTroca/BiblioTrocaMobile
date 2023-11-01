@@ -30,6 +30,12 @@ public class MyBooksActivity  extends AppCompatActivity {
         });
 
 
+        ImageButton btnEdit = findViewById(R.id.btn_editbook);
+        btnEdit.setOnClickListener(event ->{
+            Intent editbook = new Intent(this,EditBookActivity.class);
+            startActivity(editbook);
+        });
+
         ImageButton btnAddBook = findViewById(R.id.btn_addbook);
         btnAddBook.setOnClickListener(event ->{
             Intent openmybooks = new Intent(this, RegisterBookActivity.class);
