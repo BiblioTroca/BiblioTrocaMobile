@@ -8,7 +8,21 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-public class WishlistActivity extends AppCompatActivity {
+/*public class WishlistActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_wishlist);
+        if (savedInstanceState == null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.fragment_container, new WishlistFragment())
+                    .commit();
+        }
+    }
+}*/
+ public class WishlistActivity extends AppCompatActivity {
 
     void buildStyles() {
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.primary500));
