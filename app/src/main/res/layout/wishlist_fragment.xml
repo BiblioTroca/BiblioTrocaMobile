@@ -1,74 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/white"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white200"
+    android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="31dp">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutMainExchange"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="24dp"
             android:paddingBottom="56dp">
 
             <TextView
-                android:id="@+id/textView54"
+                android:id="@+id/textView17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
                 android:fontFamily="@font/barlow_bold"
                 android:lineSpacingMultiplier="1.4"
+                android:maxWidth="160dp"
                 android:text="Lista de desejos"
-                android:textSize="16sp"
-                android:textStyle="bold"
+                android:textColor="@color/gray500"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView56"
+                android:id="@+id/textView18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/barlow_bold"
+                android:layout_marginStart="3dp"
+                android:fontFamily="@font/inter"
                 android:lineSpacingMultiplier="1.4"
-                android:text="I 3 Itens"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/textView54"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageButton
-                android:id="@+id/btn_addbook"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/shape_btn_ghost_purple"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.884"
-                app:layout_constraintStart_toEndOf="@+id/textView56"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/plus" />
+                android:maxWidth="160dp"
+                android:text="I 3 itens"
+                android:textColor="@color/gray400"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView17"
+                app:layout_constraintStart_toEndOf="@+id/textView17" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recicleviewWL"
-                android:layout_width="324dp"
-                android:layout_height="200dp"
+                android:id="@+id/recycleListWishlist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView54" />
+                app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,7 +6,8 @@
     android:layout_height="wrap_content"
     android:background="@drawable/shape_card"
     android:paddingHorizontal="16dp"
-    android:paddingVertical="20dp">
+    android:paddingVertical="20dp"
+    android:layout_margin="8dp">
 
     <TextView
         android:id="@+id/textView48"
@@ -23,6 +24,19 @@
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView51" />
+
+    <ImageButton
+        android:id="@+id/btn_options2"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:background="@drawable/shape_btn_ghost_purple"
+        android:clickable="true"
+        android:onClick="showPopupMenu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bg_options" />
 
     <TextView
         android:id="@+id/textView50"
@@ -45,7 +59,7 @@
         android:fontFamily="@font/inter"
         android:lineSpacingMultiplier="1.4"
         android:text="Por Robert Cecil Martin"
-        android:textColor="@color/gray500"
+        android:textColor="@color/gray400"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView50" />
@@ -55,10 +69,10 @@
         android:layout_width="wrap_content"
         android:layout_height="10dp"
 
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="6dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toStartOf="@+id/textView53"
-        app:layout_constraintTop_toBottomOf="@+id/textView51"
+        app:layout_constraintTop_toTopOf="@+id/textView48"
         app:srcCompat="@drawable/calendar" />
 
     <TextView
@@ -69,34 +83,22 @@
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/inter"
         android:lineSpacingMultiplier="1.4"
-        android:text="Há 2 dias"
+        android:text="há 5 dias"
         android:textColor="@color/gray500"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView51" />
 
     <ImageButton
-        android:id="@+id/btn_deletebook2"
+        android:id="@+id/btn_options"
         android:layout_width="28dp"
         android:layout_height="28dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/shape_btn_ghost_red"
-        app:layout_constraintCircleRadius="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/trash_simple"
-        app:tint="@color/red500" />
-
-    <ImageButton
-        android:id="@+id/btn_editbook2"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="236dp"
         android:background="@drawable/shape_btn_ghost_purple"
         android:clickable="true"
-        app:layout_constraintEnd_toStartOf="@+id/btn_deletebook2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pencil_simple" />
+        app:layout_constraintStart_toEndOf="@+id/textView50"
+        app:layout_constraintTop_toTopOf="@+id/textView50"
+        app:srcCompat="@drawable/bg_options"
+        android:onClick="showPopupMenu"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
