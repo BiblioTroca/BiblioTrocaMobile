@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/managerProfile"
+        android:title="Gerenciar Conta" />
+
+    <item
+        android:id="@+id/highContrast"
+        android:icon="@drawable/ic_list"
+        android:title="Alto Contraste" />
+
+    <item
+        android:id="@+id/lightTheme"
+        android:title="Tema Claro" />
+
+
+    <item
+        android:id="@+id/LeaveSection"
+        android:title="Encerrar Sessão" />
+
+
+</menu>

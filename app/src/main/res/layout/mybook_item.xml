@@ -5,8 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/shape_card"
+    android:clickable="true"
     android:paddingHorizontal="16dp"
-    android:paddingVertical="20dp">
+    android:paddingVertical="20dp"
+    android:id="@+id/Card_Book_item">
+
+    <ImageButton
+        android:id="@+id/btn_options3"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/shape_btn_ghost_purple"
+        android:clickable="true"
+        android:onClick="showPopupMenu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bg_options" />
 
     <TextView
         android:id="@+id/textView48"
@@ -75,28 +89,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView51" />
 
-    <ImageButton
-        android:id="@+id/btn_deletebook2"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/shape_btn_ghost_red"
-        app:layout_constraintCircleRadius="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/trash_simple"
-        app:tint="@color/red500" />
-
-    <ImageButton
-        android:id="@+id/btn_editbook2"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/shape_btn_ghost_purple"
-        android:clickable="true"
-        app:layout_constraintEnd_toStartOf="@+id/btn_deletebook2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pencil_simple" />
 </androidx.constraintlayout.widget.ConstraintLayout>

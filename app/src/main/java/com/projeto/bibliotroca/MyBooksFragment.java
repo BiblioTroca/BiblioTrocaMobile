@@ -10,6 +10,7 @@ import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -35,6 +36,8 @@ public class MyBooksFragment extends Fragment {
 
         adapter = new MyBooksAdapter(getContext());
         recycleList.setAdapter(adapter);
+
+        ConstraintLayout book_card = view.findViewById(R.id.Card_Book_item);
 
         ImageButton btnAddBook = view.findViewById(R.id.btn_addbook);
 
