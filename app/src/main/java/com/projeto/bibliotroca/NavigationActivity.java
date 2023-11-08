@@ -22,6 +22,7 @@ public class NavigationActivity extends AppCompatActivity  {
         ConstraintLayout CardWish = (ConstraintLayout) findViewById(R.id.Card_wish);
         ConstraintLayout CardHist = (ConstraintLayout) findViewById(R.id.Card_Hist);
         ConstraintLayout CardTrades = (ConstraintLayout) findViewById(R.id.Card_trocas);
+        ConstraintLayout CardLib = (ConstraintLayout) findViewById(R.id.Card_Lib);
 
 
 
@@ -94,6 +95,19 @@ public class NavigationActivity extends AppCompatActivity  {
 
                 fragmentManager.beginTransaction()
                         .replace(R.id.fragmentContainerView3,PendingExchangeFragment.class,null)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("name")
+                        .commit();
+
+            }
+        });
+        CardLib.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager= getSupportFragmentManager();
+
+                fragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainerView3,ExchangeLibraryFragment.class,null)
                         .setReorderingAllowed(true)
                         .addToBackStack("name")
                         .commit();

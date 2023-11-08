@@ -15,7 +15,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></View>
+        app:layout_constraintTop_toTopOf="parent">
+
+    </View>
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"
@@ -219,6 +221,54 @@
                         android:layout_height="24.6dp"
                         android:layout_marginLeft="12dp"
                         android:text="()Livros"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/Card_Lib"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp"
+                android:background="@drawable/shape_card"
+                android:clickable="true"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="124dp"
+                    android:layout_height="140dp"
+                    android:layout_marginEnd="26dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+
+                    <ImageView
+                        android:id="@+id/ExchangeLib"
+                        android:layout_width="41dp"
+                        android:layout_height="31dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="18dp"
+                        android:contentDescription="vector_ek3"
+                        android:src="@drawable/ic_exchange_library" />
+
+                    <TextView
+                        android:id="@+id/lblLib"
+                        android:layout_width="89.6dp"
+                        android:layout_height="24.6dp"
+                        android:layout_marginLeft="12dp"
+                        android:text="Ofertas"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/txtLib"
+                        android:layout_width="89.6dp"
+                        android:layout_height="24.6dp"
+                        android:layout_marginLeft="12dp"
+                        android:text="()Ofertas"
                         android:textSize="16sp" />
                 </LinearLayout>
 

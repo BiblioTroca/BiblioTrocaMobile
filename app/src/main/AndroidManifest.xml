@@ -17,7 +17,7 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name=".LoginActivity"
+            android:name=".NavigationActivity"
             android:exported="true"
             android:theme="@style/Theme.Design.Light.NoActionBar">
             <intent-filter>
@@ -90,7 +90,7 @@
         </activity>
 
         <activity
-            android:name=".NavigationActivity"
+            android:name=".LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.Design.Light.NoActionBar">
             <intent-filter>
