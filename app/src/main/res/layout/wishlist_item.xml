@@ -25,19 +25,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView51" />
 
-    <ImageButton
-        android:id="@+id/btn_options2"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:background="@drawable/shape_btn_ghost_purple"
-        android:clickable="true"
-        android:onClick="showPopupMenu"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bg_options" />
-
     <TextView
         android:id="@+id/textView50"
         android:layout_width="wrap_content"
@@ -93,12 +80,11 @@
         android:id="@+id/btn_options"
         android:layout_width="28dp"
         android:layout_height="28dp"
-        android:layout_marginStart="236dp"
+        android:layout_marginStart="180dp"
         android:background="@drawable/shape_btn_ghost_purple"
         android:clickable="true"
+        android:onClick="showPopupMenu"
         app:layout_constraintStart_toEndOf="@+id/textView50"
         app:layout_constraintTop_toTopOf="@+id/textView50"
-        app:srcCompat="@drawable/bg_options"
-        android:onClick="showPopupMenu"
-        />
+        app:srcCompat="@drawable/bg_options" />
 </androidx.constraintlayout.widget.ConstraintLayout>

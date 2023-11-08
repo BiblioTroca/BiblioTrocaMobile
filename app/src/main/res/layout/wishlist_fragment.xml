@@ -49,6 +49,15 @@
                 app:layout_constraintBottom_toBottomOf="@+id/textView17"
                 app:layout_constraintStart_toEndOf="@+id/textView17" />
 
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="135dp"
+                android:background="@drawable/bg_plus"
+                app:layout_constraintStart_toEndOf="@+id/textView18"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycleListWishlist"
                 android:layout_width="match_parent"
