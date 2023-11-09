@@ -1,8 +1,8 @@
 package com.projeto.bibliotroca;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +11,11 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
+import com.projeto.bibliotroca.fragments.selected_exchange.Step1BuyerFragment;
+import com.projeto.bibliotroca.fragments.selected_exchange.Step1SellerFragment;
+import com.projeto.bibliotroca.fragments.selected_exchange.Step2BuyerFragment;
+import com.projeto.bibliotroca.fragments.selected_exchange.Step2SellerFragment;
 
 public class SelectedExchangeActivity extends AppCompatActivity {
     public enum UserType {
@@ -26,6 +31,9 @@ public class SelectedExchangeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         buildStyles();
         setContentView(R.layout.selected_exchange_layout);
+
+        ImageView btnArrowBack = findViewById(R.id.btnArrowBack);
+        btnArrowBack.setOnClickListener(event -> finish());
 
         controllerTransactionStep(UserType.BUYER, 1);
     }

@@ -9,6 +9,6 @@ public class WishlistItemView extends RecyclerView.ViewHolder {
     public View btnOptions;
     public WishlistItemView(View itemView) {
         super(itemView);
-    btnOptions = itemView.findViewById(R.id.btn_options);
+//    btnOptions = itemView.findViewById(R.id.btn_options2);
 }
 }

@@ -9,6 +9,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import com.projeto.bibliotroca.fragments.modal_variants.DeleteAccountModalFragment;
+
 public class ProfileActivity extends AppCompatActivity {
     void buildStyles() {
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.primary500));
@@ -19,6 +21,9 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         buildStyles();
         setContentView(R.layout.profile_layout);
+
+        ImageView btnArrowBack = findViewById(R.id.btnArrowBack);
+        btnArrowBack.setOnClickListener(event -> finish());
 
         Button btnUpdateAccount = findViewById(R.id.btnUpdateAccount);
         btnUpdateAccount.setOnClickListener(event -> {
