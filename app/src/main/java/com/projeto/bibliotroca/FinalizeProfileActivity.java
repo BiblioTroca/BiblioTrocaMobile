@@ -20,7 +20,7 @@ public class FinalizeProfileActivity extends AppCompatActivity {
         buildStyles();
         setContentView(R.layout.finalize_profile_layout);
 
-        Button btnFinalize = findViewById(R.id.btnUpdateAccount);
+        Button btnFinalize = findViewById(R.id.btnFinalizeAccount);
         btnFinalize.setOnClickListener(event -> {
             Intent openProfileActivity = new Intent(this, ProfileActivity.class);
             startActivity(openProfileActivity);

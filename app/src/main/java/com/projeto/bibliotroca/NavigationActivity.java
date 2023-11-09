@@ -1,8 +1,6 @@
 package com.projeto.bibliotroca;
 
-import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
@@ -10,6 +8,8 @@ import android.widget.PopupMenu;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.FragmentManager;
+
+import com.projeto.bibliotroca.fragments.exchange_library.ExchangeLibraryFragment;
 
 public class NavigationActivity extends AppCompatActivity  {
 
@@ -107,7 +107,7 @@ public class NavigationActivity extends AppCompatActivity  {
                 FragmentManager fragmentManager= getSupportFragmentManager();
 
                 fragmentManager.beginTransaction()
-                        .replace(R.id.fragmentContainerView3,ExchangeLibraryFragment.class,null)
+                        .replace(R.id.fragmentContainerView3, ExchangeLibraryFragment.class,null)
                         .setReorderingAllowed(true)
                         .addToBackStack("name")
                         .commit();
