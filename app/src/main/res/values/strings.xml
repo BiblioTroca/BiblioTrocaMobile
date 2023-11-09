@@ -57,6 +57,8 @@
     <string name="text_before_new_exchange">Negocie diretamente com Pedro e defina os detalhes da troca antes de prosseguir com a solicitação. Toque abaixo para iniciar a conversa.</string>
     <string name="generic_text_before_create_exchange">Tudo combinado e pronto para avançar? Solicite a troca agora mesmo clicando abaixo.</string>
     <string name="send_review">Enviar avaliação</string>
+    <string name="confirm_deletion">Sim, excluir</string>
+    <string name="confirm_deletion_txt">Confirmar Exclusão</string>
 
 
 </resources>

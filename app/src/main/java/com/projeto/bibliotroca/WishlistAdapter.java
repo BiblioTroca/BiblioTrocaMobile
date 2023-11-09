@@ -1,6 +1,7 @@
 package com.projeto.bibliotroca;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.View;
@@ -8,15 +9,21 @@ import android.view.ViewGroup;
 import android.widget.PopupMenu;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class WishlistAdapter extends RecyclerView.Adapter<WishlistItemView> {
     private final Context context;
+
+    private FragmentManager fragmentManager;
+
     private final LayoutInflater inflater;
 
-    public WishlistAdapter(Context context) {
+    public WishlistAdapter(Context context, FragmentManager fragmentManager) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
+        this.fragmentManager = fragmentManager;
+
     }
 
     @NonNull
@@ -24,6 +31,7 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistItemView> {
     public WishlistItemView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = inflater.inflate(R.layout.wishlist_item, parent, false);
         return new WishlistItemView(itemView);
+
     }
 
     @Override
@@ -44,11 +52,15 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistItemView> {
         popupMenu.setOnMenuItemClickListener(item -> {
             int itemId = item.getItemId();
             if (itemId == R.id.menu_edit) {
-                // Lógica para a opção de edição
+
+                Intent editIntent = new Intent(context, EditWishlistActivity.class);
+                context.startActivity(editIntent);
                 return true;
 
             }
             else if (itemId == R.id.menu_delete) {
+                DeleteBookModalFragment modal = new DeleteBookModalFragment();
+                modal.show(fragmentManager, "deleteAccountModal");
 
                 return true;
             } else {
