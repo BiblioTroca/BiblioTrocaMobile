@@ -1,4 +1,4 @@
-package com.projeto.bibliotroca;
+package com.projeto.bibliotroca.fragments.wishlist;
 
 import android.view.View;
 

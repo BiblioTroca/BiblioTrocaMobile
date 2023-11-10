@@ -7,6 +7,7 @@ import com.projeto.bibliotroca.models.TransactionDTO;
 import com.projeto.bibliotroca.utils.GlobalConstants;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -54,4 +55,19 @@ public class TransactionService {
             throw new RuntimeException(e);
         }
     }
+
+    public void getListTransaction(List<TransactionDTO> transactions){
+         transactions.clear();
+
+         ExecutorService exercutor = Executors.newSingleThreadExecutor();
+
+         String url = GlobalConstants.BASE_URL + "/transactions.json";
+
+
+
+
+
+    }
+
+
 }

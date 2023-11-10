@@ -10,6 +10,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.FragmentManager;
 
 import com.projeto.bibliotroca.fragments.exchange_library.ExchangeLibraryFragment;
+import com.projeto.bibliotroca.fragments.wishlist.WishlistFragment;
 
 public class NavigationActivity extends AppCompatActivity  {
 
@@ -68,7 +69,7 @@ public class NavigationActivity extends AppCompatActivity  {
                 FragmentManager fragmentManager= getSupportFragmentManager();
 
                 fragmentManager.beginTransaction()
-                        .replace(R.id.fragmentContainerView3,WishlistFragment.class,null)
+                        .replace(R.id.fragmentContainerView3, WishlistFragment.class,null)
                         .setReorderingAllowed(true)
                         .addToBackStack("name")
                         .commit();

@@ -1,4 +1,4 @@
-package com.projeto.bibliotroca;
+package com.projeto.bibliotroca.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +11,11 @@ import android.widget.PopupMenu;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.projeto.bibliotroca.fragments.modal_variants.DeleteBookModalFragment;
+import com.projeto.bibliotroca.EditWishlistActivity;
+import com.projeto.bibliotroca.R;
+import com.projeto.bibliotroca.fragments.wishlist.WishlistItemView;
 
 public class WishlistAdapter extends RecyclerView.Adapter<WishlistItemView> {
     private final Context context;

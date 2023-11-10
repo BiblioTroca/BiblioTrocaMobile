@@ -2,13 +2,14 @@ package com.projeto.bibliotroca;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
+
+import com.projeto.bibliotroca.fragments.modal_variants.DeleteBookModalFragment;
 
 public class MyBooksActivity  extends AppCompatActivity {
 

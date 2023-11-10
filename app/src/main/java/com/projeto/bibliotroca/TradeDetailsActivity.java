@@ -10,6 +10,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.projeto.bibliotroca.fragments.selected_review.Step1EvaluationFragment;
+import com.projeto.bibliotroca.fragments.selected_review.Step2EvaluationFragment;
+
 public class TradeDetailsActivity extends AppCompatActivity {
 
     void buildStyles() {

@@ -1,4 +1,4 @@
-package com.projeto.bibliotroca;
+package com.projeto.bibliotroca.fragments.modal_variants;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
+
+import com.projeto.bibliotroca.R;
 
 public class DeleteBookModalFragment extends DialogFragment {
 

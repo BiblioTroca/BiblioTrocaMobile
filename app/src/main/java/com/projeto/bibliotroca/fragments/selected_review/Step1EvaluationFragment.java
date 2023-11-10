@@ -1,4 +1,4 @@
-package com.projeto.bibliotroca;
+package com.projeto.bibliotroca.fragments.selected_review;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +9,9 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.projeto.bibliotroca.fragments.modal_variants.ConfirmEvaluationModalFragment;
+import com.projeto.bibliotroca.R;
 
 public class Step1EvaluationFragment extends Fragment {
 
