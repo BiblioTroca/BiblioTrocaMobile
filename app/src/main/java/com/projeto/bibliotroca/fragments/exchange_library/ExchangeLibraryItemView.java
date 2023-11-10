@@ -18,6 +18,7 @@ public class ExchangeLibraryItemView extends RecyclerView.ViewHolder {
     public TextView txtLocation;
     public TextView txtAverageRating;
     public TextView txtAvaliationsNumber;
+    public TextView btnShowItemDetails;
 
     public ExchangeLibraryItemView(@NonNull View itemView) {
         super(itemView);
@@ -30,5 +31,7 @@ public class ExchangeLibraryItemView extends RecyclerView.ViewHolder {
         txtLocation = itemView.findViewById(R.id.txtLocation);
         txtAverageRating = itemView.findViewById(R.id.txtAverageRating);
         txtAvaliationsNumber = itemView.findViewById(R.id.txtAvaliationsNumber);
+
+        btnShowItemDetails = itemView.findViewById(R.id.btnShowItemDetails);
     }
 }
