@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    android:background="@drawable/shape_card"
+    android:elevation="3dp"
+    android:paddingVertical="20dp">
+
+    <TextView
+        android:id="@+id/txtBookName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="160dp"
+        android:fontFamily="@font/barlow_bold"
+        android:lineSpacingMultiplier="1.25"
+        android:text="Clean code"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/gray500"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/btnShowItemDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:fontFamily="@font/inter"
+        android:lineSpacingMultiplier="1.4"
+        android:text="Detalhes"
+        android:textColor="@color/gray500"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+        app:layout_constraintEnd_toStartOf="@+id/imageView10"
+        app:layout_constraintTop_toTopOf="@+id/imageView10"
+        app:layout_constraintVertical_bias="0.666" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtBookName"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="16dp"
+        app:srcCompat="@drawable/ic_arrow_forward" />
+
+    <TextView
+        android:id="@+id/txtAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter"
+        android:lineSpacingMultiplier="1.4"
+        android:text="por Richard Helm"
+        android:textColor="@color/gray400"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/txtBookName"
+        app:layout_constraintTop_toBottomOf="@+id/txtBookName" />
+
+    <TextView
+        android:id="@+id/txtDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/inter"
+        android:lineSpacingMultiplier="1.6"
+        android:text="@string/example_book_short_description"
+        android:textColor="@color/gray500"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView10"
+        app:layout_constraintStart_toStartOf="@+id/txtAuthor"
+        app:layout_constraintTop_toBottomOf="@+id/txtAuthor" />
+
+    <TextView
+        android:id="@+id/txtCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/shape_category_tag"
+        android:fontFamily="@font/inter"
+        android:lineSpacingMultiplier="1.4"
+        android:paddingHorizontal="9dp"
+        android:paddingVertical="4dp"
+        android:text="Tecnologia"
+        android:textColor="@color/primary500"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/txtDescription"
+        app:layout_constraintTop_toBottomOf="@+id/txtDescription" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/gray300"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCategory" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtSellerName"
+        app:layout_constraintStart_toStartOf="@+id/txtCategory"
+        app:layout_constraintTop_toTopOf="@+id/txtSellerName"
+        app:srcCompat="@drawable/ic_send" />
+
+    <TextView
+        android:id="@+id/txtSellerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/inter"
+        android:lineSpacingMultiplier="1.4"
+        android:text="Enviado por Pedro"
+        android:textColor="@color/gray500"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView9"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtLocation"
+        app:layout_constraintStart_toStartOf="@+id/imageView9"
+        app:layout_constraintTop_toTopOf="@+id/txtLocation"
+        app:srcCompat="@drawable/ic_location" />
+
+    <TextView
+        android:id="@+id/txtLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/inter"
+        android:lineSpacingMultiplier="1.4"
+        android:text="Itaim Bibi, São Paulo"
+        android:textColor="@color/gray400"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/txtSellerName"
+        app:layout_constraintTop_toBottomOf="@+id/txtSellerName" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginHorizontal="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtAverageRating"
+        app:layout_constraintEnd_toStartOf="@+id/txtAverageRating"
+        app:layout_constraintTop_toTopOf="@+id/txtAverageRating"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_star" />
+
+    <TextView
+        android:id="@+id/txtAverageRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="4dp"
+        android:fontFamily="@font/inter"
+        android:lineSpacingMultiplier="1.4"
+        android:text="4.7"
+        android:textColor="@color/gray500"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtSellerName"
+        app:layout_constraintEnd_toStartOf="@+id/txtAvaliationsNumber"
+        app:layout_constraintTop_toTopOf="@+id/txtSellerName" />
+
+    <TextView
+        android:id="@+id/txtAvaliationsNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/inter"
+        android:lineSpacingMultiplier="1.4"
+        android:text="(14)"
+        android:textColor="@color/gray400"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtAverageRating"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txtAverageRating"
+        app:layout_constraintVertical_bias="1.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

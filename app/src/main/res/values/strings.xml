@@ -1,0 +1,64 @@
+<resources>
+    <string name="login_text">Comece sua jornada no mundo da troca de livros educacionais. Clique no botão para acessar sua conta.</string>
+
+    <string name="app_name">Bibliotroca</string>
+    <string name="Book_Author"> Escrito por:</string>
+    <string name="category"> Categoria </string>
+    <string name="language"> Idioma </string>
+    <string name="Year"> Ano </string>
+    <string name="Publisher"> Editora </string>
+    <string name="Book_condition"> Condição de Livro </string>
+    <string name="Description"> Descrição </string>
+    <string name="btn_login_text">Continue com o Google</string>
+    <string name="btn_confirm_text">Confirmar</string>
+    <string name="btn_update_text">Atualizar</string>
+
+    <string name="title_exchange_text">Trocas</string>
+    <string name="main_title_exchange">Detalhes da Troca em Andamento</string>
+    <string name="exchange_status_pending">Solicitação pendente</string>
+    <string name="quantity_points_to_add">+20 pontos (aguardando)</string>
+    <string name="date_solicited">Solicitada há 5 dias</string>
+    <string name="update_status_text">Atualize o status</string>
+    <string name="info_update_status_text">Selecione o status certo para manter todos informados sobre o progresso da troca.</string>
+    <string name="btn_update_status">Atualizar status</string>
+    <string name="btn_whatsapp">Entrar em contato</string>
+    <string name="example_book_description">O livro destaca a importância de manter o código limpo, não apenas para a eficácia imediata, mas para garantir que o software permaneça sustentável e fácil de manter a longo prazo. Utilizando exemplos práticos e diretrizes claras, Martin delineia os princípios do desenvolvimento de software ágil, focando em técnicas e práticas que levam a um código mais limpo e eficiente.</string>
+    <string name="example_book_short_description">O livro destaca a importância de manter o código limpo, não apenas para a eficácia imediata, mas...</string>
+
+    <string name="txt_Average">Avalie a experiência da troca</string>
+    <string name="assessment_carried_out">Avaliação já realizada</string>
+    <string name="historic">Histórico</string>
+    <string name="details_trade">Detalhes da Troca</string>
+
+    <string name="wishlist"> "Lista de Desejos</string>
+    <string name="register_wishlist">Cadastre um Livro que Deseja Obter </string>
+    <string name="title">Título</string>
+    <string name="Author">Autor</string>
+    <string name="register">Cadastrar</string>
+
+    <array name="spinner_options">
+        <item>Selecionar</item>
+        <item>Ciências Biológicas</item>
+        <item>Engenharias</item>
+        <item>Ciências da Saúde</item>
+        <item>Ciencias Agrárias</item>
+        <item>Linguísticas, Letras e Artes</item>
+        <item>Ciências Sociais Aplicadas</item>
+        <item>Ciências Huamanas</item>
+        <item>Ciências Exatas e da Terra</item>
+    </array>
+
+    <string name = "newcondition">Lido apenas uma ou poucas vezes, sem marcas.</string>
+    <string name = "goodcondition">Pode ter algumas marcas leves de manuseio, sem rasuras.</string>
+    <string name = "oldcondition">Bastante usado, com marcas de uso e anotações.</string>
+    <string name ="realeaseyear"> Ano de Lançamento </string>
+    <string name ="Registerbook"> Cadastre um novo livro</string>
+    <string name ="mybooks"> Meus Livro</string>
+    <string name="text_before_new_exchange">Negocie diretamente com Pedro e defina os detalhes da troca antes de prosseguir com a solicitação. Toque abaixo para iniciar a conversa.</string>
+    <string name="generic_text_before_create_exchange">Tudo combinado e pronto para avançar? Solicite a troca agora mesmo clicando abaixo.</string>
+    <string name="send_review">Enviar avaliação</string>
+    <string name="confirm_deletion">Sim, excluir</string>
+    <string name="confirm_deletion_txt">Confirmar Exclusão</string>
+
+
+</resources>

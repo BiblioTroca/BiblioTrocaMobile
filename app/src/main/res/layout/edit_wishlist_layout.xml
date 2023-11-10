@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white200"
+    android:layout_gravity="center">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutconst"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="76dp">
+
+            <View
+                android:id="@+id/rectangle_5"
+                android:layout_width="match_parent"
+                android:layout_height="277dp"
+                android:background="@color/primary500"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/backArrow"
+                android:layout_width="22dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:contentDescription="vector back Arrow"
+                android:src="@drawable/vector"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.037"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txthHistoric"
+                android:layout_width="113dp"
+                android:layout_height="21dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="76dp"
+                android:fontFamily="@font/inter"
+                android:lineSpacingExtra="3sp"
+                android:text="@string/wishlist"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:translationY="-1.33sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/rectangle_5"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtDetails"
+                android:layout_width="169dp"
+                android:layout_height="60dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/barlow_bold"
+                android:gravity="center_horizontal|top"
+                android:lineSpacingExtra="1sp"
+                android:text="Edite os Dados do Livro"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:translationY="-0.6sp"
+                app:layout_constraintEnd_toEndOf="@+id/rectangle_5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txthHistoric" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="344dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="48dp"
+                android:background="@drawable/shape_card"
+                android:elevation="3dp"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtDetails">
+
+
+                <TextView
+                    android:id="@+id/txtProfileMail"
+                    android:layout_width="165.78dp"
+                    android:layout_height="22dp"
+                    android:fontFamily="@font/inter_medium"
+                    android:labelFor="@id/inputProfileEmail"
+                    android:lineSpacingMultiplier="1.4"
+                    android:text="@string/title"
+                    android:textColor="@color/gray500"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/inputProfileEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/shape_input_border"
+                    android:ems="10"
+                    android:fontFamily="@font/inter"
+                    android:inputType="textEmailAddress"
+                    android:lineSpacingMultiplier="1.6"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="15dp"
+                    android:textColor="@color/gray500"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtProfileMail" />
+
+                <TextView
+                    android:id="@+id/txtProfilePhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/inter_medium"
+                    android:labelFor="@id/inputProfilePhone"
+                    android:lineSpacingMultiplier="1.4"
+                    android:text="@string/Author"
+                    android:textColor="@color/gray500"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/inputProfileEmail" />
+
+                <EditText
+                    android:id="@+id/inputProfilePhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/shape_input_border"
+                    android:ems="10"
+                    android:fontFamily="@font/inter"
+                    android:inputType="phone"
+                    android:lineSpacingMultiplier="1.6"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="15dp"
+                    android:textColor="@color/gray500"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtProfilePhone" />
+
+                <TextView
+                    android:id="@+id/txtProfileCEP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/inter_medium"
+                    android:labelFor="@id/inputProfileCEP"
+                    android:lineSpacingMultiplier="1.4"
+                    android:text="@string/category"
+                    android:textColor="@color/gray500"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/inputProfilePhone" />
+
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/shape_input_border"
+                    android:entries="@array/spinner_options"
+                    android:textColor="@color/gray500"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtProfileCEP" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <Button
+                android:id="@+id/btnUpdateStatus"
+                android:layout_width="326dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="44dp"
+                android:background="@drawable/shape_btn_border"
+                android:backgroundTint="@color/primary500"
+                android:fontFamily="@font/barlow_bold"
+                android:lineSpacingMultiplier="1.6"
+                android:text="Atualizar"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

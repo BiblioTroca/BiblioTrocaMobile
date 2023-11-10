@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white200"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutconst"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="76dp">
+
+            <View
+                android:id="@+id/rectangle_5"
+                android:layout_width="match_parent"
+                android:layout_height="277dp"
+                android:background="@color/primary500"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/backArrow"
+                android:layout_width="22dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:contentDescription="vector back Arrow"
+                android:src="@drawable/vector"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.037"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txthHistoric"
+                android:layout_width="95dp"
+                android:layout_height="21dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/inter"
+                android:text="@string/historic"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:lineSpacingExtra="3sp"
+                android:translationY="-1.33sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/rectangle_5"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtDetails"
+                android:layout_width="169dp"
+                android:layout_height="60dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/barlow_bold"
+                android:gravity="center_horizontal|top"
+                android:lineSpacingExtra="1sp"
+                android:text="@string/details_trade"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:translationY="-0.6sp"
+                app:layout_constraintEnd_toEndOf="@+id/rectangle_5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txthHistoric" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintHistoricDetails"
+                android:layout_width="match_parent"
+                android:layout_height="121dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="209dp"
+                android:background="@drawable/shape_card"
+                android:elevation="3dp"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/txtHistoryBookTitle"
+                    android:layout_width="159dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:fontFamily="@font/barlow_bold"
+                    android:gravity="top"
+                    android:lineSpacingExtra="1sp"
+                    android:textColor="@color/gray500"
+                    android:textSize="20sp"
+                    android:translationY="-0.5sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/constraintHistoricDetails" />
+
+                <TextView
+                    android:id="@+id/txtHistoricPoints"
+                    android:layout_width="131dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/inter"
+                    android:gravity="top"
+                    android:lineSpacingExtra="3sp"
+                    android:textColor="@color/gray500"
+                    android:textSize="14sp"
+                    android:translationY="-1.33sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtHistoryBookTitle" />
+
+                <TextView
+                    android:id="@+id/txtHistoricDate"
+                    android:layout_width="131dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/inter"
+                    android:gravity="top"
+                    android:lineSpacingExtra="3sp"
+                    android:textColor="@color/gray500"
+                    android:textSize="20sp"
+                    android:translationY="-1.33sp"
+                    app:layout_constraintStart_toEndOf="@+id/historicCalendar"
+                    app:layout_constraintTop_toBottomOf="@+id/txtHistoricPoints" />
+
+                <ImageView
+                    android:id="@+id/historicCalendar"
+                    android:layout_width="19dp"
+                    android:layout_height="16dp"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#FFFFFF"
+                    android:contentDescription="calendar vector"
+                    android:src="@drawable/calendar"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/txtHistoricDate" />
+
+                <View
+                    android:id="@+id/ellipse_1"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="57dp"
+                    android:background="@android:drawable/presence_invisible"
+                    app:layout_constraintStart_toEndOf="@+id/txtHistoryBookTitle"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtHistoricStatus"
+                    android:layout_width="66dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/inter"
+                    android:gravity="top"
+                    android:lineSpacingExtra="3sp"
+                    android:textColor="@color/gray500"
+                    android:textSize="14sp"
+                    android:translationY="-1.33sp"
+                    app:layout_constraintStart_toEndOf="@+id/ellipse_1"
+                    app:layout_constraintTop_toTopOf="@+id/ellipse_1" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/cardEvaluation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginRight="10dp"
+                android:paddingHorizontal="16dp"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintHistoricDetails" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/txtHistoricPublisher"
+                android:layout_width="match_parent"
+                android:layout_height="690dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/shape_card"
+                android:elevation="3dp"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardEvaluation">
+
+                <TextView
+                    android:id="@+id/txtHistoricAuthor"
+                    android:layout_width="240.52dp"
+                    android:layout_height="22dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:gravity="top"
+                    android:lineSpacingExtra="3sp"
+                    android:translationY="-1.52sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtHistoricCategory"
+                    android:layout_width="105.35dp"
+                    android:layout_height="22dp"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/inter"
+                    android:gravity="top"
+                    android:lineSpacingExtra="3sp"
+                    android:text="@string/category"
+                    android:textColor="@color/gray500"
+                    android:textSize="16sp"
+                    android:translationY="-1.52sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtHistoricAuthor" />
+
+                <View
+                    android:id="@+id/historicCategoryView"
+                    android:layout_width="79.86dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/rectangle_7"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtHistoricCategory" />
+
+                <TextView
+                    android:id="@+id/txtHistoricCategorText"
+                    android:layout_width="61.62dp"
+                    android:layout_height="16dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="9dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="9dp"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="@font/inter"
+                    android:gravity="center_horizontal|top"
+                    android:lineSpacingExtra="2sp"
+                    android:textColor="@color/primary500"
+                    android:textSize="12sp"
+                    android:translationY="-1.14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/historicCategoryView"
+                    app:layout_constraintEnd_toEndOf="@+id/historicCategoryView"
+                    app:layout_constraintStart_toStartOf="@+id/historicCategoryView"
+                    app:layout_constraintTop_toTopOf="@+id/historicCategoryView" />
+
+                <TextView
+                    android:id="@+id/txtHistoricLanguage"
+                    android:layout_width="105.35dp"
+                    android:layout_height="22dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="20dp"
+                    android:gravity="top"
+                    android:lineSpacingExtra="3sp"
+                    android:textColor="@color/gray500"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/inter"
+                    android:text="@string/language"
+                    android:translationY="-1.52sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/historicCategoryView" />
+
+                <TextView
+                    android:id="@+id/txtHistoricLanguageText"
+                    android:layout_width="105.35dp"
+                    android:layout_height="22dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="4dp"
+                    android:gravity="top"
+                    android:lineSpacingExtra="3sp"
+                    android:translationY="-1.52sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtHistoricLanguage" />
+
+                <TextView
+                    android:id="@+id/ano"
+                    android:layout_width="105.35dp"
+                    android:layout_height="22dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="82.49dp"
+                    android:fontFamily="@font/inter"
+                    android:gravity="top"
+                    android:lineSpacingExtra="3sp"
+                    android:text="@string/Year"
+                    android:textColor="@color/gray500"
+                    android:textSize="16sp"
+                    android:translationY="-1.52sp"
+                    app:layout_constraintStart_toEndOf="@+id/txtHistoricLanguage"
+                    app:layout_constraintTop_toTopOf="@+id/txtHistoricLanguage" />
+
+                <TextView
+                    android:id="@+id/txtHistoricYear"
+                    android:layout_width="105.35dp"
+                    android:layout_height="22dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="83dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/inter"
+                    android:gravity="top"
+                    android:lineSpacingExtra="3sp"
+                    android:textColor="@color/gray500"
+                    android:textSize="16sp"
+                    android:translationY="-1.52sp"
+                    app:layout_constraintStart_toEndOf="@+id/txtHistoricLanguageText"
+                    app:layout_constraintTop_toBottomOf="@+id/ano" />
+
+                <TextView
+                    android:id="@+id/editora"
+                    android:layout_width="292.21dp"
+                    android:layout_height="22dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/inter"
+                    android:gravity="top"
+                    android:lineSpacingExtra="3sp"
+                    android:text="@string/Publisher"
+                    android:textColor="@color/gray500"
+                    android:textSize="16sp"
+                    android:translationY="-1.52sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtHistoricLanguageText" />
+
+                <TextView
+                    android:id="@+id/alta_books"
+                    android:layout_width="292.21dp"
+                    android:layout_height="22dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/inter"
+                    android:gravity="top"
+                    android:lineSpacingExtra="3sp"
+                    android:textColor="@color/gray500"
+                    android:textSize="16sp"
+                    android:translationY="-1.52sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editora" />
+
+                <TextView
+                    android:id="@+id/condi_o_do_"
+                    android:layout_width="292.21dp"
+                    android:layout_height="22dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="20dp"
+                    android:gravity="top"
+                    android:lineSpacingExtra="3sp"
+                    android:text="@string/Book_condition"
+                    android:translationY="-1.52sp"
+                    android:textColor="@color/gray500"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/inter"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/alta_books" />
+
+                <TextView
+                    android:id="@+id/txtHistoricCondition"
+                    android:layout_width="294.2dp"
+                    android:layout_height="52dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="4dp"
+                    android:gravity="top"
+                    android:lineSpacingExtra="6sp"
+                    android:translationY="-3.12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/condi_o_do_"
+                    android:textColor="@color/gray500"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/inter" />
+
+                <TextView
+                    android:id="@+id/descri_o"
+                    android:layout_width="294.2dp"
+                    android:layout_height="22dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/inter"
+                    android:gravity="top"
+                    android:lineSpacingExtra="3sp"
+                    android:text="@string/Description"
+                    android:textColor="@color/gray500"
+                    android:textSize="16sp"
+                    android:translationY="-1.52sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtHistoricCondition" />
+
+                <TextView
+                    android:id="@+id/o_livro_des"
+                    android:layout_width="294.2dp"
+                    android:layout_height="286dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="4dp"
+                    android:gravity="top"
+                    android:lineSpacingExtra="6sp"
+                    android:translationY="-3.12sp"
+                    android:textColor="@color/gray500"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/inter"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/descri_o" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintHistoricUser"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="24dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="16dp"
+    android:background="@drawable/shape_card"
+    android:elevation="3dp"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="20dp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/constraintHistoricDetails">
+
+    <TextView
+        android:id="@+id/txtHistoricUserName"
+        android:layout_width="207dp"
+        android:layout_height="22dp"
+        android:fontFamily="@font/inter"
+        android:gravity="top"
+        android:lineSpacingExtra="3sp"
+        android:paddingHorizontal="16dp"
+        android:textColor="@color/gray500"
+        android:textSize="16sp"
+        android:translationY="-1.52sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/starHistoric"
+        android:layout_width="19dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="17dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:contentDescription="calendar vector"
+        android:src="@drawable/star"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtHistoricUserName" />
+
+    <TextView
+        android:id="@+id/txtHistoricAverage"
+        android:layout_width="24.16dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="5dp"
+        android:fontFamily="@font/inter"
+        android:gravity="top"
+        android:lineSpacingExtra="3sp"
+        android:textColor="@color/gray500"
+        android:textSize="16sp"
+        android:translationY="-1.52sp"
+        app:layout_constraintStart_toEndOf="@+id/starHistoric"
+        app:layout_constraintTop_toTopOf="@+id/starHistoric" />
+
+    <TextView
+        android:id="@+id/txtHistoricNumberReviews"
+        android:layout_width="26.18dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="5dp"
+        app:layout_constraintStart_toEndOf="@+id/txtHistoricAverage"
+        app:layout_constraintTop_toTopOf="@+id/txtHistoricAverage" />
+
+
+    <TextView
+        android:id="@+id/txtHistoricAverageText"
+        android:layout_width="217dp"
+        android:layout_height="22dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/inter"
+        android:gravity="top"
+        android:text="@string/txt_Average"
+        android:textColor="@color/gray500"
+        android:textSize="16sp"
+        android:translationY="-1.52sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtHistoricAverage" />
+
+    <ImageView
+        android:id="@+id/btnHistoricNextArrow"
+        android:layout_width="22dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="5dp"
+        android:contentDescription="vector next Arrow"
+        android:src="@drawable/ic_arrow_next"
+        app:layout_constraintStart_toEndOf="@+id/txtHistoricAverageText"
+        app:layout_constraintTop_toTopOf="@+id/txtHistoricAverageText" />
+
+    <TextView
+        android:id="@+id/txtHistoricRequestDate"
+        android:layout_width="296dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/inter"
+        android:gravity="top"
+        android:lineSpacingExtra="3sp"
+        android:textColor="@color/gray500"
+        android:textSize="16sp"
+        android:translationY="-1.52sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtHistoricAverageText" />
+
+    <TextView
+        android:id="@+id/txtHistoricDelivery"
+        android:layout_width="279.89dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/inter"
+        android:gravity="top"
+        android:lineSpacingExtra="3sp"
+        android:textColor="@color/gray500"
+        android:textSize="16sp"
+        android:translationY="-1.52sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtHistoricRequestDate" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

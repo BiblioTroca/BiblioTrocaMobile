@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/shape_card"
+        android:clickable="true"
+        android:elevation="3dp"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.708"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9">
+
+        <TextView
+            android:id="@+id/textView29"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/shape_category_tag"
+            android:fontFamily="@font/inter"
+            android:lineSpacingMultiplier="1.4"
+            android:paddingHorizontal="9dp"
+            android:paddingVertical="4dp"
+            android:text="Tecnologia"
+            android:textColor="@color/primary500"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/barlow_bold"
+            android:lineSpacingMultiplier="1.25"
+            android:maxWidth="160dp"
+            android:text="Clean code"
+            android:textColor="@color/gray500"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/inter"
+            android:lineSpacingMultiplier="1.4"
+            android:text="Por Robert Cecil Martin"
+            android:textColor="@color/gray500"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="10dp"
+
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/textView20"
+            app:layout_constraintTop_toBottomOf="@+id/textView19"
+            app:srcCompat="@drawable/calendar" />
+
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/inter"
+            android:lineSpacingMultiplier="1.4"
+            android:text="Há 2 dias"
+            android:textColor="@color/gray500"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+        <ImageButton
+            android:id="@+id/btn_deletebook"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/shape_btn_ghost_red"
+            app:layout_constraintCircleRadius="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/trash_simple"
+            app:tint="@color/red500" />
+
+        <ImageButton
+            android:id="@+id/btn_editbook"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/shape_btn_ghost_purple"
+            android:clickable="true"
+            app:layout_constraintEnd_toStartOf="@+id/btn_deletebook"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/pencil_simple" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/rectangle_5"
+        android:layout_width="match_parent"
+        android:layout_height="192dp"
+        android:background="#7A2F73"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.025">
+    </View>
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.251">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="20dp"
+                android:background="@drawable/shape_card"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="124dp"
+                    android:layout_height="140dp"
+                    android:layout_marginEnd="26dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+
+                    <ImageView
+                        android:id="@+id/Heart"
+                        android:layout_width="22dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="18dp"
+                        android:contentDescription="vector_ek3"
+                        android:src="@drawable/ic_heart" />
+
+                    <TextView
+                        android:id="@+id/lblWishList"
+                        android:layout_width="89.6dp"
+                        android:layout_height="24.6dp"
+                        android:layout_marginLeft="12dp"
+                        android:text="Lista de Desejos"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/txtWish"
+                        android:layout_width="89.6dp"
+                        android:layout_height="24.6dp"
+                        android:layout_marginLeft="12dp"
+                        android:text="()Livros"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="20dp"
+                android:background="@drawable/shape_card"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="124dp"
+                    android:layout_height="140dp"
+                    android:layout_marginEnd="26dp"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <ImageView
+                        android:id="@+id/Booksvg"
+                        android:layout_width="22dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="18dp"
+                        android:contentDescription="vector_ek3"
+                        android:src="@drawable/ic_books" />
+
+                    <TextView
+                        android:id="@+id/MeusLivros"
+                        android:layout_width="89.6dp"
+                        android:layout_height="24.6dp"
+                        android:layout_marginLeft="12dp"
+                        android:text="Meus Livros"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/txtLivros"
+                        android:layout_width="89.6dp"
+                        android:layout_height="24.6dp"
+                        android:layout_marginLeft="12dp"
+                        android:text="()Livros"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="20dp"
+                android:background="@drawable/shape_card"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="124dp"
+                    android:layout_height="140dp"
+                    android:layout_marginEnd="26dp"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <ImageView
+                        android:id="@+id/vector_ek3"
+                        android:layout_width="22dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="18dp"
+                        android:contentDescription="vector_ek3"
+                        android:src="@drawable/ic_swap" />
+
+                    <TextView
+                        android:id="@+id/trocas_ek1"
+                        android:layout_width="89.6dp"
+                        android:layout_height="24.6dp"
+                        android:layout_marginLeft="12dp"
+                        android:text="Trocas"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/pendentes"
+                        android:layout_width="89.6dp"
+                        android:layout_height="24.6dp"
+                        android:layout_marginLeft="12dp"
+                        android:text="()Pendentes"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="20dp"
+                android:background="@drawable/shape_card"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="124dp"
+                    android:layout_height="140dp"
+                    android:layout_marginEnd="26dp"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <ImageView
+                        android:id="@+id/History"
+                        android:layout_width="22dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="18dp"
+                        android:contentDescription="vector_ek3"
+                        android:src="@drawable/ic_list" />
+
+                    <TextView
+                        android:id="@+id/lblHisto"
+                        android:layout_width="89.6dp"
+                        android:layout_height="24.6dp"
+                        android:layout_marginLeft="12dp"
+                        android:text="Lista de Desejos"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/TxtHisto"
+                        android:layout_width="89.6dp"
+                        android:layout_height="24.6dp"
+                        android:layout_marginLeft="12dp"
+                        android:text="()Livros"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Meus Livros"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+
+    <ImageButton
+        android:id="@+id/btn_addbook"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/shape_btn_ghost_purple"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
+        app:srcCompat="@drawable/plus" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
