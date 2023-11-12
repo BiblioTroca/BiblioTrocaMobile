@@ -26,15 +26,14 @@ public class ConfirmEvaluationModalFragment extends DialogFragment {
             getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         }
 
-        View view = inflater.inflate(R.layout.evaluate_modal_fragment, container, false); // Inflar o layout do fragmento
+        View view = inflater.inflate(R.layout.evaluate_modal_fragment, container, false);
 
-        RatingBar ratingBar = view.findViewById(R.id.ratingBar); // Encontre a RatingBar no layout inflado
+        RatingBar ratingBar = view.findViewById(R.id.ratingBar);
 
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
                 if (fromUser) {
-                    // Arredonda o valor do rating para o valor inteiro mais próximo
                     int intValue = Math.round(rating);
                     ratingBar.setRating(intValue);
                 }

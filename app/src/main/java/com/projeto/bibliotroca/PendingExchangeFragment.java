@@ -1,12 +1,10 @@
 package com.projeto.bibliotroca;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,9 +12,17 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.projeto.bibliotroca.models.TransactionDTO;
+import com.projeto.bibliotroca.services.TransactionService;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class PendingExchangeFragment extends Fragment {
 
     PendingExchangeAdapter adapter;
+
+    List<TransactionDTO> transactions = new ArrayList<>();
 
     @Nullable
     @Override
@@ -37,6 +43,16 @@ public class PendingExchangeFragment extends Fragment {
         recycleList.setAdapter(adapter);
 
 
-        };
+        TransactionService transactionService = new TransactionService();
+        transactionService.getListTransaction(transactions);
+
+        TextView txtTradeAmountItems = view.findViewById(R.id.txtTradeAmountItems);
+
+        String amountItems = "";
+        if (transactions.size() > 0) {
+            amountItems = "I " + transactions.size() + " itens";
+        }
+        txtTradeAmountItems.setText(amountItems);
+        }
     }
 

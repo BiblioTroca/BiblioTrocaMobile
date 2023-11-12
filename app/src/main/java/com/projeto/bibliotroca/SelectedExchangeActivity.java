@@ -1,7 +1,10 @@
 package com.projeto.bibliotroca;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
@@ -18,6 +21,9 @@ import com.projeto.bibliotroca.fragments.selected_exchange.Step2BuyerFragment;
 import com.projeto.bibliotroca.fragments.selected_exchange.Step2SellerFragment;
 
 public class SelectedExchangeActivity extends AppCompatActivity {
+
+    Button btnWhatsapp;
+
     public enum UserType {
         SELLER, BUYER
     }
@@ -36,6 +42,16 @@ public class SelectedExchangeActivity extends AppCompatActivity {
         btnArrowBack.setOnClickListener(event -> finish());
 
         controllerTransactionStep(UserType.BUYER, 1);
+
+        btnWhatsapp = findViewById(R.id.btnWhatsapp);
+        btnWhatsapp.setOnClickListener(event -> {
+            String whatsappURL = "https://api.whatsapp.com/send?phone=55";
+
+            Intent openWhatsapp = new Intent(Intent.ACTION_VIEW);
+            openWhatsapp.setData(Uri.parse(whatsappURL));
+
+            startActivity(openWhatsapp);
+        });
     }
 
     public void handleCheckedRadioItem(View view) {
@@ -57,7 +73,7 @@ public class SelectedExchangeActivity extends AppCompatActivity {
                 if(isExistsRadioRecuse) {
                     radioItemRecuse.setSelected(false);
                     radioCircleRecuse.setSelected(false);
-                };
+                }
 
                 return;
             }

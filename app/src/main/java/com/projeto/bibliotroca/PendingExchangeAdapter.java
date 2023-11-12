@@ -1,6 +1,7 @@
 package com.projeto.bibliotroca;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,9 +29,13 @@ public class PendingExchangeAdapter extends RecyclerView.Adapter<PendingExchange
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PendingExchangeItemView holder, int position) {
-        // função para pegar o obj a partir da posição, para setar no ITEM.
-    }
+    public void onBindViewHolder(@NonNull PendingExchangeItemView itemView, int position) {
+
+
+        itemView.textView63.setOnClickListener(event -> {
+            Intent openSelectedExchange = new Intent(context, SelectedExchangeActivity.class);
+            context.startActivity(openSelectedExchange);
+        });    }
 
     @Override
     public int getItemCount() {

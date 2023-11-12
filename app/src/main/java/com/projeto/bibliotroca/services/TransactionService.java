@@ -3,6 +3,7 @@ package com.projeto.bibliotroca.services;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.projeto.bibliotroca.models.TransactionDTO;
 import com.projeto.bibliotroca.utils.GlobalConstants;
 
@@ -13,7 +14,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-import okhttp3.FormBody;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -59,15 +59,72 @@ public class TransactionService {
     public void getListTransaction(List<TransactionDTO> transactions){
          transactions.clear();
 
-         ExecutorService exercutor = Executors.newSingleThreadExecutor();
+         ExecutorService executor = Executors.newSingleThreadExecutor();
 
          String url = GlobalConstants.BASE_URL + "/transactions.json";
 
+        Future<?> fetchTransactions = executor.submit(() -> {
+            Request request = new Request.Builder()
+                    .url(url)
+                    .get()
+                    .build();
+            try {
+                Response response = client.newCall(request).execute();
+                if (response.isSuccessful()) {
+                    String listTransactionResponse = response.body().string();
+                    JsonObject listTransactionInJson = gson.fromJson(listTransactionResponse, JsonObject.class);
 
 
+                    for (String key : listTransactionInJson.keySet()) {
+                        JsonObject transactionInJson = listTransactionInJson.getAsJsonObject(key);
+                        TransactionDTO transactionToAdd = gson.fromJson(transactionInJson, TransactionDTO.class);
 
+                        transactions.add(transactionToAdd);
+                    }
+                }
+            } catch (IOException exception) {
+                exception.printStackTrace();
+            }
+        });
 
+        try {
+            fetchTransactions.get();
+        } catch (ExecutionException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
+    // Corrigir
+    public TransactionDTO getTransactionById(String id) {
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        String url = GlobalConstants.BASE_URL + "/transaction-details/-Niqde_4WTcl4bdm9kko.json";
 
+        Future<TransactionDTO> fetchTransactionById = executor.submit(() -> {
+            Request request = new Request.Builder()
+                    .url(url)
+                    .get()
+                    .build();
+
+            try {
+                Response response = client.newCall(request).execute();
+
+                if (response.isSuccessful()) {
+                    String bookResponse = response.body().string();
+                    TransactionDTO selectedTransaction = gson.fromJson(bookResponse, TransactionDTO.class);
+
+                    return selectedTransaction;
+                }
+            } catch (IOException exception) {
+                exception.printStackTrace();
+            }
+
+            return null;
+        });
+
+        try {
+            return fetchTransactionById.get();
+        } catch (ExecutionException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
