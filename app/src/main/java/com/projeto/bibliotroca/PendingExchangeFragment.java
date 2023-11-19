@@ -39,7 +39,7 @@ public class PendingExchangeFragment extends Fragment {
         RecyclerView recycleList = view.findViewById(R.id.recicleVexchange);
         recycleList.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        adapter = new PendingExchangeAdapter(getContext());
+        adapter = new PendingExchangeAdapter(getContext(), transactions);
         recycleList.setAdapter(adapter);
 
 

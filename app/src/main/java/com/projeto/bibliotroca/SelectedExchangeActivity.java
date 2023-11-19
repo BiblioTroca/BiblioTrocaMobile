@@ -3,9 +3,11 @@ package com.projeto.bibliotroca;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,10 +21,35 @@ import com.projeto.bibliotroca.fragments.selected_exchange.Step1BuyerFragment;
 import com.projeto.bibliotroca.fragments.selected_exchange.Step1SellerFragment;
 import com.projeto.bibliotroca.fragments.selected_exchange.Step2BuyerFragment;
 import com.projeto.bibliotroca.fragments.selected_exchange.Step2SellerFragment;
+import com.projeto.bibliotroca.models.BookCompleteDTO;
+import com.projeto.bibliotroca.models.TransactionDTO;
+import com.projeto.bibliotroca.services.BookService;
+import com.projeto.bibliotroca.services.TransactionService;
 
 public class SelectedExchangeActivity extends AppCompatActivity {
 
+    TextView txtBookName;
+    TextView txtStatus;
+    TextView txtAverageRating;
+    TextView txtAvaliationsNumber;
+    TextView txtCreateAt;
+    TextView txtBuyerName;
+    TextView txtDateCreateSelected;
+    TextView txtCategory;
+    TextView txtAuthor;
+    TextView txtLanguage;
+    TextView txtYear;
+    TextView txtPublishingCompany;
+    TextView txtState;
+    TextView txtDescription;
+
+
+
     Button btnWhatsapp;
+
+    TransactionDTO transactionToShow;
+
+    ImageView btnArrowBack;
 
     public enum UserType {
         SELLER, BUYER
@@ -38,7 +65,9 @@ public class SelectedExchangeActivity extends AppCompatActivity {
         buildStyles();
         setContentView(R.layout.selected_exchange_layout);
 
-        ImageView btnArrowBack = findViewById(R.id.btnArrowBack);
+        showTransactionDetails();
+
+        btnArrowBack = findViewById(R.id.btnArrowBack);
         btnArrowBack.setOnClickListener(event -> finish());
 
         controllerTransactionStep(UserType.BUYER, 1);
@@ -52,6 +81,61 @@ public class SelectedExchangeActivity extends AppCompatActivity {
 
             startActivity(openWhatsapp);
         });
+    }
+
+    private void showTransactionDetails() {
+        Intent receivedIntentFromItem = getIntent();
+        if (receivedIntentFromItem != null) {
+            String id = receivedIntentFromItem.getStringExtra("transactionId");
+            TransactionService transactionService = new TransactionService();
+            transactionToShow = transactionService.getTransactionById(id);
+            setTransactionIn(transactionToShow);
+            Log.d("SelectedExchangeActivity", "Método funcionando");
+        }
+    }
+
+    private void setTransactionIn(TransactionDTO transaction) {
+
+        if (transaction == null) {
+            Log.d("SelectedExchangeActivity", "Transaction is null");
+            return;
+        } else {
+            // Primeiro Card
+            String createAt = "Solicitada há " + transaction.getCreatedAt().toString() + "dias"; // Arruma formato + calculo
+
+            txtBookName = findViewById(R.id.txtBookNameSelected);
+            txtBookName.setText(transaction.getBookDetails().getName());
+            txtStatus = findViewById(R.id.txtStatusSelected);
+            txtStatus.setText(transaction.getStatus());
+            txtCreateAt = findViewById(R.id.txtDateCreateSelected);
+            txtCreateAt.setText(createAt);
+
+
+            // Segundo Card
+            String buyerName = transaction.getBuyer().getFirstName() + " " + transaction.getBuyer().getLastName();
+            String averageRating = String.valueOf(transaction.getBuyer().getAverageRating());
+            String avaliationsNumber = "(" + String.valueOf(transaction.getBuyer().getAvaliationsNumber()) + ")";
+            String dateCreateSelected = transaction.getCreatedAt().toString();
+
+            txtBuyerName = findViewById(R.id.txtNameBuyerSelected);
+            txtBuyerName.setText(buyerName);
+            txtAverageRating = findViewById(R.id.txtAverageRatingSelected);
+            txtAverageRating.setText(averageRating);
+            txtAvaliationsNumber = findViewById(R.id.txtAvaliationsNumberSelected);
+            txtAvaliationsNumber.setText(avaliationsNumber);
+            txtDateCreateSelected = findViewById(R.id.txtDateCreateSelected);
+            txtDateCreateSelected.setText(dateCreateSelected);
+
+
+            // Terceiro Card
+            txtCategory.setText(transaction.getBookDetails().getCategory());
+            txtAuthor.setText(transaction.getBookDetails().getAuthor());
+            txtLanguage.setText(transaction.getBookDetails().getLanguage());
+            txtPublishingCompany.setText(transaction.getBookDetails().getPublishingCompany());
+            txtDescription.setText(transaction.getBookDetails().getDescription());
+            txtYear.setText(transaction.getBookDetails().getYear());
+            txtState.setText(transaction.getBookDetails().getState());
+        }
     }
 
     public void handleCheckedRadioItem(View view) {

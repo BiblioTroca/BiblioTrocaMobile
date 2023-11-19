@@ -97,7 +97,7 @@ public class TransactionService {
     // Corrigir
     public TransactionDTO getTransactionById(String id) {
         ExecutorService executor = Executors.newSingleThreadExecutor();
-        String url = GlobalConstants.BASE_URL + "/transaction-details/-Niqde_4WTcl4bdm9kko.json";
+        String url = GlobalConstants.BASE_URL+"/transactions/"+id+".json";
 
         Future<TransactionDTO> fetchTransactionById = executor.submit(() -> {
             Request request = new Request.Builder()
@@ -109,22 +109,80 @@ public class TransactionService {
                 Response response = client.newCall(request).execute();
 
                 if (response.isSuccessful()) {
-                    String bookResponse = response.body().string();
-                    TransactionDTO selectedTransaction = gson.fromJson(bookResponse, TransactionDTO.class);
-
+                    String transactionResponse = response.body().string();
+                    TransactionDTO selectedTransaction = gson.fromJson(transactionResponse, TransactionDTO.class);
                     return selectedTransaction;
                 }
             } catch (IOException exception) {
                 exception.printStackTrace();
             }
-
             return null;
         });
-
         try {
             return fetchTransactionById.get();
         } catch (ExecutionException | InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
+
+    // TESTAR
+    public void deleteTransactionById(String id) {
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        String url = GlobalConstants.BASE_URL + "/transactions/" + id + ".json";
+
+        Future<?> deleteTransactionById = executor.submit(() -> {
+            Request request = new Request.Builder()
+                    .url(url)
+                    .delete()
+                    .build();
+
+            try {
+                Response response = client.newCall(request).execute();
+
+                if (response.isSuccessful()) {
+                    Log.i("TransactionService", "Apagou a transação");
+                } else {
+                    Log.i("TransactionService", "Não Funcionou, que droga");
+                }
+            } catch (IOException exception) {
+                exception.printStackTrace();
+            }
+        });
+        try {
+            deleteTransactionById.get();
+        } catch (ExecutionException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    // TESTAR e corrigir o JSON (Olhar Buyer e Seller, avaliação, fragmentos)
+    public void updateTransactionById(String id, String newStatus) {
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        String url = GlobalConstants.BASE_URL + "/transactions/" + id + ".json";
+
+        Future<?> updateTransactionStatusById = executor.submit(() -> {
+            String updatedStatusJson = "{\"status\": \"" + newStatus + "\"}";
+            RequestBody body = RequestBody.create(updatedStatusJson, JSON);
+            Request request = new Request.Builder()
+                    .url(url)
+                    .put(body)
+                    .build();
+            try {
+                Response response = client.newCall(request).execute();
+                if (response.isSuccessful()) {
+                    Log.i("TransactionService", "Atualizou");
+                } else {
+                    Log.e("TransactionService", "Não Funcionou, que droga");
+                }
+            } catch (IOException exception) {
+                exception.printStackTrace();
+            }
+        });
+        try {
+            updateTransactionStatusById.get();
+        } catch (ExecutionException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

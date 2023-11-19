@@ -2,6 +2,7 @@ package com.projeto.bibliotroca;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,14 +10,25 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.projeto.bibliotroca.models.TransactionDTO;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+
 public class PendingExchangeAdapter extends RecyclerView.Adapter<PendingExchangeItemView> {
 
     private Context context;
     private LayoutInflater inflater;
 
-    public PendingExchangeAdapter(Context context) {
+    List<TransactionDTO> transactions;
+
+    public PendingExchangeAdapter(Context context, List<TransactionDTO> transactions) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
+        this.transactions = transactions;
     }
 
     @NonNull
@@ -30,16 +42,37 @@ public class PendingExchangeAdapter extends RecyclerView.Adapter<PendingExchange
 
     @Override
     public void onBindViewHolder(@NonNull PendingExchangeItemView itemView, int position) {
+        TransactionDTO transaction = transactions.get(position);
+
+            itemView.textView63.setOnClickListener(event -> {
+                Intent openSelectedExchange = new Intent(context, SelectedExchangeActivity.class);
+                openSelectedExchange.putExtra("transactionId", transaction.getId());
+                context.startActivity(openSelectedExchange);
+                Log.d("ID_Clicado", "ID: " + transaction.getId());
+
+            });
+
+        SimpleDateFormat dateInput = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault());
+        String dateFormated = "dd/MM/yyyy";
+        try {
+            Date date = dateInput.parse(transaction.getCreatedAt());
+            SimpleDateFormat dateFinal = new SimpleDateFormat(dateFormated, Locale.getDefault());
+            String dateFinalFormated = dateFinal.format(date);
+            itemView.txtDateSolicited.setText(dateFinalFormated);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        itemView.txtBookName.setText(transaction.getBookDetails().getName());
+        itemView.txtStatusTrade.setText(transaction.getStatus());
+        itemView.txtBuyerName.setText("Enviado para " + transaction.getBuyer().getFirstName() + " " + transaction.getBuyer().getLastName());
 
 
-        itemView.textView63.setOnClickListener(event -> {
-            Intent openSelectedExchange = new Intent(context, SelectedExchangeActivity.class);
-            context.startActivity(openSelectedExchange);
-        });    }
+    }
 
     @Override
     public int getItemCount() {
-        return 3;
+        return transactions.size();
     }
 }
 

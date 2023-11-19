@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.projeto.bibliotroca.R;
-import com.projeto.bibliotroca.UndoAgreementModalFragment;
+import com.projeto.bibliotroca.fragments.modal_variants.UndoAgreementModalFragment;
 
 public class Step1BuyerFragment extends Fragment {
 

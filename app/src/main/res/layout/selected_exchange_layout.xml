@@ -87,7 +87,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView16">
 
                 <TextView
-                    android:id="@+id/textView17"
+                    android:id="@+id/txtBookNameSelected"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxWidth="160dp"
@@ -105,12 +105,12 @@
                     android:layout_height="10dp"
                     android:background="@drawable/shape_yellow_circle"
                     android:layout_marginEnd="4dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView18"
-                    app:layout_constraintEnd_toStartOf="@+id/textView18"
-                    app:layout_constraintTop_toTopOf="@+id/textView18" />
+                    app:layout_constraintBottom_toBottomOf="@+id/txtStatusSelected"
+                    app:layout_constraintEnd_toStartOf="@+id/txtStatusSelected"
+                    app:layout_constraintTop_toTopOf="@+id/txtStatusSelected" />
 
                 <TextView
-                    android:id="@+id/textView18"
+                    android:id="@+id/txtStatusSelected"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/inter"
@@ -132,20 +132,20 @@
                     android:textColor="@color/gray500"
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView17" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtBookNameSelected" />
 
                 <ImageView
                     android:id="@+id/imageView5"
                     android:layout_width="10dp"
                     android:layout_height="10dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView20"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtSolicitedSelected"
 
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/textView20"
+                    app:layout_constraintTop_toTopOf="@+id/txtSolicitedSelected"
                     app:srcCompat="@drawable/calendar" />
 
                 <TextView
-                    android:id="@+id/textView20"
+                    android:id="@+id/txtSolicitedSelected"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
@@ -183,7 +183,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/cardUpdateStatus">
 
                 <TextView
-                    android:id="@+id/textView31"
+                    android:id="@+id/txtNameBuyerSelected"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/inter_medium"
@@ -198,13 +198,13 @@
                     android:id="@+id/imageView6"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView32"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtAverageRatingSelected"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/textView32"
+                    app:layout_constraintTop_toTopOf="@+id/txtAverageRatingSelected"
                     app:srcCompat="@drawable/ic_star" />
 
                 <TextView
-                    android:id="@+id/textView32"
+                    android:id="@+id/txtAverageRatingSelected"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="4dp"
@@ -215,10 +215,10 @@
                     android:textColor="@color/gray500"
                     android:textSize="16sp"
                     app:layout_constraintStart_toEndOf="@+id/imageView6"
-                    app:layout_constraintTop_toBottomOf="@+id/textView31" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtNameBuyerSelected" />
 
                 <TextView
-                    android:id="@+id/textView33"
+                    android:id="@+id/txtAvaliationsNumberSelected"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="4dp"
@@ -227,9 +227,9 @@
                     android:text="(14)"
                     android:textColor="@color/gray400"
                     android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView32"
-                    app:layout_constraintStart_toEndOf="@+id/textView32"
-                    app:layout_constraintTop_toTopOf="@+id/textView32" />
+                    app:layout_constraintBottom_toBottomOf="@+id/txtAverageRatingSelected"
+                    app:layout_constraintStart_toEndOf="@+id/txtAverageRatingSelected"
+                    app:layout_constraintTop_toTopOf="@+id/txtAverageRatingSelected" />
 
                 <Button
                     android:id="@+id/btnWhatsapp"
@@ -248,12 +248,12 @@
                     android:textSize="16sp"
                     android:textAlignment="textStart"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView32"
+                    app:layout_constraintTop_toBottomOf="@+id/txtAverageRatingSelected"
                     tools:layout_editor_absoluteX="24dp"
                     tools:layout_editor_absoluteY="886dp" />
 
                 <TextView
-                    android:id="@+id/textView34"
+                    android:id="@+id/txtDateCreateSelected"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -282,7 +282,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/cardSeller">
 
                 <TextView
-                    android:id="@+id/textView35"
+                    android:id="@+id/txtAuthorSelected"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/inter_medium"
@@ -304,10 +304,10 @@
                     android:textColor="@color/gray500"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView35" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtAuthorSelected" />
 
                 <TextView
-                    android:id="@+id/textView37"
+                    android:id="@+id/txtCategorySelected"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
@@ -333,10 +333,10 @@
                     android:textColor="@color/gray500"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView37" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtCategorySelected" />
 
                 <TextView
-                    android:id="@+id/textView39"
+                    android:id="@+id/txtLanguageSelected"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
@@ -358,11 +358,11 @@
                     android:text="Ano"
                     android:textColor="@color/gray500"
                     android:textSize="16sp"
-                    app:layout_constraintStart_toEndOf="@+id/textView39"
+                    app:layout_constraintStart_toEndOf="@+id/txtLanguageSelected"
                     app:layout_constraintTop_toTopOf="@+id/textView38" />
 
                 <TextView
-                    android:id="@+id/textView41"
+                    android:id="@+id/txtYearSelected"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/inter"
@@ -371,7 +371,7 @@
                     android:textColor="@color/gray500"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="@+id/textView40"
-                    app:layout_constraintTop_toTopOf="@+id/textView39" />
+                    app:layout_constraintTop_toTopOf="@+id/txtLanguageSelected" />
 
                 <TextView
                     android:id="@+id/textView45"
@@ -384,10 +384,10 @@
                     android:textColor="@color/gray500"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView39" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtLanguageSelected" />
 
                 <TextView
-                    android:id="@+id/textView49"
+                    android:id="@+id/txtPuslishingCompanySelected"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
@@ -410,10 +410,10 @@
                     android:textColor="@color/gray500"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView49" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtPuslishingCompanySelected" />
 
                 <TextView
-                    android:id="@+id/textView59"
+                    android:id="@+id/txtStateSelected"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
@@ -436,10 +436,10 @@
                     android:textColor="@color/gray500"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView59" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtStateSelected" />
 
                 <TextView
-                    android:id="@+id/textView69"
+                    android:id="@+id/txtDescriptionSelected"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"

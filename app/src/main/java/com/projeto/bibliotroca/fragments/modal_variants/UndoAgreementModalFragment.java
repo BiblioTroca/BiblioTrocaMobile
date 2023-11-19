@@ -1,21 +1,37 @@
-package com.projeto.bibliotroca;
+package com.projeto.bibliotroca.fragments.modal_variants;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
+import com.projeto.bibliotroca.NavigationActivity;
+import com.projeto.bibliotroca.R;
+import com.projeto.bibliotroca.models.TransactionDTO;
+import com.projeto.bibliotroca.services.TransactionService;
+
 public class UndoAgreementModalFragment extends DialogFragment {
+
+    TransactionService TransactionService;
+    private TransactionDTO transaction;
+
+    Button btnConfirmUndoAgreement;
 
     public UndoAgreementModalFragment() {
         super(R.layout.undo_agreement_modal_fragment);
+    }
+
+    public UndoAgreementModalFragment(TransactionDTO transaction) {
+        this.transaction = transaction;
     }
 
     @Override
@@ -37,10 +53,30 @@ public class UndoAgreementModalFragment extends DialogFragment {
                               @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        btnConfirmUndoAgreement = view.findViewById(R.id.btnUpdateStatus);
+        btnConfirmUndoAgreement.setOnClickListener(event -> {
+            updateStatus("Cancelada");
+            navigateToExchangeScreen();
+
+        });
+
         ImageView btnCloseModal = view.findViewById(R.id.btnCloseModal);
         btnCloseModal.setOnClickListener(event -> {
             dismiss();
-        });
+    });
+}
+
+    private void updateStatus(String newStatus) {
+        if (transaction != null) {
+            TransactionService.updateTransactionById(transaction.getId(), newStatus);
+            transaction.setStatus(newStatus);
+        }
     }
 
+
+    private void navigateToExchangeScreen() {
+        Intent exchangeIntent = new Intent(requireContext(), NavigationActivity.class);
+        startActivity(exchangeIntent);
+
+    }
 }
