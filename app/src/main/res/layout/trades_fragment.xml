@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/white"
+    android:background="@color/white200"
     android:layout_height="match_parent">
 
     <ScrollView
@@ -22,12 +22,11 @@
                 android:id="@+id/textView70"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="28dp"
                 android:fontFamily="@font/barlow_bold"
                 android:lineSpacingMultiplier="1.4"
                 android:text="Trocas"
-                android:textSize="16sp"
+                android:textColor="@color/gray500"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -36,15 +35,14 @@
                 android:id="@+id/txtTradeAmountItems"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="28dp"
-                android:fontFamily="@font/barlow_bold"
+                android:fontFamily="@font/inter"
                 android:lineSpacingMultiplier="1.4"
                 android:text="I 3 Itens"
-                android:textSize="16sp"
+                android:textColor="@color/gray400"
+                android:textSize="14sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/textView70"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintBottom_toBottomOf="@+id/textView70"
+                app:layout_constraintStart_toEndOf="@+id/textView70" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recicleVexchange"

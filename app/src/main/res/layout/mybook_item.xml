@@ -2,13 +2,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Card_Book_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="8dp"
     android:background="@drawable/shape_card"
     android:clickable="true"
     android:paddingHorizontal="16dp"
-    android:paddingVertical="20dp"
-    android:id="@+id/Card_Book_item">
+    android:paddingVertical="20dp">
 
     <ImageButton
         android:id="@+id/btn_options3"
@@ -23,7 +24,7 @@
         app:srcCompat="@drawable/bg_options" />
 
     <TextView
-        android:id="@+id/textView48"
+        android:id="@+id/txtBookCategoryCard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -36,10 +37,10 @@
         android:textColor="@color/primary500"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView51" />
+        app:layout_constraintTop_toBottomOf="@+id/txtBookAuthorCard" />
 
     <TextView
-        android:id="@+id/textView50"
+        android:id="@+id/txtBookTitleCard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/barlow_bold"
@@ -52,7 +53,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView51"
+        android:id="@+id/txtBookAuthorCard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -62,7 +63,7 @@
         android:textColor="@color/gray500"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView50" />
+        app:layout_constraintTop_toBottomOf="@+id/txtBookTitleCard" />
 
     <ImageView
         android:id="@+id/imageView12"
@@ -71,12 +72,12 @@
 
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/textView53"
-        app:layout_constraintTop_toBottomOf="@+id/textView51"
+        app:layout_constraintEnd_toStartOf="@+id/txtBookDate"
+        app:layout_constraintTop_toBottomOf="@+id/txtBookAuthorCard"
         app:srcCompat="@drawable/calendar" />
 
     <TextView
-        android:id="@+id/textView53"
+        android:id="@+id/txtBookDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -87,6 +88,6 @@
         android:textColor="@color/gray500"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView51" />
+        app:layout_constraintTop_toBottomOf="@+id/txtBookAuthorCard" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -85,7 +85,7 @@ public class BookCompleteDTO {
         this.description = description;
     }
 
-    public String getCreatedAt() {
+    public String getCreatedAt(String format) {
         return createdAt;
     }
 

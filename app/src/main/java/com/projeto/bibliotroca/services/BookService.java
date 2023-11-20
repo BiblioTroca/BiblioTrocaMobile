@@ -94,4 +94,47 @@ public class BookService {
             throw new RuntimeException(e);
         }
     }
+
+    public void getListBookFull(List<BookCompleteDTO> books) {
+        books.clear();
+
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+
+        String url = GlobalConstants.BASE_URL + "/books.json";
+
+        Future<?> fetchBooks = executor.submit(() -> {
+            Request request = new Request.Builder()
+                    .url(url)
+                    .get()
+                    .build();
+
+            try {
+                Response response = client.newCall(request).execute();
+
+                if (response.isSuccessful()) {
+                    String listBookResponse = response.body().string();
+                    JsonObject listBookInJson = gson.fromJson(listBookResponse, JsonObject.class);
+
+                    for (String key : listBookInJson.keySet()) {
+                        JsonObject bookInJson = listBookInJson.getAsJsonObject(key);
+                        BookCompleteDTO bookToAdd = gson.fromJson(bookInJson, BookCompleteDTO.class);
+                        books.add(bookToAdd);
+                    }
+                }
+            } catch (IOException exception) {
+                exception.printStackTrace();
+            }
+        });
+
+        try {
+            fetchBooks.get();
+        } catch (ExecutionException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+
+
+
 }

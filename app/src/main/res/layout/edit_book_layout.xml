@@ -25,7 +25,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/imageView7"
+                android:id="@+id/btnArrowBack"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="24dp"
@@ -215,7 +215,7 @@
                     android:focusable="true"
                     android:onClick="handleCheckedRadioItem"
                     android:padding="12dp"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextText17"
+                    app:layout_constraintTop_toBottomOf="@+id/editBookYear"
                     tools:layout_editor_absoluteX="16dp">
 
                     <ImageView
@@ -285,7 +285,7 @@
                     android:text="@string/Author"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextText12" />
+                    app:layout_constraintTop_toBottomOf="@+id/editBooktitle" />
 
                 <TextView
                     android:id="@+id/textView42"
@@ -305,10 +305,10 @@
                     android:text="@string/Description"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextText10" />
+                    app:layout_constraintTop_toBottomOf="@+id/editLanguagem" />
 
                 <EditText
-                    android:id="@+id/editTextText10"
+                    android:id="@+id/editLanguagem"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:background="@drawable/shape_input_border"
@@ -320,7 +320,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView42" />
 
                 <EditText
-                    android:id="@+id/editTextText11"
+                    android:id="@+id/editBookDescription"
                     android:layout_width="match_parent"
                     android:layout_height="156dp"
                     android:background="@drawable/shape_input_border"
@@ -334,7 +334,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView43" />
 
                 <EditText
-                    android:id="@+id/editTextText12"
+                    android:id="@+id/editBooktitle"
                     android:layout_width="match_parent"
                     android:layout_height="52dp"
                     android:background="@drawable/shape_input_border"
@@ -347,7 +347,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
                 <EditText
-                    android:id="@+id/editTextText13"
+                    android:id="@+id/editBookAuthor"
                     android:layout_width="match_parent"
                     android:layout_height="52dp"
                     android:background="@drawable/shape_input_border"
@@ -372,7 +372,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
                 <EditText
-                    android:id="@+id/editTextText16"
+                    android:id="@+id/editPublisher"
                     android:layout_width="match_parent"
                     android:layout_height="52dp"
                     android:background="@drawable/shape_input_border"
@@ -390,10 +390,10 @@
                     android:text="@string/realeaseyear"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextText16" />
+                    app:layout_constraintTop_toBottomOf="@+id/editPublisher" />
 
                 <EditText
-                    android:id="@+id/editTextText17"
+                    android:id="@+id/editBookYear"
                     android:layout_width="match_parent"
                     android:layout_height="52dp"
                     android:layout_marginStart="2dp"
@@ -413,7 +413,7 @@
                     android:text="@string/category"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextText13" />
+                    app:layout_constraintTop_toBottomOf="@+id/editBookAuthor" />
 
                 <Spinner
                     android:id="@+id/spinner"
@@ -427,7 +427,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/btnAtualizar"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:layout_marginTop="44dp"

@@ -1,5 +1,7 @@
 package com.projeto.bibliotroca;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -10,9 +12,12 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.FragmentManager;
 
 import com.projeto.bibliotroca.fragments.exchange_library.ExchangeLibraryFragment;
+import com.projeto.bibliotroca.fragments.mybooks.MyBooksFragment;
 import com.projeto.bibliotroca.fragments.wishlist.WishlistFragment;
 
 public class NavigationActivity extends AppCompatActivity  {
+
+    private Context context;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,22 +35,21 @@ public class NavigationActivity extends AppCompatActivity  {
         profileImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PopupMenu popupMenu = new PopupMenu(getApplicationContext(), v);
+                PopupMenu popupMenu = new PopupMenu(v.getContext(), v);
                 popupMenu.getMenuInflater().inflate(R.menu.profile_menu, popupMenu.getMenu());
                 popupMenu.setOnMenuItemClickListener(item -> {
                     int itemId = item.getItemId();
                     if (itemId == R.id.managerProfile) {
-                        // Lógica para a opção de edição
+                        Intent profileIntent = new Intent(v.getContext(), ProfileActivity.class);
+                        v.getContext().startActivity(profileIntent);
                         return true;
-
+                    } else if (itemId == R.id.LeaveSection) {
+                        Intent logout = new Intent(v.getContext(), LoginActivity.class);
+                        v.getContext().startActivity(logout);
+                        return true;
+                    } else {
+                        return false;
                     }
-                    else if (itemId == R.id.highContrast) {
-
-                        return true;
-                    } else if (itemId == R.id.lightTheme) {
-
-                        return true;
-                    }else return itemId == R.id.LeaveSection;
                 });
                 popupMenu.show();
             }
@@ -57,7 +61,7 @@ public class NavigationActivity extends AppCompatActivity  {
                 FragmentManager fragmentManager= getSupportFragmentManager();
 
                 fragmentManager.beginTransaction()
-                        .replace(R.id.fragmentContainerView3,MyBooksFragment.class,null)
+                        .replace(R.id.fragmentContainerView3, MyBooksFragment.class,null)
                         .setReorderingAllowed(true)
                         .addToBackStack("name")
                         .commit();
