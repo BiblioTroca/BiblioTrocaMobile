@@ -49,6 +49,8 @@ public class PendingExchangeAdapter extends RecyclerView.Adapter<PendingExchange
                 openSelectedExchange.putExtra("transactionId", transaction.getId());
                 context.startActivity(openSelectedExchange);
                 Log.d("ID_Clicado", "ID: " + transaction.getId());
+                Log.d("Position", "Posição: " + transactions.get(position) );
+                Log.d("transaction", "Tran: " + transactions);
 
             });
 

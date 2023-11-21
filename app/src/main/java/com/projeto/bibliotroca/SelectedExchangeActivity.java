@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -21,10 +22,11 @@ import com.projeto.bibliotroca.fragments.selected_exchange.Step1BuyerFragment;
 import com.projeto.bibliotroca.fragments.selected_exchange.Step1SellerFragment;
 import com.projeto.bibliotroca.fragments.selected_exchange.Step2BuyerFragment;
 import com.projeto.bibliotroca.fragments.selected_exchange.Step2SellerFragment;
-import com.projeto.bibliotroca.models.BookCompleteDTO;
 import com.projeto.bibliotroca.models.TransactionDTO;
-import com.projeto.bibliotroca.services.BookService;
 import com.projeto.bibliotroca.services.TransactionService;
+import com.projeto.bibliotroca.PendingExchangeAdapter;
+
+import java.util.List;
 
 public class SelectedExchangeActivity extends AppCompatActivity {
 
@@ -42,7 +44,6 @@ public class SelectedExchangeActivity extends AppCompatActivity {
     TextView txtPublishingCompany;
     TextView txtState;
     TextView txtDescription;
-
 
 
     Button btnWhatsapp;
@@ -64,6 +65,8 @@ public class SelectedExchangeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         buildStyles();
         setContentView(R.layout.selected_exchange_layout);
+
+        initializeUIComponents();
 
         showTransactionDetails();
 
@@ -91,10 +94,17 @@ public class SelectedExchangeActivity extends AppCompatActivity {
             transactionToShow = transactionService.getTransactionById(id);
             setTransactionIn(transactionToShow);
             Log.d("SelectedExchangeActivity", "Método funcionando");
+            Log.d("TESTE", "Tran: " + transactionToShow);
         }
     }
 
+    public void initializeUIComponents(){
+        txtBookName = findViewById(R.id.txtBookNameSelected);
+        Log.d("Components", "Funcionando");
+    }
+
     private void setTransactionIn(TransactionDTO transaction) {
+
 
         if (transaction == null) {
             Log.d("SelectedExchangeActivity", "Transaction is null");
@@ -103,13 +113,15 @@ public class SelectedExchangeActivity extends AppCompatActivity {
             // Primeiro Card
             String createAt = "Solicitada há " + transaction.getCreatedAt().toString() + "dias"; // Arruma formato + calculo
 
-            txtBookName = findViewById(R.id.txtBookNameSelected);
             txtBookName.setText(transaction.getBookDetails().getName());
             txtStatus = findViewById(R.id.txtStatusSelected);
             txtStatus.setText(transaction.getStatus());
             txtCreateAt = findViewById(R.id.txtDateCreateSelected);
             txtCreateAt.setText(createAt);
 
+            txtBookName.setText(transaction.getBookDetails().getName());
+
+            //  itemView.txtBookName.setText(transaction.getBookDetails().getName());
 
             // Segundo Card
             String buyerName = transaction.getBuyer().getFirstName() + " " + transaction.getBuyer().getLastName();
@@ -137,6 +149,7 @@ public class SelectedExchangeActivity extends AppCompatActivity {
             txtState.setText(transaction.getBookDetails().getState());
         }
     }
+
 
     public void handleCheckedRadioItem(View view) {
         ConstraintLayout radioItemAccept = findViewById(R.id.selectableFrameAccept);

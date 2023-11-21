@@ -98,7 +98,7 @@ public class TransactionService {
     public TransactionDTO getTransactionById(String id) {
         ExecutorService executor = Executors.newSingleThreadExecutor();
         String url = GlobalConstants.BASE_URL+"/transactions/"+id+".json";
-
+        Log.d("Name", "Name:" + id);
         Future<TransactionDTO> fetchTransactionById = executor.submit(() -> {
             Request request = new Request.Builder()
                     .url(url)
@@ -107,12 +107,16 @@ public class TransactionService {
 
             try {
                 Response response = client.newCall(request).execute();
+                Log.d("Response", "Dto:" + response);
 
                 if (response.isSuccessful()) {
                     String transactionResponse = response.body().string();
                     TransactionDTO selectedTransaction = gson.fromJson(transactionResponse, TransactionDTO.class);
+                    Log.d("TransactionService", "e: " + selectedTransaction);
+                    Log.d("TransactionResponse", "Dto:" + transactionResponse);
                     return selectedTransaction;
                 }
+
             } catch (IOException exception) {
                 exception.printStackTrace();
             }
