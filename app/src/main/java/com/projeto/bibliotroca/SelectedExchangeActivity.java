@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -24,9 +23,14 @@ import com.projeto.bibliotroca.fragments.selected_exchange.Step2BuyerFragment;
 import com.projeto.bibliotroca.fragments.selected_exchange.Step2SellerFragment;
 import com.projeto.bibliotroca.models.TransactionDTO;
 import com.projeto.bibliotroca.services.TransactionService;
-import com.projeto.bibliotroca.PendingExchangeAdapter;
 
-import java.util.List;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
+import java.util.Locale;
 
 public class SelectedExchangeActivity extends AppCompatActivity {
 
@@ -44,12 +48,8 @@ public class SelectedExchangeActivity extends AppCompatActivity {
     TextView txtPublishingCompany;
     TextView txtState;
     TextView txtDescription;
-
-
     Button btnWhatsapp;
-
     TransactionDTO transactionToShow;
-
     ImageView btnArrowBack;
 
     public enum UserType {
@@ -68,12 +68,16 @@ public class SelectedExchangeActivity extends AppCompatActivity {
 
         initializeUIComponents();
 
-        showTransactionDetails();
+        try {
+            showTransactionDetails();
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
 
         btnArrowBack = findViewById(R.id.btnArrowBack);
         btnArrowBack.setOnClickListener(event -> finish());
 
-        controllerTransactionStep(UserType.BUYER, 1);
+        controllerTransactionStep(UserType.BUYER, 2);
 
         btnWhatsapp = findViewById(R.id.btnWhatsapp);
         btnWhatsapp.setOnClickListener(event -> {
@@ -86,7 +90,7 @@ public class SelectedExchangeActivity extends AppCompatActivity {
         });
     }
 
-    private void showTransactionDetails() {
+    private void showTransactionDetails() throws ParseException {
         Intent receivedIntentFromItem = getIntent();
         if (receivedIntentFromItem != null) {
             String id = receivedIntentFromItem.getStringExtra("transactionId");
@@ -103,15 +107,25 @@ public class SelectedExchangeActivity extends AppCompatActivity {
         Log.d("Components", "Funcionando");
     }
 
-    private void setTransactionIn(TransactionDTO transaction) {
+
+    private void setTransactionIn(TransactionDTO transaction) throws ParseException {
 
 
         if (transaction == null) {
             Log.d("SelectedExchangeActivity", "Transaction is null");
             return;
         } else {
+
             // Primeiro Card
-            String createAt = "Solicitada há " + transaction.getCreatedAt().toString() + "dias"; // Arruma formato + calculo
+
+            // Calculo de dias
+            String transactionCreateDate = transaction.getCreatedAt(); // Data da transação
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDate transactionDate = LocalDate.parse(transactionCreateDate, formatter);
+            LocalDate currentDate = LocalDate.now(); // Data atual
+            long daysBetween = ChronoUnit.DAYS.between(transactionDate, currentDate); // Conversão para dias
+
+            String createAt = "Solicitada há " + daysBetween + "dias"; // Arruma formato + calculo
 
             txtBookName.setText(transaction.getBookDetails().getName());
             txtStatus = findViewById(R.id.txtStatusSelected);
@@ -119,15 +133,15 @@ public class SelectedExchangeActivity extends AppCompatActivity {
             txtCreateAt = findViewById(R.id.txtDateCreateSelected);
             txtCreateAt.setText(createAt);
 
-            txtBookName.setText(transaction.getBookDetails().getName());
-
-            //  itemView.txtBookName.setText(transaction.getBookDetails().getName());
-
             // Segundo Card
+            SimpleDateFormat outputFormat = new SimpleDateFormat("dd/MM/yy", Locale.getDefault());
+            Date date = outputFormat.parse(transaction.getCreatedAt().toString());
+            String formattedDate = outputFormat.format(date);
+
             String buyerName = transaction.getBuyer().getFirstName() + " " + transaction.getBuyer().getLastName();
             String averageRating = String.valueOf(transaction.getBuyer().getAverageRating());
             String avaliationsNumber = "(" + String.valueOf(transaction.getBuyer().getAvaliationsNumber()) + ")";
-            String dateCreateSelected = transaction.getCreatedAt().toString();
+            String dateCreateSelected = "Solicitada em " + formattedDate;
 
             txtBuyerName = findViewById(R.id.txtNameBuyerSelected);
             txtBuyerName.setText(buyerName);
@@ -138,14 +152,20 @@ public class SelectedExchangeActivity extends AppCompatActivity {
             txtDateCreateSelected = findViewById(R.id.txtDateCreateSelected);
             txtDateCreateSelected.setText(dateCreateSelected);
 
-
             // Terceiro Card
+            txtCategory = findViewById(R.id.txtCategorySelected);
             txtCategory.setText(transaction.getBookDetails().getCategory());
+            txtAuthor = findViewById(R.id.txtAuthorSelected);
             txtAuthor.setText(transaction.getBookDetails().getAuthor());
+            txtLanguage = findViewById(R.id.txtLanguageSelected);
             txtLanguage.setText(transaction.getBookDetails().getLanguage());
+            txtPublishingCompany = findViewById(R.id.txtPuslishingCompanySelected);
             txtPublishingCompany.setText(transaction.getBookDetails().getPublishingCompany());
+            txtDescription = findViewById(R.id.txtDescriptionSelected);
             txtDescription.setText(transaction.getBookDetails().getDescription());
+            txtYear = findViewById(R.id.txtYearSelected);
             txtYear.setText(transaction.getBookDetails().getYear());
+            txtState = findViewById(R.id.txtStateSelected);
             txtState.setText(transaction.getBookDetails().getState());
         }
     }

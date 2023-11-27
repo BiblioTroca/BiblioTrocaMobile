@@ -21,21 +21,39 @@ public class Step1BuyerFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.step_1_buyer_fragment, container, false);
 
-        Button btnUpdateStatus = view.findViewById(R.id.btnUpdateStatus);
-
-        btnUpdateStatus.setOnClickListener(new View.OnClickListener() {
+        View radioItemRecuse = view.findViewById(R.id.radioCircleRecuse);
+        radioItemRecuse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UndoAgreementModalFragment modal = new UndoAgreementModalFragment();
-                modal.show(getChildFragmentManager(), "undoAgreementModal");
+                boolean isRadioRecuseSelected = radioItemRecuse.isSelected();
+                updateButtonState(view, isRadioRecuseSelected);
             }
         });
+        //boolean isRadioRecuseSelected = radioItemRecuse.isSelected();
+        //updateButtonState(view, isRadioRecuseSelected);
+
         return view;
     }
 
+    private void updateButtonState(View view, boolean isRadioRecuseSelected) {
+        Button btnUpdateStatus = view.findViewById(R.id.btnUpdateStatus);
+
+        if (isRadioRecuseSelected) {
+            btnUpdateStatus.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    UndoAgreementModalFragment modal = new UndoAgreementModalFragment();
+                    modal.show(getChildFragmentManager(), "undoAgreementModal");
+                }
+            });
+        } else {
+            btnUpdateStatus.setOnClickListener(null);
+        }
+    }
     @Override
     public void onViewCreated(@NonNull View view,
                               @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
     }
 }

@@ -42,6 +42,7 @@ public class ConfirmEvaluationModalFragment extends DialogFragment {
 
         return view;
     }
+ //   navigateToExchangeScreen();
 
 
     @Override

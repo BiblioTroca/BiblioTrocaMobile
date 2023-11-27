@@ -97,7 +97,7 @@ public class TransactionService {
     // Corrigir
     public TransactionDTO getTransactionById(String id) {
         ExecutorService executor = Executors.newSingleThreadExecutor();
-        String url = GlobalConstants.BASE_URL+"/transactions/"+id+".json";
+        String url = GlobalConstants.BASE_URL+"/transactions/" + id + ".json";
         Log.d("Name", "Name:" + id);
         Future<TransactionDTO> fetchTransactionById = executor.submit(() -> {
             Request request = new Request.Builder()
