@@ -73,6 +73,7 @@ public class RegisterAccountActivity extends AppCompatActivity {
         user.setFirstName(inputFirstName.getText().toString());
         user.setLastName(inputLastName.getText().toString());
         user.setEmail(inputEmail.getText().toString());
+        user.setPassword(inputPassword.getText().toString());
         user.setPhoneNumber(inputPhone.getText().toString());
         user.setLocation(inputCEP.getText().toString());
 

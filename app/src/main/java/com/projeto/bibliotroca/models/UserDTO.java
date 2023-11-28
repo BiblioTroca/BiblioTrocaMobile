@@ -5,6 +5,7 @@ public class UserDTO {
     private String firstName;
     private String lastName;
     private String email;
+    private String password;
     private String phoneNumber;
     private String location;
     private Number averageRating;
@@ -36,6 +37,13 @@ public class UserDTO {
     }
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getPhoneNumber() {
