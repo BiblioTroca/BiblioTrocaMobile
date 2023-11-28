@@ -44,7 +44,7 @@ public class NavigationActivity extends AppCompatActivity  {
                         v.getContext().startActivity(profileIntent);
                         return true;
                     } else if (itemId == R.id.LeaveSection) {
-                        Intent logout = new Intent(v.getContext(), LoginActivity.class);
+                        Intent logout = new Intent(v.getContext(), HomeActivity.class);
                         v.getContext().startActivity(logout);
                         return true;
                     } else {

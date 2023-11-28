@@ -27,8 +27,8 @@ public class ProfileActivity extends AppCompatActivity {
 
         Button btnUpdateAccount = findViewById(R.id.btnUpdateAccount);
         btnUpdateAccount.setOnClickListener(event -> {
-            Intent openSelectedExchange = new Intent(this, SelectedExchangeActivity.class);
-            startActivity(openSelectedExchange);
+            Intent openNavigationActivity = new Intent(this, NavigationActivity.class);
+            startActivity(openNavigationActivity);
         });
 
         Button btnDeleteAccount = findViewById(R.id.btnDeleteAccount);

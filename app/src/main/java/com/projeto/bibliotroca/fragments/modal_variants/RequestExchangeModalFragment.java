@@ -73,7 +73,7 @@ public class RequestExchangeModalFragment extends DialogFragment {
         btnCloseModal.setOnClickListener(event -> {
             dismiss();
         });
-        Button btnBack = view.findViewById(R.id.btnBack);
+        Button btnBack = view.findViewById(R.id.btnRegisterAccount);
         btnBack.setOnClickListener(event -> {
             dismiss();
         });
