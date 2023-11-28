@@ -281,7 +281,7 @@
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView3"
         android:name="com.projeto.bibliotroca.fragments.mybooks.MyBooksFragment"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="550dp"
         android:layout_marginTop="35dp"
         app:layout_constraintEnd_toEndOf="parent"

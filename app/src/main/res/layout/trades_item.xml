@@ -23,7 +23,7 @@
         android:id="@+id/txtBuyerNameTrade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="29dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/inter"
         android:lineSpacingMultiplier="1.4"
         android:paddingHorizontal="9dp"
