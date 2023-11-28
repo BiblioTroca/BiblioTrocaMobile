@@ -3,9 +3,8 @@ package com.projeto.bibliotroca;
 import static com.projeto.bibliotroca.RegisterBookActivity.App_Livros;
 import static com.projeto.bibliotroca.RegisterBookActivity.JSON;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -27,7 +26,6 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.projeto.bibliotroca.models.BookCompleteDTO;
 import com.projeto.bibliotroca.services.BookService;
-import com.projeto.bibliotroca.utils.GlobalConstants;
 
 import java.io.IOException;
 import java.time.Instant;
@@ -50,7 +48,6 @@ public class EditBookActivity extends AppCompatActivity implements AdapterView.O
 
     private List<BookCompleteDTO> livros = new ArrayList<>();
 
-
     private EditText EditBookTitle;
     private EditText EditBookAuthor;
     private EditText EditBookPublisher;
@@ -72,7 +69,7 @@ public class EditBookActivity extends AppCompatActivity implements AdapterView.O
     private Gson gson = new Gson();
 
 
-    BookCompleteDTO livro;
+    private BookCompleteDTO livro;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -97,14 +94,8 @@ public class EditBookActivity extends AppCompatActivity implements AdapterView.O
 
 
         livroId = getIntent().getStringExtra("livro_id");
-        BookService bookService = new BookService();
+        carregarDetalhesDoLivro(livroId);
 
-        BookCompleteDTO livro = bookService.getBookById(livroId);
-        if (livro != null) {
-            PreencherCampo(livro);
-        } else {
-            Log.e("Error", "Livro não encontrado ou é nulo");
-        }
         ArrayAdapter<CharSequence>adapter = ArrayAdapter.createFromResource(this, R.array.spinner_options, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -116,37 +107,79 @@ public class EditBookActivity extends AppCompatActivity implements AdapterView.O
         btnAtualizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                atualizar();
-                carregarFirebase();
+                atualizar(livro);
+                carregarBanco();
             }
         });
 
     }
 
 
-    private void atualizar() {
-        BookCompleteDTO livro = atualizarLivro();
-        atualizar(livro);
+    private void carregarDetalhesDoLivro(String livroId){
+        BookService bookService = new BookService();
+        livro= bookService.getLivroByid(livroId);
+
+        if (livro != null){
+            PreencherCampo(livro);
+        }else{
+            Log.e("EditBookActivity", "Livro não encontrado ou é nulo");
+        }
     }
+
+    private class AtualizarLivroTask extends AsyncTask<Void, Void, Boolean> {
+        @Override
+        protected Boolean doInBackground(Void... voids) {
+            try {
+                // Obtenha as informações do livro atualizado
+                BookCompleteDTO livroAtualizado = atualizarLivro();
+
+                // Execute a atualização no banco de dados
+                atualizarLivro(livroAtualizado);
+
+                return true; // Indica que a atualização foi bem-sucedida
+            } catch (Exception e) {
+                Log.e(App_Livros, "Erro ao atualizar o livro.", e);
+                return false; // Indica que ocorreu um erro durante a atualização
+            }
+        }
+
+        @Override
+        protected void onPostExecute(Boolean sucesso) {
+            super.onPostExecute(sucesso);
+
+            if (sucesso) {
+                // Atualize a interface do usuário conforme necessário após a conclusão da atualização.
+                carregarBanco();
+                Toast.makeText(EditBookActivity.this, "Livro atualizado com sucesso", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(EditBookActivity.this, "Falha ao atualizar o livro", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    private void atualizar(BookCompleteDTO livro) {
+        new AtualizarLivroTask().execute();
+    }
+
 
     private void PreencherCampo(BookCompleteDTO livro) {
 
-        EditBookTitle.setText(livro.getName());
-        EditBookAuthor.setText(livro.getAuthor());
-        EditBookPublisher.setText(livro.getPublishingCompany());
-        EditBookLanguage.setText(livro.getLanguage());
-        EditBookYear.setText(livro.getYear());
-        spinner.getSelectedItem();
-        EditBookDescription.setText(livro.getDescription());
-        definirCondicaoSelecionada(livro.getState());
+                if (livro != null) {
 
+                    EditBookTitle.setText(livro.getName());
+                    EditBookAuthor.setText(livro.getAuthor());
+                    EditBookPublisher.setText(livro.getPublishingCompany());
+                    EditBookLanguage.setText(livro.getLanguage());
+                    EditBookYear.setText(livro.getYear());
+                    spinner.getSelectedItem();
+                    EditBookDescription.setText(livro.getDescription());
+                    definirCondicaoSelecionada(livro.getState());
 
+                }else {
+            Log.e("EditBookActivity", "Livro é nulo. Verifique a inicialização do objeto.");
+        }
     }
-
     private BookCompleteDTO atualizarLivro() {
-
-        BookCompleteDTO livro = new BookCompleteDTO();
-
 
         String novoTitulo = EditBookTitle.getText().toString();
         String novoAutor = EditBookAuthor.getText().toString();
@@ -156,20 +189,20 @@ public class EditBookActivity extends AppCompatActivity implements AdapterView.O
         String novoAno = EditBookYear.getText().toString();
         String novacategoria = spinner.getSelectedItem().toString();
 
-        BookCompleteDTO livroAtualizado = new BookCompleteDTO();
+        BookCompleteDTO livros = new BookCompleteDTO();
 
-        livroAtualizado.setId(livroId);
-        livroAtualizado.setName(novoTitulo);
-        livroAtualizado.setAuthor(novoAutor);
-        livroAtualizado.setPublishingCompany(novaEditora);
-        livroAtualizado.setLanguage(novaLinguagem);
-        livroAtualizado.setDescription(novaDescricao);
-        livroAtualizado.setYear(novoAno);
-        livroAtualizado.setCategory(novacategoria);
-        livroAtualizado.setState(selectedCondition);
-        livroAtualizado.setCreatedAt(Instant.now().atZone(ZoneId.of("GMT-3")).format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
 
-        return livro;
+        livros.setName(novoTitulo);
+        livros.setAuthor(novoAutor);
+        livros.setPublishingCompany(novaEditora);
+        livros.setLanguage(novaLinguagem);
+        livros.setDescription(novaDescricao);
+        livros.setYear(novoAno);
+        livros.setCategory(novacategoria);
+        livros.setState(selectedCondition);
+        livros.setCreatedAt(Instant.now().atZone(ZoneId.of("GMT-3")).format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+
+        return livros;
     }
 
     @Override
@@ -184,46 +217,40 @@ public class EditBookActivity extends AppCompatActivity implements AdapterView.O
     }
 
     //Testar Atualizar
-     public void atualizar (BookCompleteDTO livros){
-            String livroId = livro.getId();
-            String url = GlobalConstants.BASE_URL + "/livros/" + livroId + ".json";
+    private void atualizarLivro(BookCompleteDTO id) {
+        String url = "https://serverbibliotroca-production.up.railway.app/api/v1/bibliotroca";
+        String jsonLivro = gson.toJson(id);
 
-            String jsonLivro = gson.toJson(livros);
+        OkHttpClient client = new OkHttpClient();
+        RequestBody body = RequestBody.create(jsonLivro, JSON);
+        Request request = new Request.Builder()
+                .url(url+"/livros"+ id)
+                .put(body)
+                .build();
 
-            ExecutorService executor = Executors.newSingleThreadExecutor();
-            Handler handler = new Handler(Looper.getMainLooper());
-            executor.execute(() -> {
-                OkHttpClient client = new OkHttpClient();
-
-                RequestBody body = RequestBody.create(jsonLivro, JSON);
-                Request request = new Request.Builder()
-                        .url(url)
-                        .put(body)
-                        .build();
-
-                try (Response response = client.newCall(request).execute()) {
-                    Log.e(App_Livros, "Resposta: " + response.body().string());
-                } catch (IOException e) {
-                    Log.e(App_Livros, "Erro: ", e);
-                    throw new RuntimeException("Erro ao atualizar livro: " + livroId);
-                }
-
-                handler.post(() -> {
-
-                });
-            });
+        try (Response response = client.newCall(request).execute()) {
+            if (response.isSuccessful()) {
+                Log.i(App_Livros, "Livro atualizado com sucesso.");
+            } else {
+                Log.e(App_Livros, "Falha ao atualizar o livro. Código de resposta: " + response.code());
+            }
+        } catch (IOException e) {
+            Log.e(App_Livros, "Erro ao fazer a chamada de rede para atualizar o livro.", e);
         }
+    }
 
 
-    private void carregarFirebase () {
+
+
+    private void carregarBanco () {
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.execute(() -> {
             livros.clear();
             OkHttpClient client = new OkHttpClient();
-            String url = GlobalConstants.BASE_URL + "/livros.json";
+            String url = "https://serverbibliotroca-production.up.railway.app/api/v1/bibliotroca";
 
             Request request = new Request.Builder()
-                    .url(url)
+                    .url(url+ "/livros")
                     .get()
                     .build();
 

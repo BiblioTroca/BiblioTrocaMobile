@@ -2,6 +2,8 @@ package com.projeto.bibliotroca.models;
 
 public class SellerDTO {
     private String name;
+
+    private String surname;
     private String location;
     private double averageRating;
     private int avaliationsNumber;
@@ -14,6 +16,10 @@ public class SellerDTO {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getSurname() {return surname;}
+
+    public void setSurname(String surname) {this.surname = surname;}
 
     public String getLocation() {
         return location;

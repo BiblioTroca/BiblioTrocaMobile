@@ -47,7 +47,7 @@ public class RegisterBookActivity extends AppCompatActivity implements AdapterVi
 
 
 
- String url = "GlobalConstants.BASE_URL" + "/books.json";
+  String url ="https://serverbibliotroca-production.up.railway.app/api/v1/bibliotroca";
 
  public static final MediaType JSON = MediaType.get("application/json");
 
@@ -106,7 +106,7 @@ public class RegisterBookActivity extends AppCompatActivity implements AdapterVi
   btnArrowback.setOnClickListener(event -> finish());
 
   btnCadastrar.setOnClickListener(e -> salvar());
-  carregarFirebase();
+  carregarBanco();
 
 
 
@@ -130,8 +130,10 @@ public class RegisterBookActivity extends AppCompatActivity implements AdapterVi
   livro.setPublishingCompany(BookPublisher.getText().toString());
   livro.setState(selectedCondition);
   livro.setDescription(BookDescription.getText().toString());
+  livro.setShortDescription(GerarShortDescription(BookDescription.getText().toString()));
   livro.setId(UUID.randomUUID().toString());
   livro.setCreatedAt(Instant.now().atZone(ZoneId.of("GMT-3")).format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+
 
   SellerDTO seller = new SellerDTO();
 
@@ -151,6 +153,12 @@ public class RegisterBookActivity extends AppCompatActivity implements AdapterVi
   private void salvar() {
    BookCompleteDTO livro = gerarLivro();
    SalvarLivro(livro);
+  }
+
+  private String GerarShortDescription(String fullDescription){
+
+  int maxLenght = 96;
+  return (fullDescription.length()<= maxLenght) ? fullDescription : fullDescription.substring(0,maxLenght);
   }
 
 
@@ -176,7 +184,7 @@ public class RegisterBookActivity extends AppCompatActivity implements AdapterVi
 
    RequestBody body = RequestBody.create(jsonLivros, JSON);
    Request request = new Request.Builder()
-           .url(url)
+           .url(url + "/livros")
            .post(body)
            .build();
    try (Response response = client.newCall(request).execute()) {
@@ -193,13 +201,13 @@ public class RegisterBookActivity extends AppCompatActivity implements AdapterVi
  }
 
 //Analisar se isso é realmente necessario
- private void carregarFirebase() {
+ private void carregarBanco() {
   ExecutorService executor = Executors.newSingleThreadExecutor();
   executor.execute(() -> {
    livros.clear();
    OkHttpClient client = new OkHttpClient();
    Request request = new Request.Builder()
-           .url(url)
+           .url(url +"/livros")
            .get()
            .build();
    try (Response response = client.newCall(request).execute()) {

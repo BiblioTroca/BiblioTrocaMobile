@@ -38,21 +38,23 @@ public class ExchangeLibraryAdapter extends RecyclerView.Adapter<ExchangeLibrary
     public void onBindViewHolder(@NonNull ExchangeLibraryItemView itemView, int position) {
         BookSimpleDTO book = books.get(position);
 
-        itemView.txtBookName.setText(book.getName());
-        itemView.txtAuthor.setText("por " + book.getAuthor());
-        itemView.txtDescription.setText(book.getShortDescription() + "...");
-        itemView.txtCategory.setText(book.getCategory());
-        itemView.txtSellerName.setText("Enviado por " + book.getSeller().getName());
-        itemView.txtLocation.setText(book.getSeller().getLocation());
-        itemView.txtAverageRating.setText(String.valueOf(book.getSeller().getAverageRating()));
-        itemView.txtAvaliationsNumber.setText("(" + String.valueOf(book.getSeller().getAvaliationsNumber()) + ")");
+        if (book != null && book.getSeller() != null) {
+            itemView.txtBookName.setText(book.getName());
+            itemView.txtAuthor.setText("por " + book.getAuthor());
+            itemView.txtDescription.setText(book.getShortDescription() + "...");
+            itemView.txtCategory.setText(book.getCategory());
+            itemView.txtSellerName.setText("Enviado por " + book.getSeller().getName() + book.getSeller().getSurname());
+            itemView.txtLocation.setText(book.getSeller().getLocation());
+            itemView.txtAverageRating.setText(String.valueOf(book.getSeller().getAverageRating()));
+            itemView.txtAvaliationsNumber.setText("(" + String.valueOf(book.getSeller().getAvaliationsNumber()) + ")");
 
-        itemView.btnShowItemDetails.setOnClickListener(event -> {
-            Intent openSelectedExchangeLibrary = new Intent(context, SelectedExchangeLibraryActivity.class);
-            openSelectedExchangeLibrary.putExtra("bookId", book.getId());
-            context.startActivity(openSelectedExchangeLibrary);
-        });
-    }
+        }
+            itemView.btnShowItemDetails.setOnClickListener(event -> {
+                Intent openSelectedExchangeLibrary = new Intent(context, SelectedExchangeLibraryActivity.class);
+                openSelectedExchangeLibrary.putExtra("bookId", book.getId());
+                context.startActivity(openSelectedExchangeLibrary);
+            });
+        }
 
     @Override
     public int getItemCount() {

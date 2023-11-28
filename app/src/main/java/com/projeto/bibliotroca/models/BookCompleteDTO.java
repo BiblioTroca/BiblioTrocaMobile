@@ -10,6 +10,9 @@ public class BookCompleteDTO {
     private String publishingCompany;
     private String state;
     private String description;
+
+    private String shortDescription;
+
     private String createdAt;
     private SellerDTO seller;
 
@@ -100,4 +103,13 @@ public class BookCompleteDTO {
     public void setSeller(SellerDTO seller) {
         this.seller = seller;
     }
+
+    public String getShortDescription() {
+        return shortDescription;
+    }
+
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
+    }
+
 }

@@ -95,31 +95,52 @@ public class SelectedExchangeLibraryActivity extends AppCompatActivity {
 
             BookService bookService = new BookService();
 
-            bookToShow = bookService.getBookById(id);
+            bookToShow = bookService.getLivroByid(id);
 
             setBookDataInTheInterface(bookToShow);
         }
     }
 
     private void setBookDataInTheInterface(BookCompleteDTO book) {
-        String author = "por " + book.getAuthor();
-        String seller = "Enviado por " + book.getSeller().getName();
-        String averageRating = String.valueOf(book.getSeller().getAverageRating());
-        String avaliationsNumber = "(" + String.valueOf(book.getSeller().getAvaliationsNumber()) + ")";
-        String beforeNewExchange = "Negocie diretamente com " + seller + " e defina os detalhes da troca antes de prosseguir com a solicitação. Toque abaixo para iniciar a conversa.";
 
-        txtBookName.setText(book.getName());
-        txtAuthor.setText(author);
-        txtCategory.setText(book.getCategory());
-        txtLanguage.setText(book.getLanguage());
-        txtYear.setText(book.getYear());
-        txtPublishingCompany.setText(book.getPublishingCompany());
-        txtState.setText(book.getState());
-        txtDescription.setText(book.getDescription());
-        txtSellerName.setText(seller);
-        txtAverageRating.setText(averageRating);
-        txtAvaliationsNumber.setText(avaliationsNumber);
-        txtLocation.setText(book.getSeller().getLocation());
-        txtBeforeNewExchange.setText(beforeNewExchange);
+        if (book != null) {
+            String author = "por " + book.getAuthor();
+            String seller = "Enviado por " ;
+            if (book.getSeller() != null) {
+                if (book.getSeller().getName() != null) {
+                    seller += book.getSeller().getName();
+                }
+
+                if (book.getSeller().getSurname() != null) {
+                    seller += " " + book.getSeller().getSurname();
+                }
+            } else {
+
+                seller += "Nome do vendedor indisponível";
+            }
+            double averageRating = book.getSeller().getAverageRating();
+            String averageRatingString = (averageRating != 0) ? String.valueOf(averageRating) : "N/A";
+
+            //String averageRating = String.valueOf(book.getSeller().getAverageRating());
+            String avaliationsNumber = "(" + String.valueOf(book.getSeller().getAvaliationsNumber()) + ")";
+            String beforeNewExchange = "Negocie diretamente com " + seller + " e defina os detalhes da troca antes de prosseguir com a solicitação. Toque abaixo para iniciar a conversa.";
+
+            txtBookName.setText(book.getName());
+            txtAuthor.setText(author);
+            txtCategory.setText(book.getCategory());
+            txtLanguage.setText(book.getLanguage());
+            txtYear.setText(book.getYear());
+            txtPublishingCompany.setText(book.getPublishingCompany());
+            txtState.setText(book.getState());
+            txtDescription.setText(book.getDescription());
+            txtSellerName.setText(seller);
+            txtAverageRating.setText(averageRatingString);
+            txtAvaliationsNumber.setText(avaliationsNumber);
+            txtLocation.setText(book.getSeller().getLocation());
+            txtBeforeNewExchange.setText(beforeNewExchange);
+        } else {
+            Toast.makeText(this, "Error: Book is null", Toast.LENGTH_SHORT).show();
+            finish();
+        }
     }
 }

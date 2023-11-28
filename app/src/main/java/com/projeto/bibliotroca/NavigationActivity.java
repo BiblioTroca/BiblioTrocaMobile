@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -14,11 +15,23 @@ import androidx.fragment.app.FragmentManager;
 import com.projeto.bibliotroca.fragments.exchange_library.ExchangeLibraryFragment;
 import com.projeto.bibliotroca.fragments.mybooks.MyBooksFragment;
 import com.projeto.bibliotroca.fragments.wishlist.WishlistFragment;
+import com.projeto.bibliotroca.models.BookCompleteDTO;
+import com.projeto.bibliotroca.models.BookSimpleDTO;
+import com.projeto.bibliotroca.models.TransactionDTO;
+import com.projeto.bibliotroca.services.BookService;
+import com.projeto.bibliotroca.services.TransactionService;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class NavigationActivity extends AppCompatActivity  {
 
     private Context context;
 
+    private List<BookCompleteDTO> livros = new ArrayList<>();
+    List<BookSimpleDTO> books = new ArrayList<>();
+
+    List<TransactionDTO> transactions = new ArrayList<>();
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navigation_fragment);
@@ -30,7 +43,36 @@ public class NavigationActivity extends AppCompatActivity  {
         ConstraintLayout CardTrades = (ConstraintLayout) findViewById(R.id.Card_trocas);
         ConstraintLayout CardLib = (ConstraintLayout) findViewById(R.id.Card_Lib);
 
+        TextView amountBook = (TextView) findViewById(R.id.txtLivros);
 
+        BookService bookService = new BookService();
+        bookService.getListBookFull(livros);
+
+        String amountBooks = "";
+        if (livros.size() > 0) {
+            amountBooks = livros.size() + " Livros";
+        }
+        amountBook.setText(amountBooks);
+
+        bookService.getListBook(books);
+
+        TransactionService transactionService = new TransactionService();
+        transactionService.getListTransaction(transactions);
+
+        TextView txtLib = findViewById(R.id.txtLib);
+
+        String amountItems = "";
+        if (books.size() > 0) {
+            amountItems = +books.size() + " itens";
+        }
+        txtLib.setText(amountItems);
+        TextView txtTradeAmountItems = findViewById(R.id.pendentes);
+
+        String amountTrades = "";
+        if (transactions.size() > 0) {
+            amountTrades =  transactions.size() + " itens";
+        }
+        txtTradeAmountItems.setText(amountTrades);
 
         profileImage.setOnClickListener(new View.OnClickListener() {
             @Override

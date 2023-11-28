@@ -2,6 +2,7 @@ package com.projeto.bibliotroca;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -61,20 +62,29 @@ public class BookDetailsActivity extends AppCompatActivity {
         }
 
 
-        private void showBookDetails() {
-            Intent receivedIntentFromItem = getIntent();
 
-            if (receivedIntentFromItem != null) {
-                String id = receivedIntentFromItem.getStringExtra("bookId");
 
-                BookService bookService = new BookService();
+    private void showBookDetails() {
+        Intent receivedIntentFromItem = getIntent();
 
-                bookToShow = bookService.getBookById(id);
+        if (receivedIntentFromItem != null) {
+            String id = receivedIntentFromItem.getStringExtra("bookId");
 
+            Log.d("BookDetailsActivity", "ID do livro: " + id);
+
+            BookService bookService = new BookService();
+
+            bookToShow = bookService.getLivroByid(id);
+            if (bookToShow != null) {
                 setBookInterface(bookToShow);
+            } else {
+                // Lidar com o caso em que o livro não foi encontrado.
+                Log.e("BookDetailsActivity", "Livro não encontrado ou é nulo");
             }
-}
-    private void setBookInterface(BookCompleteDTO book){
+        }
+    }
+    private void setBookInterface(BookCompleteDTO book) {
+        if (book != null) {
             txtAuthorName.setText(book.getAuthor());
             txtBookCategory.setText(book.getCategory());
             txtBookLanguage.setText(book.getLanguage());
@@ -82,6 +92,9 @@ public class BookDetailsActivity extends AppCompatActivity {
             txtBookPublisher.setText(book.getPublishingCompany());
             txtBookCondition.setText(book.getState());
             txtBookDescription.setText(book.getDescription());
+        } else {
+            Log.e("BookDetailsActivity", "Livro é nulo");
         }
     }
+}
 

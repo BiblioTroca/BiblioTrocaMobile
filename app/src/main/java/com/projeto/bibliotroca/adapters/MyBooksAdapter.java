@@ -94,6 +94,7 @@ public class MyBooksAdapter extends RecyclerView.Adapter<MyBooksItemView> {
                 DeleteBookModalFragment modal = new DeleteBookModalFragment();
                 modal.show(fragmentManager, "deleteBookModal");
 
+
                 return true;
             } else {
                 return false;
