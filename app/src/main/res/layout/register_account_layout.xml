@@ -55,7 +55,7 @@
                 android:fontFamily="@font/barlow_bold"
                 android:lineSpacingMultiplier="1.25"
                 android:maxWidth="153dp"
-                android:text="Complete seu Perfil"
+                android:text="Crie uma Nova Conta"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="24sp"
@@ -67,47 +67,95 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout"
                 android:layout_width="match_parent"
-                android:layout_height="620dp"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="24dp"
                 android:layout_marginTop="56dp"
                 android:background="@drawable/shape_card"
                 android:elevation="3dp"
                 android:paddingHorizontal="12dp"
+                android:paddingBottom="32dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView16">
 
                 <TextView
-                    android:id="@+id/textView17"
-                    android:layout_width="match_parent"
+                    android:id="@+id/txtLocation"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="76dp"
-                    android:fontFamily="@font/barlow_bold"
-                    android:lineSpacingMultiplier="1.25"
-                    android:text="Mateus Santana"
-                    android:textAlignment="center"
+                    android:layout_marginTop="100dp"
+                    android:fontFamily="@font/inter_medium"
+                    android:lineSpacingMultiplier="1.4"
+                    android:text="Primeiro nome"
                     android:textColor="@color/gray500"
-                    android:textSize="20sp"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="16sp"
+                    android:labelFor="@id/inputFirstName"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <EditText
+                    android:id="@+id/inputFirstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/shape_input_border"
+                    android:ems="10"
+                    android:fontFamily="@font/inter"
+                    android:inputType="text"
+                    android:lineSpacingMultiplier="1.6"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="15dp"
+                    android:textColor="@color/gray500"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtLocation" />
+
                 <TextView
-                    android:id="@+id/txtFinalizeMail"
+                    android:id="@+id/txtCity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/inter_medium"
+                    android:lineSpacingMultiplier="1.4"
+                    android:text="Último nome"
+                    android:textColor="@color/gray500"
+                    android:textSize="16sp"
+                    android:labelFor="@id/inputLastName"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/inputFirstName" />
+
+                <EditText
+                    android:id="@+id/inputLastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/shape_input_border"
+                    android:ems="10"
+                    android:fontFamily="@font/inter"
+                    android:inputType="text"
+                    android:lineSpacingMultiplier="1.6"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="15dp"
+                    android:textColor="@color/gray500"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtCity" />
+                
+                <TextView
+                    android:id="@+id/txtMail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
                     android:fontFamily="@font/inter_medium"
                     android:lineSpacingMultiplier="1.4"
                     android:text="Email"
                     android:textColor="@color/gray500"
                     android:textSize="16sp"
-                    android:labelFor="@id/inputFinalizeEmail"
+                    android:labelFor="@id/inputEmail"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView17" />
+                    app:layout_constraintTop_toBottomOf="@+id/inputLastName" />
 
                 <EditText
-                    android:id="@+id/inputFinalizeEmail"
+                    android:id="@+id/inputEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
@@ -121,10 +169,41 @@
                     android:textColor="@color/gray500"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtFinalizeMail" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtMail" />
 
                 <TextView
-                    android:id="@+id/txtFinalizePhone"
+                    android:id="@+id/txtPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/inter_medium"
+                    android:lineSpacingMultiplier="1.4"
+                    android:text="Senha"
+                    android:textColor="@color/gray500"
+                    android:textSize="16sp"
+                    android:labelFor="@id/inputPassword"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
+
+                <EditText
+                    android:id="@+id/inputPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/shape_input_border"
+                    android:ems="10"
+                    android:fontFamily="@font/inter"
+                    android:inputType="textPassword"
+                    android:lineSpacingMultiplier="1.6"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="15dp"
+                    android:textColor="@color/gray500"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
+
+                <TextView
+                    android:id="@+id/txtPhone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -133,12 +212,12 @@
                     android:text="Telefone celular"
                     android:textColor="@color/gray500"
                     android:textSize="16sp"
-                    android:labelFor="@id/inputFinalizePhone"
+                    android:labelFor="@id/inputPhone"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/inputFinalizeEmail" />
+                    app:layout_constraintTop_toBottomOf="@+id/inputPassword" />
 
                 <EditText
-                    android:id="@+id/inputFinalizePhone"
+                    android:id="@+id/inputPhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
@@ -152,10 +231,10 @@
                     android:textColor="@color/gray500"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtFinalizePhone" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtPhone" />
 
                 <TextView
-                    android:id="@+id/txtFinalizeCEP"
+                    android:id="@+id/txtCEP"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -164,12 +243,12 @@
                     android:text="CEP"
                     android:textColor="@color/gray500"
                     android:textSize="16sp"
-                    android:labelFor="@id/inputFinalizeCEP"
+                    android:labelFor="@id/inputCEP"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/inputFinalizePhone" />
+                    app:layout_constraintTop_toBottomOf="@+id/inputPhone" />
 
                 <EditText
-                    android:id="@+id/inputFinalizeCEP"
+                    android:id="@+id/inputCEP"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
@@ -183,75 +262,11 @@
                     android:textColor="@color/gray500"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtFinalizeCEP" />
-
-                <TextView
-                    android:id="@+id/txtFinalizeLocation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:fontFamily="@font/inter_medium"
-                    android:lineSpacingMultiplier="1.4"
-                    android:text="Bairro"
-                    android:textColor="@color/gray500"
-                    android:textSize="16sp"
-                    android:labelFor="@id/inputFinalizeLocation"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/inputFinalizeCEP" />
-
-                <EditText
-                    android:id="@+id/inputFinalizeLocation"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:background="@drawable/shape_input_border"
-                    android:ems="10"
-                    android:fontFamily="@font/inter"
-                    android:inputType="text"
-                    android:lineSpacingMultiplier="1.6"
-                    android:paddingHorizontal="16dp"
-                    android:paddingVertical="15dp"
-                    android:textColor="@color/gray500"
-                    android:textSize="16sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtFinalizeLocation" />
-
-                <TextView
-                    android:id="@+id/txtFinalizeCity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:fontFamily="@font/inter_medium"
-                    android:lineSpacingMultiplier="1.4"
-                    android:text="Cidade"
-                    android:textColor="@color/gray500"
-                    android:textSize="16sp"
-                    android:labelFor="@id/inputFinalizeCity"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/inputFinalizeLocation" />
-
-                <EditText
-                    android:id="@+id/inputFinalizeCity"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:background="@drawable/shape_input_border"
-                    android:ems="10"
-                    android:fontFamily="@font/inter"
-                    android:inputType="text"
-                    android:lineSpacingMultiplier="1.6"
-                    android:paddingHorizontal="16dp"
-                    android:paddingVertical="15dp"
-                    android:textColor="@color/gray500"
-                    android:textSize="16sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtFinalizeCity" />
-
-
+                    app:layout_constraintTop_toBottomOf="@+id/txtCEP" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <Button
-                android:id="@+id/btnFinalizeAccount"
+                android:id="@+id/btnCreateAccount"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:layout_marginHorizontal="24dp"
@@ -260,7 +275,7 @@
                 android:backgroundTint="@color/primary500"
                 android:fontFamily="@font/barlow_bold"
                 android:lineSpacingMultiplier="1.6"
-                android:text="@string/btn_confirm_text"
+                android:text="Cadastrar"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="16sp"
@@ -270,17 +285,44 @@
                 tools:layout_editor_absoluteX="24dp"
                 tools:layout_editor_absoluteY="886dp" />
 
+            <TextView
+                android:id="@+id/txtexampasf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="92dp"
+                android:layout_marginTop="48dp"
+                android:fontFamily="@font/inter"
+                android:lineSpacingMultiplier="1.4"
+                android:text="Já possui conta?"
+                android:textColor="@color/gray500"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnCreateAccount" />
+
+            <TextView
+                android:id="@+id/btnLoginNow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/inter_medium"
+                android:lineSpacingMultiplier="1.4"
+                android:text="Entrar agora"
+                android:textColor="@color/primary500"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/txtexampasf"
+                app:layout_constraintTop_toTopOf="@+id/txtexampasf" />
+
             <ImageView
                 android:id="@+id/imageView4"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:layout_marginTop="16dp"
                 android:translationZ="6dp"
                 android:contentDescription="Imagem de perfil"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView16"
-                app:srcCompat="@drawable/bg_example_profile" />
+                app:srcCompat="@drawable/bg_avatar" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

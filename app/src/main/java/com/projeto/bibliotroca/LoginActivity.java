@@ -2,21 +2,26 @@ package com.projeto.bibliotroca;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import com.projeto.bibliotroca.services.UserService;
+import com.projeto.bibliotroca.utils.SessionManager;
+
 public class LoginActivity extends AppCompatActivity {
+    EditText inputEmail;
+    EditText inputPassword;
+    Button btnLoginAccount;
+    TextView btnForgotPassword;
+    TextView btnRegisterNow;
 
     void buildStyles() {
-        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.white500));
-        View decorView = getWindow().getDecorView();
-        int flags = decorView.getSystemUiVisibility(); // retrieve current flags
-        flags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR; // add LIGHT_STATUS_BAR to flags
-        decorView.setSystemUiVisibility(flags);
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.primary500));
     }
 
     @Override
@@ -25,11 +30,45 @@ public class LoginActivity extends AppCompatActivity {
         buildStyles();
         setContentView(R.layout.login_layout);
 
-        Button btnSignIn = findViewById(R.id.btnSignIn);
+        initializeUIComponents();
 
-        btnSignIn.setOnClickListener(event -> {
-            Intent nextStepSignUp = new Intent(this, FinalizeProfileActivity.class);
-            startActivity(nextStepSignUp);
+        btnLoginAccount.setOnClickListener(event -> {
+            prepareCredentialsToAuthenticate();
+
+            Intent openNavigationActivity = new Intent(this, NavigationActivity.class);
+            startActivity(openNavigationActivity);
         });
+
+        btnForgotPassword.setOnClickListener(event -> {
+            Intent openChangePasswordActivity = new Intent(this, ChangePasswordActivity.class);
+            startActivity(openChangePasswordActivity);
+        });
+
+        btnRegisterNow.setOnClickListener(event -> {
+            Intent openRegisterAccountActivity = new Intent(this, RegisterAccountActivity.class);
+            startActivity(openRegisterAccountActivity);
+        });
+    }
+
+    private void initializeUIComponents() {
+        inputEmail = findViewById(R.id.inputEmail);
+        inputPassword = findViewById(R.id.inputPassword);
+
+        btnLoginAccount = findViewById(R.id.btnLoginAccount);
+
+        btnForgotPassword = findViewById(R.id.btnForgotPassword);
+        btnRegisterNow = findViewById(R.id.btnRegisterNow);
+    }
+
+    private void prepareCredentialsToAuthenticate() {
+        UserService userService = new UserService();
+
+        String email = inputEmail.getText().toString();
+        String password = inputPassword.getText().toString();
+
+        String token = userService.authenticate(email, password);
+
+        SessionManager sessionManager = new SessionManager(this);
+        sessionManager.setToken(token);
     }
 }
