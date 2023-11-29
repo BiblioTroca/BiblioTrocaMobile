@@ -18,8 +18,10 @@ import com.projeto.bibliotroca.fragments.wishlist.WishlistFragment;
 import com.projeto.bibliotroca.models.BookCompleteDTO;
 import com.projeto.bibliotroca.models.BookSimpleDTO;
 import com.projeto.bibliotroca.models.TransactionDTO;
+import com.projeto.bibliotroca.models.WishlistDTO;
 import com.projeto.bibliotroca.services.BookService;
 import com.projeto.bibliotroca.services.TransactionService;
+import com.projeto.bibliotroca.services.WishlistService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +35,9 @@ public class NavigationActivity extends AppCompatActivity  {
     List<BookSimpleDTO> books = new ArrayList<>();
 
     List<TransactionDTO> transactions = new ArrayList<>();
+
+    List<WishlistDTO> wishlist = new ArrayList<>();
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navigation_fragment);
@@ -78,6 +83,17 @@ public class NavigationActivity extends AppCompatActivity  {
             amountTrades =  transactions.size() + " itens";
         }
         txtTradeAmountItems.setText(amountTrades);
+
+
+        TextView amountWish = findViewById(R.id.txtWish);
+        WishlistService wishlistService = new WishlistService();
+        wishlistService.getWishlist(wishlist);
+
+        String amountWishes = "";
+        if (wishlist.size() > 0) {
+            amountWishes = wishlist.size() + " Desejos";
+        }
+        amountWish.setText(amountWishes);
 
         profileImage.setOnClickListener(new View.OnClickListener() {
             @Override

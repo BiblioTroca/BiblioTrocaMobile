@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,9 +17,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.projeto.bibliotroca.R;
 import com.projeto.bibliotroca.WishlistActivity;
 import com.projeto.bibliotroca.adapters.WishlistAdapter;
+import com.projeto.bibliotroca.models.WishlistDTO;
+import com.projeto.bibliotroca.services.WishlistService;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class WishlistFragment extends Fragment {
     WishlistAdapter adapter;
+
+    private List<WishlistDTO> wishlist = new ArrayList<>();
 
     @Nullable
     @Override
@@ -45,7 +53,20 @@ public class WishlistFragment extends Fragment {
         RecyclerView recycleList = view.findViewById(R.id.recycleListWishlist);
         recycleList.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        adapter = new WishlistAdapter(getContext(), getParentFragmentManager());
+        WishlistService wishlistService = new WishlistService();
+        wishlistService.getWishlist(wishlist);
+
+        TextView txtWishAmount = view.findViewById(R.id.txtWishAmount);
+
+        String wishAmount = "";
+
+        if (wishlist.size() > 0) {
+            wishAmount = "I " + wishlist.size() + " itens";
+        }
+
+        txtWishAmount.setText(wishAmount);
+
+        adapter = new WishlistAdapter(getContext(), getParentFragmentManager(), wishlist);
         recycleList.setAdapter(adapter);
 
     }   

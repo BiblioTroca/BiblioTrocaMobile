@@ -31,17 +31,14 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/backArrow"
-                android:layout_width="22dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                android:contentDescription="vector back Arrow"
-                android:src="@drawable/vector"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.037"
+                android:id="@+id/btnArrowBack"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="12dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_arrow_back" />
 
             <TextView
                 android:id="@+id/txthHistoric"
@@ -95,11 +92,11 @@
 
 
                 <TextView
-                    android:id="@+id/txtProfileMail"
+                    android:id="@+id/lblTitle"
                     android:layout_width="165.78dp"
                     android:layout_height="22dp"
                     android:fontFamily="@font/inter_medium"
-                    android:labelFor="@id/inputProfileEmail"
+                    android:labelFor="@id/txtWishTitle"
                     android:lineSpacingMultiplier="1.4"
                     android:text="@string/title"
                     android:textColor="@color/gray500"
@@ -108,66 +105,66 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
-                    android:id="@+id/inputProfileEmail"
+                    android:id="@+id/txtWishTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:background="@drawable/shape_input_border"
                     android:ems="10"
                     android:fontFamily="@font/inter"
-                    android:inputType="textEmailAddress"
+                    android:inputType="text"
                     android:lineSpacingMultiplier="1.6"
                     android:paddingHorizontal="16dp"
                     android:paddingVertical="15dp"
                     android:textColor="@color/gray500"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtProfileMail" />
+                    app:layout_constraintTop_toBottomOf="@+id/lblTitle" />
 
                 <TextView
-                    android:id="@+id/txtProfilePhone"
+                    android:id="@+id/lblAuthor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:fontFamily="@font/inter_medium"
-                    android:labelFor="@id/inputProfilePhone"
+                    android:labelFor="@id/txtWishAuthor"
                     android:lineSpacingMultiplier="1.4"
                     android:text="@string/Author"
                     android:textColor="@color/gray500"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/inputProfileEmail" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtWishTitle" />
 
                 <EditText
-                    android:id="@+id/inputProfilePhone"
+                    android:id="@+id/txtWishAuthor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:background="@drawable/shape_input_border"
                     android:ems="10"
                     android:fontFamily="@font/inter"
-                    android:inputType="phone"
+                    android:inputType="text"
                     android:lineSpacingMultiplier="1.6"
                     android:paddingHorizontal="16dp"
                     android:paddingVertical="15dp"
                     android:textColor="@color/gray500"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtProfilePhone" />
+                    app:layout_constraintTop_toBottomOf="@+id/lblAuthor" />
 
                 <TextView
-                    android:id="@+id/txtProfileCEP"
+                    android:id="@+id/lblCategory"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:fontFamily="@font/inter_medium"
-                    android:labelFor="@id/inputProfileCEP"
+                    android:labelFor="@id/spinner"
                     android:lineSpacingMultiplier="1.4"
                     android:text="@string/category"
                     android:textColor="@color/gray500"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/inputProfilePhone" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtWishAuthor" />
 
 
                 <Spinner
@@ -180,13 +177,13 @@
                     android:textColor="@color/gray500"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtProfileCEP" />
+                    app:layout_constraintTop_toBottomOf="@+id/lblCategory" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
             <Button
-                android:id="@+id/btnUpdateStatus"
+                android:id="@+id/btnRegisterWish"
                 android:layout_width="326dp"
                 android:layout_height="56dp"
                 android:layout_marginTop="44dp"
