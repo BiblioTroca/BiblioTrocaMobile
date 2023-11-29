@@ -28,17 +28,16 @@ public class BookService {
     OkHttpClient client = new OkHttpClient();
     Gson gson = new Gson();
 
-
     public void getListBook(List<BookSimpleDTO> books) {
         books.clear();
 
         ExecutorService executor = Executors.newSingleThreadExecutor();
 
-        String url = "https://serverbibliotroca-production.up.railway.app/api/v1/bibliotroca";
+        String url = "https://serverbibliotroca-production.up.railway.app/api/v1/bibliotroca" + "/livros";
 
         Future<?> fetchBooks = executor.submit(() -> {
             Request request = new Request.Builder()
-                    .url(url +"/livros")
+                    .url(url)
                     .get()
                     .build();
 
@@ -72,7 +71,7 @@ public class BookService {
         ExecutorService executor = Executors.newSingleThreadExecutor();
         // Usar o modelo abaixo comentado para a API ORIGINAL
         // String url = GlobalConstants.BASE_URL + "/books-details/" + id;
-        String url = "https://testelivros-89f74-default-rtdb.firebaseio.com" + "/books/" + "-NkCl5FdFDn37a6md8UZ" + ".json";
+        String url = "https://serverbibliotroca-production.up.railway.app/api/v1/bibliotroca" + "/livros/" + id;
 
         Future<BookCompleteDTO> fetchBookById = executor.submit(() -> {
             Request request = new Request.Builder()
@@ -214,8 +213,4 @@ public class BookService {
             throw new RuntimeException(e);
         }
     }
-
-
-
-
 }

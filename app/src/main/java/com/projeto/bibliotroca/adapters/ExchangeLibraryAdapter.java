@@ -2,6 +2,7 @@ package com.projeto.bibliotroca.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +39,7 @@ public class ExchangeLibraryAdapter extends RecyclerView.Adapter<ExchangeLibrary
     public void onBindViewHolder(@NonNull ExchangeLibraryItemView itemView, int position) {
         BookSimpleDTO book = books.get(position);
 
-        if (book != null && book.getSeller() != null) {
+        if (book != null) {
             itemView.txtBookName.setText(book.getName());
             itemView.txtAuthor.setText("por " + book.getAuthor());
             itemView.txtDescription.setText(book.getShortDescription() + "...");
@@ -47,14 +48,15 @@ public class ExchangeLibraryAdapter extends RecyclerView.Adapter<ExchangeLibrary
             itemView.txtLocation.setText(book.getSeller().getLocation());
             itemView.txtAverageRating.setText(String.valueOf(book.getSeller().getAverageRating()));
             itemView.txtAvaliationsNumber.setText("(" + String.valueOf(book.getSeller().getAvaliationsNumber()) + ")");
+        }
 
-        }
-            itemView.btnShowItemDetails.setOnClickListener(event -> {
-                Intent openSelectedExchangeLibrary = new Intent(context, SelectedExchangeLibraryActivity.class);
-                openSelectedExchangeLibrary.putExtra("bookId", book.getId());
-                context.startActivity(openSelectedExchangeLibrary);
-            });
-        }
+        itemView.btnShowItemDetails.setOnClickListener(event -> {
+            Intent openSelectedExchangeLibrary = new Intent(context, SelectedExchangeLibraryActivity.class);
+
+            openSelectedExchangeLibrary.putExtra("bookId", book.getId());
+            context.startActivity(openSelectedExchangeLibrary);
+        });
+    }
 
     @Override
     public int getItemCount() {

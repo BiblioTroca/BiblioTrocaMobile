@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,10 +17,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
+import com.projeto.bibliotroca.NavigationActivity;
 import com.projeto.bibliotroca.ProfileActivity;
 import com.projeto.bibliotroca.R;
 import com.projeto.bibliotroca.models.BookCompleteDTO;
 import com.projeto.bibliotroca.models.BuyerDTO;
+import com.projeto.bibliotroca.models.SellerDTO;
 import com.projeto.bibliotroca.models.TransactionDTO;
 import com.projeto.bibliotroca.services.BookService;
 import com.projeto.bibliotroca.services.TransactionService;
@@ -65,7 +68,7 @@ public class RequestExchangeModalFragment extends DialogFragment {
 
             // futuramente será alterado para a de trocas pendentes
             // requireContext() is the security version (non-null) of getContext(),
-            Intent openPendingExchanges = new Intent(requireContext(), ProfileActivity.class);
+            Intent openPendingExchanges = new Intent(requireContext(), NavigationActivity.class);
             startActivity(openPendingExchanges);
         });
 
@@ -85,6 +88,7 @@ public class RequestExchangeModalFragment extends DialogFragment {
 
         BookCompleteDTO book;
         BuyerDTO buyer = new BuyerDTO();
+        SellerDTO seller = new SellerDTO();
         TransactionDTO transaction = new TransactionDTO();
 
         Intent receivedIntentFromItem = requireActivity().getIntent();
@@ -95,12 +99,19 @@ public class RequestExchangeModalFragment extends DialogFragment {
         book = bookService.getBookById(bookId);
 
         // construir o buyer a partir das infos do token depois
-        buyer.setFirstName("Mateus");
-        buyer.setLastName("Silva");
-        buyer.setEmail("email@example.com");
+        buyer.setFirstName("Pedro");
+        buyer.setLastName("Pessina");
+        buyer.setEmail("pedro.pessina99@gmail.com");
         buyer.setAverageRating(4.1);
         buyer.setAvaliationsNumber(30);
         buyer.setPhoneNumber("11943464400");
+
+        // criando o vendedor a partir das infos dele no livro
+        seller.setName("Manuela");
+        seller.setSurname("Texeira");
+        seller.setEmail("manu@email.com");
+        seller.setPhoneNumber("44234324");
+        seller.setLocation("324235");
 
         Date currentDate = new Date();
         String formatToConvert = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
@@ -109,12 +120,17 @@ public class RequestExchangeModalFragment extends DialogFragment {
         String createdAt = dateFormater.format(currentDate);
         String transactionId = UUID.randomUUID().toString();
 
-        transaction.setId(transactionId);
-        transaction.setStatus("Pendente");
-        transaction.setType("receive");
-        transaction.setCreatedAt(createdAt);
-        transaction.setBookDetails(book);
-        transaction.setBuyer(buyer);
+//        transaction.setId(transactionId);
+//        transaction.setStatus("PENDENTE");
+//        transaction.setType("receive");
+//        transaction.setCreatedAt(createdAt);
+//        transaction.setBookDetails(book);
+//        transaction.setBuyer(buyer);
+//        transaction.setSeller(seller);
+
+        transaction.setBuyerCpf("22222");
+        transaction.setSellerCpf("123");
+        transaction.setBookRegistry(Integer.valueOf(book.getId()));
 
         transactionService.createTransaction(transaction);
     }

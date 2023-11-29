@@ -2,9 +2,18 @@ package com.projeto.bibliotroca.models;
 
 public class SellerDTO {
     private String name;
-
     private String surname;
     private String location;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    private String email;
     private double averageRating;
     private int avaliationsNumber;
     private String phoneNumber;

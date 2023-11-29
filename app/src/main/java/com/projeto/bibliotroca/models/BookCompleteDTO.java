@@ -14,7 +14,7 @@ public class BookCompleteDTO {
     private String shortDescription;
 
     private String createdAt;
-    private SellerDTO seller;
+    private SellerDTO user;
 
     public String getId() {
         return id;
@@ -97,11 +97,11 @@ public class BookCompleteDTO {
     }
 
     public SellerDTO getSeller() {
-        return seller;
+        return user;
     }
 
     public void setSeller(SellerDTO seller) {
-        this.seller = seller;
+        this.user = seller;
     }
 
     public String getShortDescription() {

@@ -6,7 +6,7 @@ public class BookSimpleDTO {
     private String author;
     private String shortDescription;
     private String category;
-    private SellerDTO seller;
+    private SellerDTO user;
 
     public String getId() {
         return id;
@@ -49,11 +49,11 @@ public class BookSimpleDTO {
     }
 
     public SellerDTO getSeller() {
-        return seller;
+        return user;
     }
 
     public void setSeller(SellerDTO seller) {
-        this.seller = seller;
+        this.user = seller;
     }
 }
 

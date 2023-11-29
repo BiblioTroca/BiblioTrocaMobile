@@ -50,7 +50,17 @@ public class ExchangeLibraryFragment extends Fragment {
         }
         txtAmountItems.setText(amountItems);
 
-        adapter = new ExchangeLibraryAdapter(getContext(), books);
+        List<BookSimpleDTO> filteredBooks = new ArrayList<>();
+
+        String defaultMessage = "Livro cadastrado pelo funcionário BiblioTroca";
+
+        for (BookSimpleDTO book : books) {
+            if (!book.getName().equals(defaultMessage)) {
+                filteredBooks.add(book);
+            }
+        }
+
+        adapter = new ExchangeLibraryAdapter(getContext(), filteredBooks);
         recycleList.setAdapter(adapter);
     }
 }

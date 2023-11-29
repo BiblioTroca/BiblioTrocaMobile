@@ -26,14 +26,15 @@ public class TransactionService {
     public static final MediaType JSON = MediaType.get("application/json");
 
     public void createTransaction(TransactionDTO transaction) {
-        String url = GlobalConstants.BASE_URL + "/transactions.json";
+//        String url = GlobalConstants.BASE_URL + "/transactions.json";
+        String url = "https://serverbibliotroca-production.up.railway.app/api/v1/bibliotroca" + "/transacoes";
 
         ExecutorService executor = Executors.newSingleThreadExecutor();
 
         Future<?> createNewTransaction = executor.submit(() -> {
             String transactionToAdd = gson.toJson(transaction);
             RequestBody body = RequestBody.create(transactionToAdd, JSON);
-
+            Log.i("TESTANDO_TRANSACTION", transactionToAdd);
             Request request = new Request.Builder()
                     .url(url)
                     .post(body)
