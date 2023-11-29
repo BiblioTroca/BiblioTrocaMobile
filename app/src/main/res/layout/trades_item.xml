@@ -66,7 +66,7 @@
         android:layout_height="10dp"
 
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="6dp"
+        android:layout_marginEnd="2dp"
         app:layout_constraintEnd_toStartOf="@+id/txtDateSolicitedTrades"
         app:layout_constraintTop_toTopOf="@+id/txtBuyerNameTrade"
         app:srcCompat="@drawable/calendar" />
@@ -76,7 +76,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
-        android:layout_marginEnd="8dp"
         android:fontFamily="@font/inter"
         android:lineSpacingMultiplier="1.4"
         android:text="03/10/2003"
@@ -90,7 +89,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
-        android:layout_marginEnd="8dp"
         android:text="Pendente"
         android:textColor="@color/gray500"
         android:textSize="14sp"

@@ -3,12 +3,16 @@ package com.projeto.bibliotroca.services;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.projeto.bibliotroca.models.TransactionDTO;
 import com.projeto.bibliotroca.utils.GlobalConstants;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -57,49 +61,59 @@ public class TransactionService {
         }
     }
 
-    public void getListTransaction(List<TransactionDTO> transactions){
-         transactions.clear();
+    public CompletableFuture<List<TransactionDTO>> getListTransaction() {
+        ExecutorService executor = Executors.newSingleThreadExecutor();
 
-         ExecutorService executor = Executors.newSingleThreadExecutor();
+        String url = "https://serverbibliotroca-production.up.railway.app/api/v1/bibliotroca" + "/transacoes";
 
-         String url = GlobalConstants.BASE_URL + "/transactions.json";
-
-        Future<?> fetchTransactions = executor.submit(() -> {
+        return CompletableFuture.supplyAsync(() -> {
             Request request = new Request.Builder()
                     .url(url)
                     .get()
                     .build();
             try {
                 Response response = client.newCall(request).execute();
+                Log.d("Response", "Dto:" + response);
+
                 if (response.isSuccessful()) {
                     String listTransactionResponse = response.body().string();
-                    JsonObject listTransactionInJson = gson.fromJson(listTransactionResponse, JsonObject.class);
+                    Log.d("Response", "Dto:" + listTransactionResponse);
+                    JsonArray listTransactionInJson = gson.fromJson(listTransactionResponse, JsonArray .class);
+                    Log.d("Response", "Dto:" + listTransactionInJson);
+
+                    List<TransactionDTO> transactions = new ArrayList<>();
 
 
-                    for (String key : listTransactionInJson.keySet()) {
-                        JsonObject transactionInJson = listTransactionInJson.getAsJsonObject(key);
-                        TransactionDTO transactionToAdd = gson.fromJson(transactionInJson, TransactionDTO.class);
-
+                    for (JsonElement jsonElement : listTransactionInJson) {
+                        TransactionDTO transactionToAdd = gson.fromJson(jsonElement, TransactionDTO.class);
                         transactions.add(transactionToAdd);
+                        Log.d("TransactionDTO", "TransactionDTO: " + transactionToAdd.toString());
+
                     }
+
+
+
+                    return transactions;
+                } else {
+                    throw new IOException("Erro na requisição: " + response.code());
                 }
             } catch (IOException exception) {
-                exception.printStackTrace();
+                throw new RuntimeException("Exceção durante a requisição: " + exception.getMessage());
             }
-        });
-
-        try {
-            fetchTransactions.get();
-        } catch (ExecutionException | InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        }, executor);
     }
+
 
     // Corrigir
     public TransactionDTO getTransactionById(String id) {
         ExecutorService executor = Executors.newSingleThreadExecutor();
-        String url = GlobalConstants.BASE_URL+"/transactions/" + id + ".json";
+
+        String url = "https://serverbibliotroca-production.up.railway.app/api/v1/bibliotroca" + "/transacoes/" + id;
+
+       // String url = GlobalConstants.BASE_URL+"/transactions/" + id + ".json";
+
         Log.d("Name", "Name:" + id);
+
         Future<TransactionDTO> fetchTransactionById = executor.submit(() -> {
             Request request = new Request.Builder()
                     .url(url)
@@ -163,7 +177,10 @@ public class TransactionService {
     // TESTAR e corrigir o JSON (Olhar Buyer e Seller, avaliação, fragmentos)
     public void updateTransactionById(String id, String newStatus) {
         ExecutorService executor = Executors.newSingleThreadExecutor();
-        String url = GlobalConstants.BASE_URL + "/transactions/" + id + ".json";
+
+        String url = "https://serverbibliotroca-production.up.railway.app/api/v1/bibliotroca" + "/transacoes/" + id;
+
+        //String url = GlobalConstants.BASE_URL + "/transactions/" + id + ".json";
 
         Future<?> updateTransactionStatusById = executor.submit(() -> {
             String updatedStatusJson = "{\"status\": \"" + newStatus + "\"}";

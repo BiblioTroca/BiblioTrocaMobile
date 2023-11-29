@@ -17,6 +17,7 @@ import com.projeto.bibliotroca.services.TransactionService;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 public class PendingExchangeFragment extends Fragment {
 
@@ -42,17 +43,22 @@ public class PendingExchangeFragment extends Fragment {
         adapter = new PendingExchangeAdapter(getContext(), transactions);
         recycleList.setAdapter(adapter);
 
-
-        TransactionService transactionService = new TransactionService();
-        transactionService.getListTransaction(transactions);
-
         TextView txtTradeAmountItems = view.findViewById(R.id.txtTradeAmountItems);
 
-        String amountItems = "";
-        if (transactions.size() > 0) {
-            amountItems = "I " + transactions.size() + " itens";
-        }
-        txtTradeAmountItems.setText(amountItems);
-        }
+        TransactionService transactionService = new TransactionService();
+        CompletableFuture<List<TransactionDTO>> futureTransactions = transactionService.getListTransaction();
+        futureTransactions.thenAccept(transactions -> {
+            this.transactions.addAll(transactions);
+
+            getActivity().runOnUiThread(() -> {
+                String amountItems = "I " + this.transactions.size() + " itens";
+                txtTradeAmountItems.setText(amountItems);
+                adapter.notifyDataSetChanged(); // atualiza a lista
+            });
+        }).exceptionally(throwable -> {
+            throwable.printStackTrace();
+            return null;
+        });
+    }
     }
 

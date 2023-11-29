@@ -23,6 +23,7 @@ import com.projeto.bibliotroca.services.TransactionService;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 public class NavigationActivity extends AppCompatActivity  {
 
@@ -57,8 +58,12 @@ public class NavigationActivity extends AppCompatActivity  {
         bookService.getListBook(books);
 
         TransactionService transactionService = new TransactionService();
-        transactionService.getListTransaction(transactions);
-
+        CompletableFuture<List<TransactionDTO>> futureTransactions = transactionService.getListTransaction();
+        futureTransactions.thenAccept(transactions -> {
+        }).exceptionally(throwable -> {
+            throwable.printStackTrace();
+            return null;
+        });
         TextView txtLib = findViewById(R.id.txtLib);
 
         String amountItems = "";

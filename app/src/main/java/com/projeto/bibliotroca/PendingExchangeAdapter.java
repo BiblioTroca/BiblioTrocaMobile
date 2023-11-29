@@ -44,6 +44,11 @@ public class PendingExchangeAdapter extends RecyclerView.Adapter<PendingExchange
     public void onBindViewHolder(@NonNull PendingExchangeItemView itemView, int position) {
         TransactionDTO transaction = transactions.get(position);
 
+        Log.d("E" , "onBindViewHolder: " + transaction);
+        Log.d("Primeiro Nome" , "onBindViewHolder: " + transaction.getBuyer().getFirstName());
+        Log.d("Id", "onBindViewHolder: " + transaction.getId());
+        Log.d("DATA", "onBindViewHolder: " + transaction.getCreatedAt());
+
             itemView.textView63.setOnClickListener(event -> {
                 Intent openSelectedExchange = new Intent(context, SelectedExchangeActivity.class);
                 openSelectedExchange.putExtra("transactionId", transaction.getId());
@@ -56,14 +61,14 @@ public class PendingExchangeAdapter extends RecyclerView.Adapter<PendingExchange
 
         SimpleDateFormat dateInput = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault());
         String dateFormated = "dd/MM/yyyy";
-        try {
-            Date date = dateInput.parse(transaction.getCreatedAt());
+       /* try {
+          //  Date date = dateInput.parse(transaction.getCreatedAt());
             SimpleDateFormat dateFinal = new SimpleDateFormat(dateFormated, Locale.getDefault());
-            String dateFinalFormated = dateFinal.format(date);
-            itemView.txtDateSolicited.setText(dateFinalFormated);
+            //String dateFinalFormated = dateFinal.format(date);
+          //  itemView.txtDateSolicited.setText(dateFinalFormated);
         } catch (ParseException e) {
             e.printStackTrace();
-        }
+        }*/
 
         itemView.txtBookName.setText(transaction.getBookDetails().getName());
         itemView.txtStatusTrade.setText(transaction.getStatus());

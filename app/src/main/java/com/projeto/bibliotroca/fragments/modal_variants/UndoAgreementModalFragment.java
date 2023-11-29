@@ -4,6 +4,7 @@ package com.projeto.bibliotroca.fragments.modal_variants;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,8 +56,8 @@ public class UndoAgreementModalFragment extends DialogFragment {
 
         btnConfirmUndoAgreement = view.findViewById(R.id.btnUpdateStatus);
         btnConfirmUndoAgreement.setOnClickListener(event -> {
+            Log.d("TESTE", "Botao de confirmar");
             updateStatus("Cancelada");
-            navigateToExchangeScreen();
 
         });
 
@@ -68,6 +69,7 @@ public class UndoAgreementModalFragment extends DialogFragment {
 
     private void updateStatus(String newStatus) {
         if (transaction != null) {
+            Log.d("TESTE", "updateStatus: ");
             TransactionService.updateTransactionById(transaction.getId(), newStatus);
             transaction.setStatus(newStatus);
         }

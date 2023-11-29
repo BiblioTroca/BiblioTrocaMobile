@@ -1,27 +1,27 @@
 package com.projeto.bibliotroca.models;
 
 public class BuyerDTO {
-    private String firstName;
-    private String lastName;
+    private String name;
+    private String surname;
     private String email;
     private double averageRating;
     private int avaliationsNumber;
     private String phoneNumber;
 
     public String getFirstName() {
-        return firstName;
+        return name;
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        this.name = firstName;
     }
 
     public String getLastName() {
-        return lastName;
+        return surname;
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        this.surname = lastName;
     }
 
     public String getEmail() {

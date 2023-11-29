@@ -77,7 +77,7 @@ public class SelectedExchangeActivity extends AppCompatActivity {
         btnArrowBack = findViewById(R.id.btnArrowBack);
         btnArrowBack.setOnClickListener(event -> finish());
 
-        controllerTransactionStep(UserType.BUYER, 2);
+        controllerTransactionStep(UserType.SELLER, 1);
 
         btnWhatsapp = findViewById(R.id.btnWhatsapp);
         btnWhatsapp.setOnClickListener(event -> {
@@ -119,29 +119,29 @@ public class SelectedExchangeActivity extends AppCompatActivity {
             // Primeiro Card
 
             // Calculo de dias
-            String transactionCreateDate = transaction.getCreatedAt(); // Data da transação
+         /*   String transactionCreateDate = transaction.getCreatedAt(); // Data da transação
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             LocalDate transactionDate = LocalDate.parse(transactionCreateDate, formatter);
             LocalDate currentDate = LocalDate.now(); // Data atual
             long daysBetween = ChronoUnit.DAYS.between(transactionDate, currentDate); // Conversão para dias
 
-            String createAt = "Solicitada há " + daysBetween + "dias"; // Arruma formato + calculo
+            String createAt = "Solicitada há " + daysBetween + "dias"; // Arruma formato + calculo*/
 
             txtBookName.setText(transaction.getBookDetails().getName());
             txtStatus = findViewById(R.id.txtStatusSelected);
             txtStatus.setText(transaction.getStatus());
             txtCreateAt = findViewById(R.id.txtDateCreateSelected);
-            txtCreateAt.setText(createAt);
+          //  txtCreateAt.setText(createAt);
 
             // Segundo Card
-            SimpleDateFormat outputFormat = new SimpleDateFormat("dd/MM/yy", Locale.getDefault());
+           /* SimpleDateFormat outputFormat = new SimpleDateFormat("dd/MM/yy", Locale.getDefault());
             Date date = outputFormat.parse(transaction.getCreatedAt().toString());
-            String formattedDate = outputFormat.format(date);
+            String formattedDate = outputFormat.format(date);*/
 
             String buyerName = transaction.getBuyer().getFirstName() + " " + transaction.getBuyer().getLastName();
             String averageRating = String.valueOf(transaction.getBuyer().getAverageRating());
             String avaliationsNumber = "(" + String.valueOf(transaction.getBuyer().getAvaliationsNumber()) + ")";
-            String dateCreateSelected = "Solicitada em " + formattedDate;
+           // String dateCreateSelected = "Solicitada em " + formattedDate;
 
             txtBuyerName = findViewById(R.id.txtNameBuyerSelected);
             txtBuyerName.setText(buyerName);
@@ -149,8 +149,8 @@ public class SelectedExchangeActivity extends AppCompatActivity {
             txtAverageRating.setText(averageRating);
             txtAvaliationsNumber = findViewById(R.id.txtAvaliationsNumberSelected);
             txtAvaliationsNumber.setText(avaliationsNumber);
-            txtDateCreateSelected = findViewById(R.id.txtDateCreateSelected);
-            txtDateCreateSelected.setText(dateCreateSelected);
+          //  txtDateCreateSelected = findViewById(R.id.txtDateCreateSelected);
+          //  txtDateCreateSelected.setText(dateCreateSelected);
 
             // Terceiro Card
             txtCategory = findViewById(R.id.txtCategorySelected);
