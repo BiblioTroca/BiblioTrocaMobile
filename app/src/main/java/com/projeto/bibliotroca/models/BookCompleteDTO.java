@@ -16,6 +16,21 @@ public class BookCompleteDTO {
     private String createdAt;
     private SellerDTO user;
 
+
+    private String title;
+    private String field;
+    private String edition;
+    private String userCpf;
+    public String getTitle() {return title;}
+    public void setTitle(String title) {this.title = title;}
+    public String getField() {return field;}
+    public void setField(String field) {this.field = field;}
+    public String getEdition() {return edition;}
+    public void setEdition(String edition) {this.edition = edition;}
+    public String getUserCpf() {return userCpf;}
+    public void setUserCpf(String userCpf) {this.userCpf = userCpf;}
+
+
     public String getId() {
         return id;
     }

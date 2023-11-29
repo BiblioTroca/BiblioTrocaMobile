@@ -122,28 +122,36 @@ public class RegisterBookActivity extends AppCompatActivity implements AdapterVi
 
   BookCompleteDTO livro = new BookCompleteDTO();
 
-  livro.setName(BookTitle.getText().toString());
+  livro.setTitle(BookTitle.getText().toString());
   livro.setAuthor(BookAuthor.getText().toString());
-  livro.setCategory(spinner.getSelectedItem().toString());
+  livro.setField(spinner.getSelectedItem().toString());
   livro.setLanguage(BookLanguage.getText().toString());
-  livro.setYear(BookYear.getText().toString());
+  livro.setEdition(BookYear.getText().toString());
   livro.setPublishingCompany(BookPublisher.getText().toString());
-  livro.setState(selectedCondition);
+  if(selectedCondition == "Lido apenas uma ou poucas vezes, sem marcas.") {
+   livro.setState("Novo");
+  } else if(selectedCondition == "Pode ter algumas marcas leves de manuseio, sem rasuras.") {
+   livro.setState("Seminovo");
+  } else if(selectedCondition == "Bastante usado, com marcas de uso e anotações.") {
+   livro.setState("Novo");
+  }
   livro.setDescription(BookDescription.getText().toString());
-  livro.setShortDescription(GerarShortDescription(BookDescription.getText().toString()));
-  livro.setId(UUID.randomUUID().toString());
-  livro.setCreatedAt(Instant.now().atZone(ZoneId.of("GMT-3")).format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+  //livro.setShortDescription(GerarShortDescription(BookDescription.getText().toString()));
+  //livro.setId(UUID.randomUUID().toString());
+  //livro.setCreatedAt(Instant.now().atZone(ZoneId.of("GMT-3")).format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
 
 
-  SellerDTO seller = new SellerDTO();
+//  SellerDTO seller = new SellerDTO();
+//
+//  seller.setName("Alvaro");
+//  seller.setLocation("Itaquera");
+//  seller.getAvaliationsNumber();
+//  seller.getAverageRating();
 
-  seller.setName("Alvaro");
-  seller.setLocation("Itaquera");
-  seller.getAvaliationsNumber();
-  seller.getAverageRating();
 
+//  livro.setSeller(seller);
 
-  livro.setSeller(seller);
+  livro.setUserCpf("123");
 
   Toast.makeText(this, "Livro cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
 
