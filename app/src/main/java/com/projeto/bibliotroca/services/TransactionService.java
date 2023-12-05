@@ -194,7 +194,11 @@ public class TransactionService {
                 if (response.isSuccessful()) {
                     Log.i("TransactionService", "Atualizou");
                 } else {
-                    Log.e("TransactionService", "Não Funcionou, que droga");
+                    Log.e("TransactionService", "Não Funcionou, que droga" + response.code());
+                    Log.e("TransactionService", "Não Funcionou, que droga" + response.body().string());
+                    Log.e("TransactionService", "Não Funcionou, que droga" + response.message());
+                    Log.d("TransactionService", "Não Funcionou, que droga" + response);
+
                 }
             } catch (IOException exception) {
                 exception.printStackTrace();

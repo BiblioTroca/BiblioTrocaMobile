@@ -1,6 +1,8 @@
 package com.projeto.bibliotroca.fragments.selected_exchange;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,13 +12,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.projeto.bibliotroca.NavigationActivity;
 import com.projeto.bibliotroca.R;
 import com.projeto.bibliotroca.fragments.modal_variants.ConfirmEvaluationModalFragment;
 import com.projeto.bibliotroca.models.TransactionDTO;
+import com.projeto.bibliotroca.services.TransactionService;
 
 public class Step2BuyerFragment extends Fragment {
 
-    com.projeto.bibliotroca.services.TransactionService TransactionService;
+    private TransactionService transactionService;
     private TransactionDTO transaction;
     @Nullable
     @Override
@@ -24,7 +28,13 @@ public class Step2BuyerFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view =  inflater.inflate(R.layout.step_2_buyer_fragment, container, false);
 
-        Button btnUpdateStatus = view.findViewById(R.id.btnUpdateStatus);
+        Bundle args = getArguments();
+        if (args != null) {
+            String transactionId = args.getString("transaction_id", String.valueOf(-1)); // -1 é um valor padrão caso não encontre o ID
+            this.transactionService = new TransactionService();
+            this.transaction = transactionService.getTransactionById(transactionId);
+        }
+
         View radioItemAccept = view.findViewById(R.id.radioCircleAccept);
 
         radioItemAccept.setOnClickListener(new View.OnClickListener() {
@@ -46,8 +56,9 @@ public class Step2BuyerFragment extends Fragment {
                 public void onClick(View v) {
                     ConfirmEvaluationModalFragment modal = new ConfirmEvaluationModalFragment();
                     modal.show(getChildFragmentManager(), "confirmEvaluationModal");
+                    transaction.setStatus("Concluída");
                     updateStatus("Concluída");
-                  // Log.d("Step2BuyerFragment", "onClick: botao aceitar " + transaction.getStatus());
+                   Log.d("Step2BuyerFragment", "onClick: botao aceitar " + transaction.getStatus());
                 }
             });
         } else {
@@ -55,12 +66,19 @@ public class Step2BuyerFragment extends Fragment {
         }
     }
 
+    // Remover instancia transactionService provavelmente
     private void updateStatus(String newStatus) {
-        if (transaction != null) {
-            TransactionService.updateTransactionById(transaction.getId(), newStatus);
-            transaction.setStatus(newStatus);
-        }
+        TransactionService transactionService = new TransactionService();
+        Log.d("Step2BuyerFragment", "updateStatus: " + this.transaction.getId() + " " + newStatus);
+        Log.d("UpdateMetodo", "Situação: " + transactionService);
+
+        this.transaction.setStatus(newStatus);
+
+        transactionService.updateTransactionById(this.transaction.getId(), newStatus);
     }
+
+
+
     @Override
     public void onViewCreated(@NonNull View view,
                               @Nullable Bundle savedInstanceState) {

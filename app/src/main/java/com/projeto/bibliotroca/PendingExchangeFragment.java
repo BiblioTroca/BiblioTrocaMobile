@@ -18,6 +18,7 @@ import com.projeto.bibliotroca.services.TransactionService;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 
 public class PendingExchangeFragment extends Fragment {
 
@@ -48,7 +49,11 @@ public class PendingExchangeFragment extends Fragment {
         TransactionService transactionService = new TransactionService();
         CompletableFuture<List<TransactionDTO>> futureTransactions = transactionService.getListTransaction();
         futureTransactions.thenAccept(transactions -> {
-            this.transactions.addAll(transactions);
+            List<TransactionDTO> pendingTransactions = transactions.stream()
+                    .filter(transaction -> transaction.getStatus().equalsIgnoreCase("pendente"))
+                    .collect(Collectors.toList());
+
+            this.transactions.addAll(pendingTransactions);
 
             getActivity().runOnUiThread(() -> {
                 String amountItems = "I " + this.transactions.size() + " itens";

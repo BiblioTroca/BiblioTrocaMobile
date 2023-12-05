@@ -17,6 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.stream.Collectors;
 
 public class PendingExchangeAdapter extends RecyclerView.Adapter<PendingExchangeItemView> {
 
@@ -44,23 +45,25 @@ public class PendingExchangeAdapter extends RecyclerView.Adapter<PendingExchange
     public void onBindViewHolder(@NonNull PendingExchangeItemView itemView, int position) {
         TransactionDTO transaction = transactions.get(position);
 
+
         Log.d("E" , "onBindViewHolder: " + transaction);
         Log.d("Primeiro Nome" , "onBindViewHolder: " + transaction.getBuyer().getFirstName());
         Log.d("Id", "onBindViewHolder: " + transaction.getId());
         Log.d("DATA", "onBindViewHolder: " + transaction.getCreatedAt());
 
+        if (transaction.getStatus().equalsIgnoreCase("pendente")) {
             itemView.textView63.setOnClickListener(event -> {
                 Intent openSelectedExchange = new Intent(context, SelectedExchangeActivity.class);
                 openSelectedExchange.putExtra("transactionId", transaction.getId());
                 context.startActivity(openSelectedExchange);
                 Log.d("ID_Clicado", "ID: " + transaction.getId());
-                Log.d("Position", "Posição: " + transactions.get(position) );
+                Log.d("Position", "Posição: " + transactions.get(position));
                 Log.d("transaction", "Tran: " + transactions);
 
             });
 
-        SimpleDateFormat dateInput = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault());
-        String dateFormated = "dd/MM/yyyy";
+            SimpleDateFormat dateInput = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault());
+            String dateFormated = "dd/MM/yyyy";
        /* try {
           //  Date date = dateInput.parse(transaction.getCreatedAt());
             SimpleDateFormat dateFinal = new SimpleDateFormat(dateFormated, Locale.getDefault());
@@ -70,16 +73,17 @@ public class PendingExchangeAdapter extends RecyclerView.Adapter<PendingExchange
             e.printStackTrace();
         }*/
 
-        itemView.txtBookName.setText(transaction.getBookDetails().getName());
-        itemView.txtStatusTrade.setText(transaction.getStatus());
-        itemView.txtBuyerName.setText("Enviado para " + transaction.getBuyer().getFirstName() + " " + transaction.getBuyer().getLastName());
-
+            itemView.txtBookName.setText(transaction.getBookDetails().getName());
+            itemView.txtStatusTrade.setText(transaction.getStatus());
+            itemView.txtBuyerName.setText("Enviado para " + transaction.getBuyer().getFirstName() + " " + transaction.getBuyer().getLastName());
+        }
 
     }
 
     @Override
     public int getItemCount() {
-        return transactions.size();
+        return (int) transactions.stream().filter(transaction ->
+                transaction.getStatus().equalsIgnoreCase("pendente")).count();
     }
 }
 

@@ -1,5 +1,6 @@
 package com.projeto.bibliotroca.fragments.selected_exchange;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.projeto.bibliotroca.NavigationActivity;
 import com.projeto.bibliotroca.R;
 import com.projeto.bibliotroca.SelectedExchangeActivity;
 import com.projeto.bibliotroca.fragments.modal_variants.UndoAgreementModalFragment;
@@ -19,7 +21,7 @@ import com.projeto.bibliotroca.services.TransactionService;
 
 public class Step1SellerFragment extends Fragment {
 
-    TransactionService TransactionService;
+    private TransactionService transactionService;
     private TransactionDTO transaction;
 
     @Nullable
@@ -27,6 +29,13 @@ public class Step1SellerFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.step_1_seller_fragment, container, false);
+
+        Bundle args = getArguments();
+        if (args != null) {
+            String transactionId = args.getString("transaction_id", String.valueOf(-1)); // -1 é um valor padrão caso não encontre o ID
+            this.transactionService = new TransactionService();
+            this.transaction = transactionService.getTransactionById(transactionId);
+        }
 
         Button btnUpdateStatus = view.findViewById(R.id.btnUpdateStatus);
         View radioItemRecuse = view.findViewById(R.id.radioCircleRecuse);
@@ -58,7 +67,9 @@ public class Step1SellerFragment extends Fragment {
                 public void onClick(View v) {
                     Log.d("Step1SellerFragment", "onClick: botao recuse");
 
-                    UndoAgreementModalFragment modal = new UndoAgreementModalFragment();
+                    UndoAgreementModalFragment modal = new UndoAgreementModalFragment( );
+                   // UndoAgreementModalFragment modal = new UndoAgreementModalFragment(transaction, transactionService);
+
                     modal.show(getChildFragmentManager(), "undoAgreementModal");
                 }
             });
@@ -68,9 +79,12 @@ public class Step1SellerFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     Log.d("Step1SellerFragment", "onClick: TESTANDO");
-                    updateStatus("Pendente");
+                    transaction.setStatus("PENDENTE");
+                    updateStatus("PENDENTE");
+                    Log.d("Step2BuyerFragment", "onClick: botao aceitar " + transaction.getStatus());
                     if (getActivity() instanceof SelectedExchangeActivity) {
                         ((SelectedExchangeActivity) getActivity()).controllerTransactionStep(SelectedExchangeActivity.UserType.SELLER, 2);
+                        ((SelectedExchangeActivity) getActivity()).controllerTransactionStep(SelectedExchangeActivity.UserType.BUYER, 2);
                     }
                 }
             });
@@ -80,12 +94,20 @@ public class Step1SellerFragment extends Fragment {
     }
 
     private void updateStatus(String newStatus) {
-        if (transaction != null) {
-            TransactionService.updateTransactionById(transaction.getId(), newStatus);
-            transaction.setStatus(newStatus);
-        }
-    }
+        TransactionService transactionService = new TransactionService();
+        Log.d("Step2BuyerFragment", "updateStatus: " + this.transaction.getId() + " " + newStatus);
+        Log.d("UpdateMetodo", "Situação: " + transactionService);
 
+        this.transaction.setStatus(newStatus);
+
+        transactionService.updateTransactionById(this.transaction.getId(), newStatus);
+        navigateToExchangeScreen();
+    }
+    private void navigateToExchangeScreen() {
+        Intent exchangeIntent = new Intent(requireContext(), NavigationActivity.class);
+        startActivity(exchangeIntent);
+
+    }
     @Override
     public void onViewCreated(@NonNull View view,
                               @Nullable Bundle savedInstanceState) {

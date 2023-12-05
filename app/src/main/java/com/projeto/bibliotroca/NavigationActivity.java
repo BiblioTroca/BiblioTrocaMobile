@@ -3,6 +3,7 @@ package com.projeto.bibliotroca;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
@@ -18,14 +19,13 @@ import com.projeto.bibliotroca.fragments.wishlist.WishlistFragment;
 import com.projeto.bibliotroca.models.BookCompleteDTO;
 import com.projeto.bibliotroca.models.BookSimpleDTO;
 import com.projeto.bibliotroca.models.TransactionDTO;
-import com.projeto.bibliotroca.models.WishlistDTO;
 import com.projeto.bibliotroca.services.BookService;
 import com.projeto.bibliotroca.services.TransactionService;
-import com.projeto.bibliotroca.services.WishlistService;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 
 public class NavigationActivity extends AppCompatActivity  {
 
@@ -35,9 +35,6 @@ public class NavigationActivity extends AppCompatActivity  {
     List<BookSimpleDTO> books = new ArrayList<>();
 
     List<TransactionDTO> transactions = new ArrayList<>();
-
-    List<WishlistDTO> wishlist = new ArrayList<>();
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navigation_fragment);
@@ -76,24 +73,24 @@ public class NavigationActivity extends AppCompatActivity  {
             amountItems = +books.size() + " itens";
         }
         txtLib.setText(amountItems);
-        TextView txtTradeAmountItems = findViewById(R.id.pendentes);
 
-        String amountTrades = "";
-        if (transactions.size() > 0) {
-            amountTrades =  transactions.size() + " itens";
-        }
-        txtTradeAmountItems.setText(amountTrades);
+        futureTransactions.thenAccept(transactions -> {
+            List<TransactionDTO> pendingTransactions = transactions.stream()
+                    .filter(transaction -> transaction.getStatus().equalsIgnoreCase("pendente"))
+                    .collect(Collectors.toList());
 
+            this.transactions.clear();
+            this.transactions.addAll(pendingTransactions);
 
-        TextView amountWish = findViewById(R.id.txtWish);
-        WishlistService wishlistService = new WishlistService();
-        wishlistService.getWishlist(wishlist);
+            this.transactions = transactions;
+            final String[] amountTrades = {""};
 
-        String amountWishes = "";
-        if (wishlist.size() > 0) {
-            amountWishes = wishlist.size() + " Desejos";
-        }
-        amountWish.setText(amountWishes);
+            runOnUiThread(() -> {
+                TextView txtTradeAmountItems = findViewById(R.id.pendentes);
+                amountTrades[0] = pendingTransactions.size() + " itens";
+                txtTradeAmountItems.setText(amountTrades[0]);
+            });
+        });
 
         profileImage.setOnClickListener(new View.OnClickListener() {
             @Override

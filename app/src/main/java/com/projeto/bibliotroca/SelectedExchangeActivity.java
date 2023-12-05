@@ -235,6 +235,9 @@ public class SelectedExchangeActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.cardUpdateStatus, fragment);
         fragmentTransaction.commit();
+        Bundle args = new Bundle();
+        args.putString("transaction_id", transactionToShow.getId());
+        fragment.setArguments(args);
     }
 
 }

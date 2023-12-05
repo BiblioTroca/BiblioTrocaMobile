@@ -22,18 +22,20 @@ import com.projeto.bibliotroca.services.TransactionService;
 
 public class UndoAgreementModalFragment extends DialogFragment {
 
-    TransactionService TransactionService;
-    private TransactionDTO transaction;
 
+    //private TransactionService transactionService;
+   // private TransactionDTO transaction;
     Button btnConfirmUndoAgreement;
 
     public UndoAgreementModalFragment() {
         super(R.layout.undo_agreement_modal_fragment);
     }
 
-    public UndoAgreementModalFragment(TransactionDTO transaction) {
-        this.transaction = transaction;
-    }
+  //  public UndoAgreementModalFragment(TransactionDTO transaction, TransactionService transactionService) {
+   //     this.transaction = transaction;
+  //      this.transactionService = transactionService;
+  //  }
+
 
     @Override
     public void onStart() {
@@ -57,7 +59,9 @@ public class UndoAgreementModalFragment extends DialogFragment {
         btnConfirmUndoAgreement = view.findViewById(R.id.btnUpdateStatus);
         btnConfirmUndoAgreement.setOnClickListener(event -> {
             Log.d("TESTE", "Botao de confirmar");
-            updateStatus("Cancelada");
+         //   updateStatus("Cancelada");
+            dismiss();
+           // Log.d("Step2BuyerFragment", "onClick: botao aceitar " + transaction.getStatus());
 
         });
 
@@ -67,13 +71,19 @@ public class UndoAgreementModalFragment extends DialogFragment {
     });
 }
 
-    private void updateStatus(String newStatus) {
-        if (transaction != null) {
-            Log.d("TESTE", "updateStatus: ");
-            TransactionService.updateTransactionById(transaction.getId(), newStatus);
-            transaction.setStatus(newStatus);
-        }
-    }
+   /* private void updateStatus(String newStatus) {
+        TransactionService transactionService = new TransactionService();
+        Log.d("Step2BuyerFragment", "updateStatus: " + this.transaction.getId() + " " + newStatus);
+        Log.d("UpdateMetodo", "Situação: " + transactionService);
+
+        this.transaction.setStatus(newStatus);
+
+        transactionService.updateTransactionById(this.transaction.getId(), newStatus);
+        navigateToExchangeScreen();
+
+    }*/
+
+
 
 
     private void navigateToExchangeScreen() {
